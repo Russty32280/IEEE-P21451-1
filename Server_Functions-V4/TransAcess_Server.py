@@ -21,6 +21,16 @@ def Server_main
          ReadTransducerBlockDataFromMultipleChannelsofMultiplesTIM()
     elif msg[0] == '727'
          WriteTransducerSampleDataFromMultipleChannelsofTIM()
+	#elif msg[0] == '728'
+		#WriteTransducerBlockDataFromMultipleChannelsOfATIM()
+	#elif msg[0] == '729'
+		#WriteTransducerSampleDataFromAChannelOfATIM()
+	#elif msg[0] == '730'
+		#WriteTransducerBlockDataFromAChannelOfATIM()
+	#elif msg[0] == '731'
+		#WriteTransducerSampleDataFromMultipleChannelsOfMultipleTIMs()
+	#elif msg[0] == '732'
+		#WriteTransducerBlockDataFromMultipleChannelsOfMultipleTIMs()
 
 # Reading Transducer sample data from a single channel of single TIM
  def ReadTransducerSampleDataFromAChannelofTIM(msg)
