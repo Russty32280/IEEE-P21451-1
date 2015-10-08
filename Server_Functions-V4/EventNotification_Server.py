@@ -40,6 +40,56 @@ def Server_main
     if msg[0] == '743'
          SubscribeSensorAlert(msg)
 
+		 
+		 
+
+## Read TIM Configuration
+#	Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#		TimeDuration timeout
+#	Response:
+#		UInt tIMConfig
+# Please see the standard for READ TIM configuration Returns
+
+
+
+## Write TIM Configuration
+#	Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		TimeDuration timeout
+#		UInt8 tIMConfig
+#	Response:
+#		UInt8 errorCode
+# Please see standard for WRITE TIM configuration Returns
+
+
+
+## Read Packet Loss Rate
+# This function is dependent on packet loss monitoring/actual packet sending
+# Returns the rate at which packet communication is flagged as incomplete.
+#	Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#		TimeDuration timeout
+#	Response:
+#		UInt16packetLossRate
+
+
+
+## Read Link Utilization
+# Reads the theoretical percentage usage of the TIM's communication link.
+#	Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#	Response:
+#		UInt16 LinkUtilization (Data Throughput Utilization)
+
+
+
+
+		 
 # Client Subscribes to a Sensor Alerts-----------------
  def ReadTransducerSampleDataFromAChannelofTIM(msg):
     if msg[1] == ServerID
