@@ -43,7 +43,7 @@ def Server_main
 		 
 		 
 
-## Read TIM Configuration
+## 751: Read TIM Configuration
 #	Request:
 #		UInt16 ncapID
 #		UInt16 timID
@@ -54,7 +54,7 @@ def Server_main
 
 
 
-## Write TIM Configuration
+## 752: Write TIM Configuration
 #	Request:
 #		UInt16 ncapId
 #		UInt16 timId
@@ -66,7 +66,7 @@ def Server_main
 
 
 
-## Read Packet Loss Rate
+## 753: Read Packet Loss Rate
 # This function is dependent on packet loss monitoring/actual packet sending
 # Returns the rate at which packet communication is flagged as incomplete.
 #	Request:
@@ -78,7 +78,7 @@ def Server_main
 
 
 
-## Read Link Utilization
+## 754: Read Link Utilization
 # Reads the theoretical percentage usage of the TIM's communication link.
 #	Request:
 #		UInt16 ncapID
@@ -86,6 +86,33 @@ def Server_main
 #	Response:
 #		UInt16 LinkUtilization (Data Throughput Utilization)
 
+
+
+## 755: Read TIM Utilization
+# Returns the percentage usage of the TIM processor and its throughput
+#	Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#	Response:
+#		UInt16 TIMUtilization (Hardware Throughput)
+
+
+
+## 756: Read Latency
+# Returns the speed communication takes place.
+#	Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#	Response:
+#		TimeDuration latency
+
+
+
+## 757: Read Measurement Update Interval (Trigger Services)
+# Read the timing of a pre-existing trigger
+#	Request:
+#		UInt16 ncapID
+#		UInt
 
 
 
