@@ -1,4 +1,4 @@
-#-------------------------------------- 7.3 TEDS Access Services----------------------------------------------#
+﻿#-------------------------------------- 7.3 TEDS Access Services----------------------------------------------#
 # Server TEDS Access Services - CSD - Created: 03/31/2015 - Modified: 05/19/2015
 
 int ServerID = '1';
@@ -31,7 +31,17 @@ def ReadTransducerChannelTEDSservices
         reply = '1,' + ServerID  
         xmpp_send(ClientID,reply)
 
-
+## WriteTransducerChannelTEDSServices
+# 
+# Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#		UInt16 channelID
+#		TimeDuration timeout
+#		StringArray transducerChannelTEDS
+# Response:
+# 		UInt16 errorCode
+		
 def WriteTransducerChannelTEDSServices
     if msg[1] == ncapID
         TIMID = msg[2]
@@ -43,7 +53,10 @@ def WriteTransducerChannelTEDSServices
         TimMSG = '7312,' + ChannelId + ',' + transducerChannelTEDS
 
         #Writing data to TIM
-         UART_send(timId,ChannelId,TimMSG)
+		"""This should ultimately be replaced with a "Universal" function which can write to the TIM Regardless of 
+         the method which is used to communicate with it (UART, I2C, etc.)
+		 """
+		 UART_send(timId,ChannelId,TimMSG)
          TEDS1 =  UART_Rec(timId,ChannelId)
            
         #Sends reply message once writing functions have been sent. 1 for errors and 0 for no error
