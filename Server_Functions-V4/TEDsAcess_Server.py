@@ -11,6 +11,21 @@ def Server_main
          ReadTransducerChannelTEDServices()
      elif msg[0] == ‘7312’
          ReadWriteTransducerChannelTEDSServices()
+		 
+
+
+## ReadTransducerChannelTEDSservices
+#
+# Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#		UInt16 channelID
+#		TimeDuration timeout
+#
+# Response:
+#		UInt16 errorCode
+#		StringArray transducerChannelTEDS
+
 
 def ReadTransducerChannelTEDSservices
     if msg[1] == ServerID
@@ -43,7 +58,8 @@ def ReadTransducerChannelTEDSservices
 # 		UInt16 errorCode
 		
 def WriteTransducerChannelTEDSServices
-    if msg[1] == ncapID
+    #
+	if msg[1] == ncapID
         TIMID = msg[2]
         ChannelID = msg[3]
         Timeout = msg[4]

@@ -7,40 +7,41 @@ def Server_main
 
     msg = Parse(rawmsg,',', ';')
 
-    if msg[0] == '721'
+    if msg[0] == '7211'
          ReadTransducerSampleDataFromAChannelofTIM()
-    elif msg[0] == '722'
+    elif msg[0] == '7212'
          ReadTransducerBlockDataFromAChannelofTIM()
-    elif msg[0] == '723'
+    elif msg[0] == '7213'
          ReadTransducerSampleDataFromMultipleChannelsofTIM()
-    elif msg[0] == '724'
+    elif msg[0] == '7214'
          ReadTransducerBlockDataFromMultipleChannelsofTIM()
-    elif msg[0] == '725'
+    elif msg[0] == '7215'
          ReadTransducerSampleDataFromMultipleChannelsofMultipleTIM()
-    elif msg[0] == '726'
+    elif msg[0] == '7216'
          ReadTransducerBlockDataFromMultipleChannelsofMultiplesTIM()
-    elif msg[0] == '727'
+    elif msg[0] == '7217'
          WriteTransducerSampleDataFromMultipleChannelsofTIM()
-	#elif msg[0] == '728'
+	#elif msg[0] == '7218'
 		#WriteTransducerBlockDataFromMultipleChannelsOfATIM()
-	#elif msg[0] == '729'
+	#elif msg[0] == '7219'
 		#WriteTransducerSampleDataFromAChannelOfATIM()
-	#elif msg[0] == '730'
+	#elif msg[0] == '7220'
 		#WriteTransducerBlockDataFromAChannelOfATIM()
-	#elif msg[0] == '731'
+	#elif msg[0] == '7221'
 		#WriteTransducerSampleDataFromMultipleChannelsOfMultipleTIMs()
-	#elif msg[0] == '732'
+	#elif msg[0] == '7222'
 		#WriteTransducerBlockDataFromMultipleChannelsOfMultipleTIMs()
-	#elif msg[0] == '733'
+	#elif msg[0] == '7223'
 		#ReadTransducerBlockDataFromAChannelOfATIM()
-	#elif msg[0] == '734'
+	#elif msg[0] == '7224'
 		#ReadTransducerStreamDataFromAChannelOfATIM()
-	#elif msg[0] == '735'
+	#elif msg[0] == '7225'
 		#ReadTransducerBlockDataFromMultipleChannelsOfATIM()
-	#elif msg[0] == '736'
+	#elif msg[0] == '7226'
 		#ReadTransducerBlockDataFromMultipleChannelOfMultipleTIMs()
 
 		
+
 
 # Reading Transducer sample data from a single channel of single TIM
  def ReadTransducerSampleDataFromAChannelofTIM(msg)
