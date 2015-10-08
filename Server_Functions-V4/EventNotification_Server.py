@@ -112,7 +112,28 @@ def Server_main
 # Read the timing of a pre-existing trigger
 #	Request:
 #		UInt16 ncapID
-#		UInt
+#		UInt16 timID
+#		TimeDuration timeout
+#	Response:
+#		UInt16 measurementUpdateInterval
+
+
+
+## 758: Read TIM Fault Diagnostics
+# Read a desired TIM's Fault Flags
+#	Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#		TimeDuration timeout
+#	Response:
+#		UInt16Array TIMFaultDiagnostics
+
+
+
+## 759: Read TIM Health
+# Read is the Health of a desired TIM. Health is a quantized value that can clue in if the TIM is bound for failure
+#	Request:
+#		
 
 
 
