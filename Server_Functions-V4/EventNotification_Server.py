@@ -164,6 +164,85 @@ def Server_main
 
 
 
+## 7512: Read Measurement Accuracy
+# Read the expected percent error of a specific reading
+#	Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#		TimeDuration timeout
+#	Response:
+#		Float32measurementUncertainty
+
+
+
+## 7513: Write TIM Self Test Result:
+# Initiates a self-test of a TIM. Upon completion of self-test, TIM responds with a report of the outcome of the diagnostics.
+#	Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#		TimeDuration timeout
+#	Response:
+#		UInt8 TIMSelfTestResult
+
+
+
+## 7514: Read TIM Reference Test
+# TIM uses desired reference to carry out calibration readings.
+#	Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#		UInt16 reference (what reference TIM is using for test)
+#	Response:
+#		UInt16 TIMReferenceTest
+
+
+
+## 7515: Read TIM Location
+#	Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#		TimeDuration timeout
+#	Response:
+#		UInt16Array TIMLocation
+
+
+
+## 7516: Write Calibrate TIM
+# Using calibration arrays, TIM is calibrated from the software side.
+#	Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#		UInt16Array TIMParametersA
+#		UInt16Array TIMParametersB
+#		UInt16Array TIMParametersC
+#	Response:
+#		UInt16 writeSuccess (was TIM written to)
+
+
+
+## 7517: Read Calibrate TIM
+# Using Calibration Arrays, TIM is calibrate from the software side.
+#	Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#	Response:
+#		UInt16Array TIMParametersA
+#		UInt16Array TIMParametersB
+#		UInt16Array TIMParametersC
+
+
+
+## 7518: Write Time Sync TIM
+# Synchronizes TIM using timeSyncParameters
+#	Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#		UInt16array timeSyncParameters (see the standard)
+#	Response:
+#		UInt16 writeSuccess (was TIM written to)
+
+
+
 
 		 
 # Client Subscribes to a Sensor Alerts-----------------
