@@ -133,7 +133,35 @@ def Server_main
 ## 759: Read TIM Health
 # Read is the Health of a desired TIM. Health is a quantized value that can clue in if the TIM is bound for failure
 #	Request:
-#		
+#		UInt16 ncapID
+#		UInt16 timID
+#		TimeDuration timeout
+#	Response:
+#		UInt16 TIMHealth
+
+
+
+## 7510: Read Maintenance Due
+# Read the set maintenance date of a TIM
+#	Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#		TimeDuration timeout
+#	Response:
+#		uInt16 daysUntilMaintenanceDue
+
+
+
+## 7511: Write Maintenance Due
+# Set the number of days until the next service should be carried out for a desired TIM
+#	Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#		UInt16 daysUntilMaintenanceDue
+#		TimeDuration timeout
+#	Response:
+#		UInt16 errorCode
+
 
 
 
