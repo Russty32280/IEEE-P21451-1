@@ -44,6 +44,22 @@ def Server_main
 
 
 # Reading Transducer sample data from a single channel of single TIM
+
+## ReadTransducerSampleDataFromAChannelofTIM
+#
+#Request:
+#               UInt16 ncapId
+#               UInt16 timId
+#               UInt16 channelId
+#               TimeDuration timeout
+#               UInt8 samplingMode
+#
+#Response:
+#               UInt16 errorCode
+#               UInt16 ncapId
+#               UInt16 timeID
+#               UInt16 channelId
+#               _String transducerSampleData
  def ReadTransducerSampleDataFromAChannelofTIM(msg)
     if msg[1] == ServerID
         TIMID = msg[2]
@@ -68,6 +84,24 @@ def Server_main
 
 
 # Reading Transducer block data from a single channel of single TIM
+
+## ReadTransducerBlockDataFromAChannelofTIM
+#
+#Request:
+#               UInt16 ncapId
+#               UInt16 timId
+#               UInt16 channelId
+#               TimeDuration timeout
+#               UInt8 samplingMode
+#		UInt32 numberOfSamples
+#		TimeInstance startTime
+#
+#Response:
+#               UInt16 errorCode
+#               UInt16 ncapId
+#               UInt16 timeID
+#               UInt16 channelId
+#               StringArray transducerBlockData
  def ReadTransducerBlockDataFromAChannelofTIM(msg)
     if msg[1] == ServerID
         TIMID = msg[2]
@@ -96,6 +130,21 @@ def Server_main
 #End
 
 # Reading Transducer sample data from a multiple channels of single TIM
+
+## ReadTransducerSampleDataFromMultipleChannelsofTIM
+#
+#Request:
+#               UInt16 ncapId
+#               UInt16 timId
+#               UInt16Array channelIds
+#               TimeDuration timeout
+#               UInt8 samplingMode
+#
+#Response:
+#               UInt16 ncapId
+#               UInt16 timeID
+#               UInt16Arrays channelIds
+#               StringArray transducerBlockDatas
  def ReadTransducerSampleDataFromMultipleChannelsofTIM(msg)
     if msg[1] == ServerID
         TIMID = msg[2]
@@ -117,7 +166,24 @@ def Server_main
 #End 
 
 # Reading Transducer block data from a multiple channels of single TIM
- def ReadTransducerSampleDataFromMultipleChannelsofTIM(msg)
+
+## ReadTransducerBlockDataFromMultipleChannelsofTIM
+#
+#Request:
+#               UInt16 ncapId
+#               UInt16 timId
+#               UInt16Array channelIds
+#               TimeDuration timeout
+#               UInt32 numberOfSamples
+#		TimeInterval sampleInterval
+#		TimeInterval startTime
+#
+#Response:
+#               UInt16 ncapId
+#               UInt16 timeID
+#               UInt16Arrays channelIds
+#               StringArray transducerBlockDatas
+ def ReadTransducerBlockDataFromMultipleChannelsofTIM(msg)
     if msg[1] == ServerID
         TIMID = msg[2]
         ChannelID = msg[3]
@@ -144,7 +210,25 @@ def Server_main
 
 
 # Reading Transducer sample data from a multiple channels of multiple TIMs
- def ReadTransducerSampleDataFromMultipleChannelsofTIM(msg)
+
+## ReadTransducerSampleDataFromMultipleChannelsofMultipleTIMs
+#
+#Request:
+#               UInt16 timIds
+#               UInt16 ncapId
+#		UInt16Array numberOfChannelsOfTIM
+#               UInt16Array channelIds
+#               TimeDuration timeout
+#               UInt8 samplingMode
+#
+#Response:
+#		UInt16 errorcode
+#               UInt16 ncapId
+#               UInt16Array timeIDs
+#		UInt16 numberOfChannelsOfTIM
+#               UInt16Arrays channelIds
+#               StringArray transducerSampleDatas
+ def ReadTransducerSampleDataFromMultipleChannelsofMultipleTIMs(msg)
     if msg[1] == ServerID
         TIMID = msg[2]
         ChannelID = msg[3]
@@ -170,7 +254,27 @@ def Server_main
 #End         
 
 # Reading Transducer block data from a multiple channels of multiples TIM
- def ReadTransducerSampleDataFromMultipleChannelsofTIM(msg)
+
+## ReadTransducerBlockDataFromMultipleChannelsofMultipleTIMs
+#
+#Request:
+#               UInt16 timIds
+#               UInt16 ncapId
+#		UInt16Array numberOfChannelsOfTIM
+#               UInt16Array channelIds
+#               TimeDuration timeout
+#               UInt32 numberOfSample
+#		TimeInterval sampleInterval
+#		TimeInterval startTime
+#
+#Response:
+#		UInt16 errorcode
+#               UInt16 ncapId
+#               UInt16Array timeIDs
+#		UInt16 numberOfChannelsOfTIM
+#               UInt16Arrays channelIds
+#               StringArray transducerBlockDatas
+ def ReadTransducerBlockDataFromMultipleChannelsofMultipleTIMs(msg)
     if msg[1] == ServerID
         TIMID = msg[2]
         ChannelID = msg[3]
@@ -201,8 +305,61 @@ def Server_main
 #End
 
 
+## WriteTransducerSampleDataToAChannelofTIM
+#
+#Request:
+#               UInt16 ncapId
+#               UInt16 timId
+#               UInt16 channelId
+#               TimeDuration timeout
+#               UInt8 samplingMode
+#		String dataValue ??
+#
+#Response:
+#		UInt16 errorcode
+#               UInt16 ncapId
+#               UInt16 timeID
+#               UInt16 channelId
+
+
+## WriteTransducerBlockDataToAChannelofTIM
+#
+#Request:
+#               UInt16 ncapId
+#               UInt16 timId
+#               UInt16 channelId
+#               TimeDuration timeout
+#               UInt32 numberOfSamples
+#		TimeInterval sampleInterval
+#		TimeInstance startTime
+#		String dataValue ??
+#
+#Response:
+#		UInt16 errorcode
+#               UInt16 ncapId
+#               UInt16 timeID
+#               UInt16 channelId
+
+
+
 # Writing Transducer Sample data from a single channels of a TIM
- def WriteTransducerSampleDataFromMultipleChannelsofTIM(msg)
+
+## WriteTransducerSampleDataToMultipleChannelsOfATIM
+#
+#Request:
+#               UInt16 ncapId
+#               UInt16 timId
+#               UInt16Arrays channelIds
+#               TimeDuration timeout
+#               UInt8 samplingMode
+#		String transducerSampleDatas
+#
+#Response:
+#		UInt16 errorcode
+#               UInt16 ncapId
+#               UInt16 timeID
+#               UInt16Array channelIds
+def WriteTransducerSampleDataToMultipleChannelsOfATIM(msg)
     if msg[1] == ServerID
         TIMID = msg[2]
         ChannelID = msg[3]
@@ -220,5 +377,64 @@ def Server_main
     else
         reply = '1,' + ServerID  
         xmpp_send(ClientID,reply)
+
+
+
+## WriteTransducerBlockDataToMultipleChannelsOfATIM
+#
+#Request:
+#               UInt16 ncapId
+#               UInt16 timId
+#               UInt16Arrays channelIds
+#               TimeDuration timeout
+#               UInt32 numberOfSamples
+#		TimeInterval sampleInterval
+#		TimeInterval startTime
+#
+#Response:
+#               UInt16 ncapId
+#               UInt16 timeID
+#               UInt16Array channelIds
+#		StringArray transducerBlockDatas
+
+
+## WriteTransducerSampleDataToMultipleChannelsOfMultipleTIMs
+#
+#Request:
+#               UInt16 ncapId
+#               UInt16Array timIds
+#               UInt16Arrays numberOfChannelsOfTIM
+#		UInt16Array channelIds
+#               TimeDuration timeout
+#               UInt8 samplingMode
+#
+#Response:
+#		UInt16 errorcode
+#               UInt16 ncapId
+#               UInt16Arrays timeIDs
+#		UInt16Array numberOfChannelsOfTIM
+#               UInt16Array channelIds
+
+
+
+## WriteTransducerBlockDataToMultipleChannelsOfMultipleTIMs
+#
+#Request:
+#               UInt16 ncapId
+#               UInt16Array timIds
+#               UInt16Arrays numberOfChannelsOfTIM
+#		UInt16Array channelIds
+#               TimeDuration timeout
+#               UInt32 numberOfSamples
+#		TimeInterval sampleInterval
+#		TimeInterval startTime
+#		StringArray transducerBlockDatas
+#
+#Response:
+#		UInt16 errorcode
+#               UInt16 ncapId
+#               UInt16Arrays timeIDs
+#		UInt16Array numberOfChannelsOfTIM
+#               UInt16Array channelIds
 
 #End 
