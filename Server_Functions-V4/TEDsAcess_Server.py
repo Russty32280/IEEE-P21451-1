@@ -14,7 +14,21 @@ def Server_main
 		 
 
 
-## ReadTransducerChannelTEDSservices
+		 
+## 731: Read TIM MetaTEDS
+#
+# Request:
+#		UInt16 ncapID
+#		UInt16 timID
+#		TimeDuration timeout
+#
+# Response:
+#		UInt16 errorCode
+#		UInt16 StringArray timMetaTEDS		 
+	
+	
+
+## 732: Read Transducer Channel TEDS services
 #
 # Request:
 #		UInt16 ncapID
@@ -25,7 +39,6 @@ def Server_main
 # Response:
 #		UInt16 errorCode
 #		StringArray transducerChannelTEDS
-
 
 def ReadTransducerChannelTEDSservices
     if msg[1] == ServerID
@@ -46,7 +59,131 @@ def ReadTransducerChannelTEDSservices
         reply = '1,' + ServerID  
         xmpp_send(ClientID,reply)
 
-## WriteTransducerChannelTEDSServices
+		
+		
+		
+## 733: Read User Transducer Name 
+# 
+# Request:
+#		UInt16 ncapID
+#		UInt16 timId
+#		TimeDuration timeout
+# Response:
+#		UInt16 errorCode
+# 		StringArray userTranducerNameTEDS
+
+
+
+## 734: Read 1451Dot5 802Dot11 PhyTEDS
+# 
+# Request:
+#		UInt16 ncapID
+#		UInt16 timId
+#		TimeDuration timeout
+# Response:
+#		UInt16 errorCode
+# 		StringArray 1451.5Dot802Dot11PhyTEDS
+
+
+
+## 735: Read 1451Dot5 BlueTooth PhyTEDS
+# 
+# Request:
+#		UInt16 ncapID
+#		UInt16 timId
+#		TimeDuration timeout
+# Response:
+#		UInt16 errorCode
+# 		StringArray 1451Dot5BlueToothPhyTEDS
+
+
+
+## 736: Read 1451Dot5 ZigBee PhyTEDS
+# 
+# Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		TimeDuration timeout
+# Response:
+#		UInt16 errorCode
+# 		StringArray 1451Dot5ZigBeePhyTEDS
+
+
+
+## 737: Read 1451Dot5 6LowPAN PhyTEDS
+# 
+# Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		TimeDuration timeout
+# Response:
+#		UInt16 errorCode
+# 		StringArray 1451Dot56LowPANPhyTEDS
+
+
+
+## 738: Read 1451Dot2 PhyTEDS
+# 
+# Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		TimeDuration timeout
+# Response:
+#		UInt16 errorCode
+# 		StringArray 1451Dot2PhyTEDS
+
+
+
+## 739: Read TIM MetaIdTEDS service
+# 
+# Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		TimeDuration timeout
+# Response:
+#		UInt16 errorCode
+# 		ArgumentArray timMetaIdTEDS
+
+
+
+## 7310: Read Transducer Channel MetaIdTEDS
+# 
+# Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		UInt16 channelId 
+#		TimeDuration timeout
+# Response:
+#		UInt16 errorCode
+# 		out ArgumentArray tranducerChannelIdTEDS
+
+
+
+## 7311: Read TIM GeoLocationTEDS
+# 
+# Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		TimeDuration timeout
+# Response:
+#		UInt16 errorCode
+# 		StringArray timGeoLocationTEDS
+
+
+
+## 7312: Write TIM MetaTEDS
+# 
+# Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		TimeDuration timeout
+# 		UInt16 StringArray timMetaTEDS
+# Response:
+#		UInt16 errorCode	
+		
+
+
+## 7313: Write Transducer ChannelTEDS Services
 # 
 # Request:
 #		UInt16 ncapID
@@ -56,7 +193,7 @@ def ReadTransducerChannelTEDSservices
 #		StringArray transducerChannelTEDS
 # Response:
 # 		UInt16 errorCode
-		
+	
 def WriteTransducerChannelTEDSServices
     #
 	if msg[1] == ncapID
@@ -81,3 +218,114 @@ def WriteTransducerChannelTEDSServices
     else
         reply = '1,' + ServerID  
         xmpp_send(ClientID,reply)
+
+		
+## 7314: Write User Transducer NameTEDS 
+# 
+# Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		TimeDuration timeout
+# 		StringArray userTranducerNameTEDS
+# Response:
+#		UInt16 errorCode
+
+
+
+## 7315: Write 1451Dot5 802Dot11 PhyTEDS 
+# WriteIEEE 14541.5-802.11 (tedsType = 13, RadioType=0)
+# Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		TimeDuration timeout
+# 		StringArray userTranducerNameTEDS
+# Response:
+#		UInt16 errorCode
+
+
+
+## 7316: Write 1451Dot5 BlueTooth PhyTEDS 
+# WriteIEEE 1451.5-BlueTooth (tedsType = 13, RadioType=1)
+# Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		TimeDuration timeout
+# 		StringArray 1451Dot5BlueToothPhyTEDS
+# Response:
+#		UInt16 errorCode
+
+
+
+## 7317: Write 1451Dot5 ZigBee PhyTEDS 
+# WriteIEEE 1451.5-ZigBee (tedsType = 13, RadioType=2)
+# Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		TimeDuration timeout
+# 		StringArray 1451Dot5ZigBeePhyTEDS
+# Response:
+#		UInt16 errorCode
+
+
+
+## 7318: Write 1451Dot5 6LowPAN PhyTEDS  
+# WriteIEEE 1451.5-6LWPAN (tedsType = 13, RadioType=3)
+# Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		TimeDuration timeout
+# 		StringArray 1451Dot56LowPANPhyTEDS
+# Response:
+#		UInt16 errorCode
+
+
+
+## 7319: Write 1451Dot2 PhyTEDS  
+# WriteIEEE 1451.2 (tedsType = 13, serialType=1,2,3,4,5)
+# Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		TimeDuration timeout
+# 		StringArray 1451Dot2PhyTEDS
+# Response:
+#		UInt16 errorCode
+
+
+
+#Optional:
+
+## 7320: Write TIM MetaIdTEDS service  
+# WriteTIM MetaID TEDS Service (tedsType=1)
+# Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		TimeDuration timeout
+# 		ArgumentArray timMetaIdTEDS
+# Response:
+#		UInt16 errorCode
+
+
+
+## 7321: Write Transducer Channel MetaId TEDS  
+# WriteTransducerChannel MetaID TEDS Service    ( tedsType=1)
+# Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		UInt16 channelId 
+#		TimeDuration timeout
+# 		out ArgumentArray tranducerChannelIdTEDS
+# Response:
+#		UInt16 errorCode
+
+
+
+## 7322: Write TIM GeoLocationTEDS service  
+# WriteTIM GeoLocation TEDS Web service: (tedsType=14)
+# Request:
+#		UInt16 ncapId
+#		UInt16 timId
+#		UInt16 channelId 
+#		TimeDuration timeout
+# 		StringArray timGeoLocationTEDS
+# Response:
+#		UInt16 errorCode
