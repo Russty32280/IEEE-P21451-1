@@ -17,6 +17,9 @@
 # This function will send a formatted string, @param TIM_Message , to a corresponding TIM which is presumed
 # to be registered and underneath this NCAP.
 # TIM_Send will return the received message (as a formatted string) from the TIM.
+#
+# Example Usage (From Transducer Access Services):
+# SampleData = TIM_Send(TIMID, ChannelID, '721')
 
 def TIM_Send(TIM_ID, Channel_ID, TIM_Message)
 	# This references a saved list of registered TIMs and looks for the corresponding method of communication.
