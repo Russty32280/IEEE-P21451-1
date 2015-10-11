@@ -50,7 +50,9 @@ def ReadTransducerChannelTEDSservices
         TimMSG = '732,' + ChannelID
 
         #Sending request to TIM
-         UART_send(timId,ChannelId,TimMSG)
+         UART_send(timId,ChannelId,TimMSG) 
+		 # UART_Rec needs to be reformatted into a universal function call (ex. TIM_Rec) which
+		 # handles the TIM communication based on 
          TEDS1 =  UART_Rec(TIMId,ChannelId) # Receives the TED information
                 
         reply = '0,' +TEDS1
@@ -62,8 +64,9 @@ def ReadTransducerChannelTEDSservices
 		
 		
 		
-## 733: Read User Transducer Name 
-# 
+## 7321: Read User Transducer Name 
+# **ASSUMING We are talking about User's Application-Specific TEDS data block**
+# What is this function Trying to Accomplish?!?!?!
 # Request:
 #		UInt16 ncapID
 #		UInt16 timId

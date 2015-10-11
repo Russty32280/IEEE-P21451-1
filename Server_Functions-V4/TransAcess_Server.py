@@ -66,7 +66,13 @@ def Server_main
         ChannelID = msg[3]
         Timeout = msg[4]
 
-        #Poling TIM for data
+		
+		# This part needs to be replaced with a TIMSend which has a Channel Input
+		#
+		#	TIM_Send(TIMID, ChannelID, '721')
+		#	SampleData = TIM_Recieve(TIMID, ChannelID);
+		#
+        #Polling TIM for data
         if ChannelID == 1
             UART_send(TIMID,Channel1,'721')
             SampleData =  UART_Rec(TIMID,Channel1);
