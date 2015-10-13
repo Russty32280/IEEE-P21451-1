@@ -35,13 +35,13 @@ def Server_init
 
 def Server_down
     NCAPServerUnRegister()    
-
+	
 def Server_main
 
     msg = Parse(rawmsg,',', ';')
 
     if msg[0] == '713'
-         NCAPServerDisocery()
+         NCAPServerDiscover()
     elif msg[0] == '714'
          NCAPTIMDiscovery()
     elif msg[0] == '715'
@@ -51,20 +51,55 @@ def Server_main
     elif msg[0] == '717'
          NCAPClientUnJoin()
 
+		 
+# NCAPServerRegister Service 
+# NCAP registers to NCAP Client to join a network, when it is powered up.
+# Request:	
+#		UInt16 ncapId
+#		_String ncapName
+#		_String ncapIPAddress		 
 def NCAPServerRegister
     msg = '711,' + ServerID + ',' + ServerName + ',' + ServerIP
     xmpp_send(ClientIDGroup, msg,type = 'All')
 
+
+# NCAPServerUnRegister Service
+# NCAP unregisters to NCAP Client to leave network, when 
+#	it is powered down.
+# Request:
+#		UInt16 ncapId
 def NCAPServerUnRegister
     msg = '712,' + ServerID 
     xmpp_send(ClientIDGroup, msg,type = 'All')
 
-def NCAPServerDiscovery(msg)
+	
+# NCAPTIMRegister is missing in Standard and Code
+# NCAPTransducerRegister is missing in Standard and Code	
+
+
+# NCAPServerDiscover Service
+# NCAP client discovery all NCAPs having registered it.
+# Request: 
+#		UInt16 ncapClientId
+# Response:
+#		UInt16 errorCode
+#		UInt16 ncapId 
+def NCAPServerDiscover(msg)
     ClientID == msg[1]
       reply = '0,' + ServerID
       xmpp_send(ClientID,reply)
 
-def NCAPTIMDiscovery(msg)
+
+# NCAPTIMDiscover Service
+# NCAP client discovers all TIMs having registered to the 
+#	specific NCAP.
+# Request:
+#		UInt16 ncapId
+# Response:
+#		UInt16 errorCode
+#		UInt16 numOfTIM
+#		UInt16Array timIds
+def NCAPTIMDiscover(msg)
     if msg[1] == ClientID
       reply = '0,' + NumTIM + ',' + TIMID
       xmpp_send(ClientID,reply)
@@ -72,6 +107,19 @@ def NCAPTIMDiscovery(msg)
         reply = '1'  
         xmpp_send(ClientID,reply)    
 
+		
+# NCAPTransducerDiscover Service
+# NCAP client discovers all transducerChannels of the TIM
+#	of the NCAP.
+# Request:
+# 		UInt16 ncapId
+#		UInt16 timId
+# Response: 
+#		UInt16 errorCode
+# 		UInt16 ncapId
+# 		UInt16 timId
+#		UInt16 numOfTransducerChannels
+# 		UInt16Array transducerChannelIds
 def NCAPTransducerDiscovery(msg)
     if msg[1] == ClientID
       reply = '0,' + ServerID + ',' + TIMID + ',' + numofTransducerChannel + ',' + TransducerChannelID
@@ -80,5 +128,8 @@ def NCAPTransducerDiscovery(msg)
         reply = '1'  
         xmpp_send(ClientID,reply)    
 
+
+# NCAPClientJoin is missing from Standard and not defined in the Code
+# NCAPClientUnJoin is missing from Standard and not defined in the Code
 
     
