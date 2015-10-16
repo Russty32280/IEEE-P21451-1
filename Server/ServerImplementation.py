@@ -11,6 +11,8 @@ from optparse import OptionParser
 import serial
 import time
 import warnings
+# import P21451dash1
+
 
 warnings.filterwarnings("ignore", category=SyntaxWarning)
 
@@ -53,7 +55,7 @@ warnings.filterwarnings("ignore", category=SyntaxWarning)
 # NCAPID = '1'
 #***************************************
 
-# New Skeleton Code
+# New Method
 
 # For now this should stay hardcoded, however we will look into how to automate this name.
 global NCAPServerID
@@ -63,7 +65,7 @@ global NCAPClientID
 NCAPClientID = '0'
 NCAPClientID = NCAPServerRegister()
 
-# This code needs to be implemented in the Identifcation Services File
+# This code needs to be implemented in the Identification Services File
 #while NCAPClientID == '0'
 #	time.sleep(1)
 #	print "Looking for Clients"
@@ -71,5 +73,38 @@ NCAPClientID = NCAPServerRegister()
 #	if response == '1' # We got an actual response from a client
 #		NCAPClientID = Response_from_Client
 #		print "Connected to Client: " NCAPClientID
+
+
+
+
+
+#################################################
+#				XMPP SEND
+#################################################
+def xmpp_send(toAddr,myMsg,**key):
+    type = 'Normal'
+    if ('type' in key):
+        type = key['type']
+    if type == 'Normal':
+        xmpp.send_message(
+            mto=toAddr,mbody=myMsg,mtype='chat')
+    elif type == 'All':
+        toAddr = 'P21451'
+        xmpp.send_message(
+            mto=toAddr,mbody=myMsg,mtype='groupchat')
+
+
+
+
+###################################################
+#				TIM Initialization
+###################################################
+
+# This function should return something like XML or objects which we can reference.
+TIMs = NCAPTIMDiscover();
+# From this information, we can import information about each TIM and save it.
+for n <= TIMs(1)
+	
+
 
 

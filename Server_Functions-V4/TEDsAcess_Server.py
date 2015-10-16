@@ -9,9 +9,9 @@ def Server_main
 
     if msg[0] == ‘732’
          ReadTransducerChannelTEDServices()
-     elif msg[0] == ‘7312’
+    elif msg[0] == ‘7313'
          ReadWriteTransducerChannelTEDSServices()
-		 
+	elif msg[0] == 
 
 
 		 
@@ -25,6 +25,9 @@ def Server_main
 # Response:
 #		UInt16 errorCode
 #		UInt16 StringArray timMetaTEDS		 
+
+
+
 	
 	
 
