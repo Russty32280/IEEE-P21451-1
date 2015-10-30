@@ -1,0 +1,24 @@
+<TEDs extended="true">
+  <ManufacturerID>50</ManufacturerID>
+  <ModelNumber>100</ModelNumber>
+  <VersionLetter>3</VersionLetter>
+  <VersionNumber>10</VersionNumber>
+  <SerialNumber>1234</SerialNumber>
+  <TemplateID>38</TemplateID>
+  <MinTemp>-20</MinTemp>
+  <MaxTemp>20</MaxTemp>
+  <MinResistance>100</MinResistance>
+  <MaxResistance>10000</MaxResistance>
+  <Resistance0C>1000</Resistance0C>
+  <CoefficientA>1</CoefficientA>
+  <CoefficientB>2</CoefficientB>
+  <CoefficientC>3</CoefficientC>
+  <ResponseTime>.000123</ResponseTime>
+  <Current>1</Current>
+  <MaxCurrent>10</MaxCurrent>
+  <SelfHeat>.43</SelfHeat>
+  <CalDate>08/08/08</CalDate>
+  <CalInit>RT</CalInit>
+  <CalPer>IDK</CalPer>
+  <LocationID>Room237</LocationID>
+</TEDs>
