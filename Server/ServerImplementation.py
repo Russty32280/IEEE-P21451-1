@@ -75,6 +75,22 @@ NCAPClientID = NCAPServerRegister()
 #		print "Connected to Client: " NCAPClientID
 
 
+#####################################################
+# 
+def Parse(string,delim,stop):
+
+    parsedString = string.split(stop)
+    parsedString = parsedString[0].split(delim)
+    parseNum = len(parsedString)
+
+    return parsedString
+#####################################################
+
+
+
+
+
+
 
 
 

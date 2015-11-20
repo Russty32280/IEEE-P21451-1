@@ -1,4 +1,4 @@
-#Author: Tom Morris, Brian Finch
+#Author: Tom Morris, Brian Finch, Russell Trafford
 #Date: 10.30.2014
 #Description: This code is a GUI for a vTEDS reader/writer. (IEEE1451-4)
 
@@ -541,7 +541,7 @@ SG_vTEDS = Tk()
 SG_vTEDS.geometry("1080x540")
 SG_vTEDS.title("CSD vTEDS Reader/Writer")
 #creates background image display for main frame
-SG_vTEDS_BG = PhotoImage(file = "C:\Users\Russty32280\Desktop\VirtualTEDS_GUIBG.gif")
+SG_vTEDS_BG = PhotoImage(file ="C:\Users\Russty32280\Desktop\VirtualTEDS_GUIBG.gif")
 SG_vTEDS_BGL = Label(image = SG_vTEDS_BG)
 SG_vTEDS.image = SG_vTEDS_BG #keeps reference
 SG_vTEDS_BGL.pack()
