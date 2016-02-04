@@ -1,0 +1,43 @@
+.TH "random_int" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+random_int \- Generate random integer in a given range
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "int \fBrandom_int\fP (int16_t min_num, int16_t max_num)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Created on: Mar 14, 2014 Author: Muhlbaier 
+.SH "Function Documentation"
+.PP 
+.SS "int random_int (int16_t min_num, int16_t max_num)"
+Generate a random integer
+.PP
+Generates a pseudo random value between min_num and max_num\&.
+.PP
+Based on rand() and srand()\&.
+.PP
+Note: srand will be called on the first call of this function\&. Thus the time to run will be significantly longer on the first call\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fImin_num\fP min value to generate 
+.br
+\fImax_num\fP max value to generate 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+.RE
+.PP
+
+.PP
+Definition at line 15 of file random_int\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

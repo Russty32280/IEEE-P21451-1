@@ -1,0 +1,24 @@
+\hypertarget{item_buffer_8h}{}\section{item\+Buffer.\+h File Reference}
+\label{item_buffer_8h}\index{item\+Buffer.\+h@{item\+Buffer.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structitem__buffer__t}{item\+\_\+buffer\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{group__item__buffer_ga1bc23d65759a35a5c79d2a1330564d5a}{Push\+Item} (\hyperlink{structitem__buffer__t}{item\+\_\+buffer\+\_\+t} $\ast$buffer, uint16\+\_\+t $\ast$data)
+\item 
+void \hyperlink{group__item__buffer_ga77317789d2a005ff6db3c952ab2b5b90}{Pop\+Item} (\hyperlink{structitem__buffer__t}{item\+\_\+buffer\+\_\+t} $\ast$buffer, uint16\+\_\+t $\ast$data)
+\item 
+uint16\+\_\+t \hyperlink{group__item__buffer_ga7edfdec60fea24b3204c4a6e3efa14f7}{Item\+Buffer\+Get\+Size} (\hyperlink{structitem__buffer__t}{item\+\_\+buffer\+\_\+t} $\ast$buffer)
+\item 
+void \hyperlink{group__item__buffer_ga7f98743fe5f0c2d614eefd4d473fd2fd}{Item\+Buffer\+Init} (\hyperlink{structitem__buffer__t}{item\+\_\+buffer\+\_\+t} $\ast$buffer, uint16\+\_\+t $\ast$data\+\_\+array, uint16\+\_\+t max\+\_\+size, uint8\+\_\+t type\+\_\+size)
+\item 
+void \hyperlink{group__item__buffer_ga6f81726387a262fa35a4ea4b0f2d7998}{Item\+Buffer\+Set\+Callback} (\hyperlink{structitem__buffer__t}{item\+\_\+buffer\+\_\+t} $\ast$buffer, void($\ast$Callback)(\hyperlink{structitem__buffer__t}{item\+\_\+buffer\+\_\+t} $\ast$buffer))
+\item 
+void \hyperlink{group__item__buffer_ga14ad34083103e53b491ba9891f5e771d}{Item\+Buffer\+Clear\+Callback} (\hyperlink{structitem__buffer__t}{item\+\_\+buffer\+\_\+t} $\ast$buffer)
+\end{DoxyCompactItemize}

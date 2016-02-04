@@ -1,0 +1,73 @@
+\hypertarget{timing_8c}{}\section{timing.\+c File Reference}
+\label{timing_8c}\index{timing.\+c@{timing.\+c}}
+{\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}hal\+\_\+timing.\+c\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{timing_8c_a0de511705214db39730388305a4fabcc}{Timing\+I\+S\+R}()~\hyperlink{timing_8c_a97d95fc2c5179d835c09149621189c8f}{time}++
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{timing_8c_afa1370e69baec4bc937f07af2cd8a7e3}{hal\+\_\+timing\+\_\+\+Init} (void)
+\item 
+void \hyperlink{group__timing_ga6a7bd5705bafa4dd205b38a13e50263c}{Timing\+\_\+\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the timing module. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group__timing_gad33d57773db985176e2722aeebfee9cc}{Time\+Now} (void)
+\begin{DoxyCompactList}\small\item\em Returns the current system time in milliseconds. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group__timing_gaf31cb5a8f600695cd8bff12328aa65a9}{Time\+Since} (\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} t)
+\begin{DoxyCompactList}\small\item\em Get the elapsed time. \end{DoxyCompactList}\item 
+void \hyperlink{group__timing_ga5a4bf9e6351a738abf338ceabdf4a095}{Delay\+Ms} (\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} delay)
+\begin{DoxyCompactList}\small\item\em Delay a specific number of milliseconds. \end{DoxyCompactList}\item 
+void \hyperlink{group__timing_ga04f06155f2b1fa16cfa8046672048423}{Timing\+\_\+\+Roll} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} \hyperlink{timing_8c_a97d95fc2c5179d835c09149621189c8f}{time}
+\item 
+volatile \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} \hyperlink{timing_8c_aa895e95f37a272efa86d6dc7204a0da0}{rollover\+\_\+time}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{timing_8c_a0de511705214db39730388305a4fabcc}{}\index{timing.\+c@{timing.\+c}!Timing\+I\+S\+R@{Timing\+I\+S\+R}}
+\index{Timing\+I\+S\+R@{Timing\+I\+S\+R}!timing.\+c@{timing.\+c}}
+\subsubsection[{Timing\+I\+S\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define Timing\+I\+S\+R(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf time}++}\label{timing_8c_a0de511705214db39730388305a4fabcc}
+
+
+Definition at line 14 of file timing.\+c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{timing_8c_afa1370e69baec4bc937f07af2cd8a7e3}{}\index{timing.\+c@{timing.\+c}!hal\+\_\+timing\+\_\+\+Init@{hal\+\_\+timing\+\_\+\+Init}}
+\index{hal\+\_\+timing\+\_\+\+Init@{hal\+\_\+timing\+\_\+\+Init}!timing.\+c@{timing.\+c}}
+\subsubsection[{hal\+\_\+timing\+\_\+\+Init(void)}]{\setlength{\rightskip}{0pt plus 5cm}void hal\+\_\+timing\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{timing_8c_afa1370e69baec4bc937f07af2cd8a7e3}
+
+
+\subsection{Variable Documentation}
+\hypertarget{timing_8c_aa895e95f37a272efa86d6dc7204a0da0}{}\index{timing.\+c@{timing.\+c}!rollover\+\_\+time@{rollover\+\_\+time}}
+\index{rollover\+\_\+time@{rollover\+\_\+time}!timing.\+c@{timing.\+c}}
+\subsubsection[{rollover\+\_\+time}]{\setlength{\rightskip}{0pt plus 5cm}volatile {\bf tint\+\_\+t} rollover\+\_\+time}\label{timing_8c_aa895e95f37a272efa86d6dc7204a0da0}
+
+
+Definition at line 7 of file timing.\+c.
+
+\hypertarget{timing_8c_a97d95fc2c5179d835c09149621189c8f}{}\index{timing.\+c@{timing.\+c}!time@{time}}
+\index{time@{time}!timing.\+c@{timing.\+c}}
+\subsubsection[{time}]{\setlength{\rightskip}{0pt plus 5cm}volatile {\bf tint\+\_\+t} time}\label{timing_8c_a97d95fc2c5179d835c09149621189c8f}
+
+
+Definition at line 7 of file timing.\+c.
+

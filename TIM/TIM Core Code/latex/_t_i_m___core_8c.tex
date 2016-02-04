@@ -1,0 +1,68 @@
+\hypertarget{_t_i_m___core_8c}{}\section{T\+I\+M\+\_\+\+Core.\+c File Reference}
+\label{_t_i_m___core_8c}\index{T\+I\+M\+\_\+\+Core.\+c@{T\+I\+M\+\_\+\+Core.\+c}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$strings.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}macros.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}library.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}random\+\_\+int.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_t_i_m___core_8c_a83c524f684970472a9ae3ba181fdec80}{U\+A\+R\+T\+\_\+\+C\+H\+A\+N\+N\+E\+L}~1
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_t_i_m___core_8c_a9caa1e61ee11742e57bfa36da2c187a8}{T\+I\+M\+\_\+\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Runs U\+A\+R\+T and T\+E\+D\+S Initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{_t_i_m___core_8c_a3ee6092824778f90e1e0e5490e332efa}{receive\+\_\+buffer} \mbox{[}\hyperlink{group__subsys_gaf7b1ce1a8ab4b9ec92d8773f90cb991c}{R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+T\+H}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_t_i_m___core_8c_a83c524f684970472a9ae3ba181fdec80}{}\index{T\+I\+M\+\_\+\+Core.\+c@{T\+I\+M\+\_\+\+Core.\+c}!U\+A\+R\+T\+\_\+\+C\+H\+A\+N\+N\+E\+L@{U\+A\+R\+T\+\_\+\+C\+H\+A\+N\+N\+E\+L}}
+\index{U\+A\+R\+T\+\_\+\+C\+H\+A\+N\+N\+E\+L@{U\+A\+R\+T\+\_\+\+C\+H\+A\+N\+N\+E\+L}!T\+I\+M\+\_\+\+Core.\+c@{T\+I\+M\+\_\+\+Core.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+C\+H\+A\+N\+N\+E\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T\+\_\+\+C\+H\+A\+N\+N\+E\+L~1}\label{_t_i_m___core_8c_a83c524f684970472a9ae3ba181fdec80}
+
+
+Definition at line 17 of file T\+I\+M\+\_\+\+Core.\+c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_t_i_m___core_8c_a9caa1e61ee11742e57bfa36da2c187a8}{}\index{T\+I\+M\+\_\+\+Core.\+c@{T\+I\+M\+\_\+\+Core.\+c}!T\+I\+M\+\_\+\+Init@{T\+I\+M\+\_\+\+Init}}
+\index{T\+I\+M\+\_\+\+Init@{T\+I\+M\+\_\+\+Init}!T\+I\+M\+\_\+\+Core.\+c@{T\+I\+M\+\_\+\+Core.\+c}}
+\subsubsection[{T\+I\+M\+\_\+\+Init(void)}]{\setlength{\rightskip}{0pt plus 5cm}void T\+I\+M\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_t_i_m___core_8c_a9caa1e61ee11742e57bfa36da2c187a8}
+
+
+Runs U\+A\+R\+T and T\+E\+D\+S Initialization. 
+
+Initializes the T\+I\+M by registering the U\+A\+R\+T reciever as well as calling \hyperlink{_t_i_m1_8c_ab0bf2da84344cc59e76fdf07beb14e73}{Meta\+T\+E\+D\+S\+Init()} to load the Meta\+T\+E\+Ds into memory.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000039}{Todo}]Implement and call the Channel\+T\+E\+D\+S Init funciton. 
+
+Add in support for other connection mediums (N\+R\+F, S\+P\+I, etc). \end{DoxyRefDesc}
+
+
+Definition at line 29 of file T\+I\+M\+\_\+\+Core.\+c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{_t_i_m___core_8c_a3ee6092824778f90e1e0e5490e332efa}{}\index{T\+I\+M\+\_\+\+Core.\+c@{T\+I\+M\+\_\+\+Core.\+c}!receive\+\_\+buffer@{receive\+\_\+buffer}}
+\index{receive\+\_\+buffer@{receive\+\_\+buffer}!T\+I\+M\+\_\+\+Core.\+c@{T\+I\+M\+\_\+\+Core.\+c}}
+\subsubsection[{receive\+\_\+buffer}]{\setlength{\rightskip}{0pt plus 5cm}char receive\+\_\+buffer\mbox{[}{\bf R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+T\+H}\mbox{]}}\label{_t_i_m___core_8c_a3ee6092824778f90e1e0e5490e332efa}
+
+
+Definition at line 21 of file T\+I\+M\+\_\+\+Core.\+c.
+

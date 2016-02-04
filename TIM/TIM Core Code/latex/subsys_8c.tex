@@ -1,0 +1,246 @@
+\hypertarget{subsys_8c}{}\section{subsys.\+c File Reference}
+\label{subsys_8c}\index{subsys.\+c@{subsys.\+c}}
+{\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}macros.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$strings.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structsubsystem__t}{subsystem\+\_\+t}
+\item 
+struct \hyperlink{structsystem__t}{system\+\_\+t}
+\begin{DoxyCompactList}\small\item\em system module structure \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{subsys_8c_a40eb801bd01d2acdaffef915693c9b58}{M\+A\+X\+\_\+\+S\+U\+B\+S\+Y\+S\+T\+E\+M\+S}~10
+\item 
+\#define \hyperlink{subsys_8c_a7dd47d65e246973ad08576d026fb0616}{N\+U\+M\+\_\+\+A\+D\+D\+R\+E\+S\+S}
+\item 
+\#define \hyperlink{subsys_8c_af78798e347689358aef71dd18a0767bf}{S\+U\+B\+S\+Y\+S\+\_\+\+M\+A\+X\+\_\+\+C\+H\+A\+R\+S\+\_\+\+P\+E\+R\+\_\+\+C\+A\+L\+L}~20
+\item 
+\#define \hyperlink{subsys_8c_a3a06f04d1e130f6182ce93f504ea4b20}{Log\+Char}(c)~\hyperlink{uart_8h_a04754ed002244a44d5d4c6a59aaa5b4a}{U\+A\+R\+T\+\_\+\+Write\+Byte}(\hyperlink{system_8h_a32d172cf001f3cfb7ffb9c73644be7bc}{S\+U\+B\+S\+Y\+S\+\_\+\+U\+A\+R\+T},c)
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{subsys_8c_a486bbe5066f9300af18aee231dfa57e6}{com\+\_\+state} \{ \hyperlink{subsys_8c_a486bbe5066f9300af18aee231dfa57e6afd6a0e4343048b10646dd2976cc5ad18}{I\+D\+L\+E}, 
+\hyperlink{subsys_8c_a486bbe5066f9300af18aee231dfa57e6ae7eb10d2fdfdd28798102e736c4098e0}{W\+R\+I\+T\+I\+N\+G}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{subsys_8c_a238c9a188c88d67796b4a56da02c6f37}{Receive\+Char} (char c)
+\item 
+void \hyperlink{subsys_8c_af18634cc82d124212e47a67d0625addf}{Process\+Msg} (void)
+\item 
+void \hyperlink{subsys_8c_a86ca495cd29972a9f7c9994ba4af782e}{Log\+Levels} (void)
+\item 
+void \hyperlink{subsys_8c_a1046c186fc5d7bfe760953fdf6f95830}{Log\+Versions} (void)
+\item 
+void \hyperlink{subsys_8c_a6ff7f1bd0f362141bc1c924191ef7425}{Log\+Subsystem} (int16\+\_\+t s)
+\item 
+char $\ast$ \hyperlink{group__subsys_ga6e52643db93bcc255c89cc27e644042d}{Get\+Subsystem\+Name} (uint8\+\_\+t subsystem\+\_\+id)
+\item 
+void \hyperlink{subsys_8c_a93f514700ccf00d08dbdcff7f1224eb2}{System\+Init} (void)
+\item 
+uint8\+\_\+t \hyperlink{group__subsys_ga4af744f35168691bbcdf5abe0b5ff4ca}{Subsystem\+\_\+\+Init} (char $\ast$name, \hyperlink{unionversion__t}{version\+\_\+t} version, void($\ast$callback)(int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}))
+\item 
+void \hyperlink{group__subsys_ga1e9ede8a23cc1f69f6c9aef8f8718584}{Subsystem\+\_\+\+Register\+Callback} (uint8\+\_\+t subsystem\+\_\+id, void($\ast$callback)(int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}))
+\item 
+int16\+\_\+t \hyperlink{subsys_8c_ac998b656036e4bf450122e47070c8722}{Flag\+Str2\+Int} (char $\ast$ptr)
+\item 
+void \hyperlink{subsys_8c_a9136493d6bc952fd18f9b9cd74d2db63}{Log\+Header} (uint8\+\_\+t subsystem\+\_\+id)
+\item 
+void \hyperlink{group__subsys_gad5c93d1d78ea66a8e631957653e03a74}{Log\+Str} (char $\ast$str,...)
+\item 
+void \hyperlink{group__subsys_gafb675e7cfe55b8b02e927e5c82a98ac0}{Log\+Msg} (uint8\+\_\+t subsystem\+\_\+id, char $\ast$str,...)
+\item 
+void \hyperlink{group__subsys_gab04a3ed723beeb04411222c5ed8be911}{Log\+\_\+\+Header} (uint8\+\_\+t subsystem\+\_\+id)
+\item 
+void \hyperlink{group__subsys_ga0788adbc985fe17ec878d3c0f9f06bff}{Log\+\_\+\+Echo\+On} (void)
+\item 
+void \hyperlink{group__subsys_gaaaddf9437be992e2ab59cbc7c6c8a913}{Log\+\_\+\+Echo\+Off} (void)
+\item 
+uint8\+\_\+t \hyperlink{group__subsys_ga8267834e6ee146c03ae4eba2eb0defc9}{Log\+\_\+\+Get\+Echo} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structsystem__t}{system\+\_\+t} \hyperlink{subsys_8c_a5c487665c5fed819e0062555da2db68f}{sys}
+\item 
+char $\ast$ \hyperlink{subsys_8c_ace9d62f1b669b308c4392fe4e7b73c57}{priority\+\_\+level\+\_\+name} \mbox{[}$\,$\mbox{]}
+\item 
+char \hyperlink{subsys_8c_a3ee6092824778f90e1e0e5490e332efa}{receive\+\_\+buffer} \mbox{[}\hyperlink{group__subsys_gaf7b1ce1a8ab4b9ec92d8773f90cb991c}{R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+T\+H}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{subsys_8c_a3a06f04d1e130f6182ce93f504ea4b20}{}\index{subsys.\+c@{subsys.\+c}!Log\+Char@{Log\+Char}}
+\index{Log\+Char@{Log\+Char}!subsys.\+c@{subsys.\+c}}
+\subsubsection[{Log\+Char}]{\setlength{\rightskip}{0pt plus 5cm}\#define Log\+Char(
+\begin{DoxyParamCaption}
+\item[{}]{c}
+\end{DoxyParamCaption}
+)~{\bf U\+A\+R\+T\+\_\+\+Write\+Byte}({\bf S\+U\+B\+S\+Y\+S\+\_\+\+U\+A\+R\+T},c)}\label{subsys_8c_a3a06f04d1e130f6182ce93f504ea4b20}
+
+
+Definition at line 260 of file subsys.\+c.
+
+\hypertarget{subsys_8c_a40eb801bd01d2acdaffef915693c9b58}{}\index{subsys.\+c@{subsys.\+c}!M\+A\+X\+\_\+\+S\+U\+B\+S\+Y\+S\+T\+E\+M\+S@{M\+A\+X\+\_\+\+S\+U\+B\+S\+Y\+S\+T\+E\+M\+S}}
+\index{M\+A\+X\+\_\+\+S\+U\+B\+S\+Y\+S\+T\+E\+M\+S@{M\+A\+X\+\_\+\+S\+U\+B\+S\+Y\+S\+T\+E\+M\+S}!subsys.\+c@{subsys.\+c}}
+\subsubsection[{M\+A\+X\+\_\+\+S\+U\+B\+S\+Y\+S\+T\+E\+M\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\+A\+X\+\_\+\+S\+U\+B\+S\+Y\+S\+T\+E\+M\+S~10}\label{subsys_8c_a40eb801bd01d2acdaffef915693c9b58}
+
+
+Definition at line 22 of file subsys.\+c.
+
+\hypertarget{subsys_8c_a7dd47d65e246973ad08576d026fb0616}{}\index{subsys.\+c@{subsys.\+c}!N\+U\+M\+\_\+\+A\+D\+D\+R\+E\+S\+S@{N\+U\+M\+\_\+\+A\+D\+D\+R\+E\+S\+S}}
+\index{N\+U\+M\+\_\+\+A\+D\+D\+R\+E\+S\+S@{N\+U\+M\+\_\+\+A\+D\+D\+R\+E\+S\+S}!subsys.\+c@{subsys.\+c}}
+\subsubsection[{N\+U\+M\+\_\+\+A\+D\+D\+R\+E\+S\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+U\+M\+\_\+\+A\+D\+D\+R\+E\+S\+S}\label{subsys_8c_a7dd47d65e246973ad08576d026fb0616}
+
+
+Definition at line 25 of file subsys.\+c.
+
+\hypertarget{subsys_8c_af78798e347689358aef71dd18a0767bf}{}\index{subsys.\+c@{subsys.\+c}!S\+U\+B\+S\+Y\+S\+\_\+\+M\+A\+X\+\_\+\+C\+H\+A\+R\+S\+\_\+\+P\+E\+R\+\_\+\+C\+A\+L\+L@{S\+U\+B\+S\+Y\+S\+\_\+\+M\+A\+X\+\_\+\+C\+H\+A\+R\+S\+\_\+\+P\+E\+R\+\_\+\+C\+A\+L\+L}}
+\index{S\+U\+B\+S\+Y\+S\+\_\+\+M\+A\+X\+\_\+\+C\+H\+A\+R\+S\+\_\+\+P\+E\+R\+\_\+\+C\+A\+L\+L@{S\+U\+B\+S\+Y\+S\+\_\+\+M\+A\+X\+\_\+\+C\+H\+A\+R\+S\+\_\+\+P\+E\+R\+\_\+\+C\+A\+L\+L}!subsys.\+c@{subsys.\+c}}
+\subsubsection[{S\+U\+B\+S\+Y\+S\+\_\+\+M\+A\+X\+\_\+\+C\+H\+A\+R\+S\+\_\+\+P\+E\+R\+\_\+\+C\+A\+L\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+U\+B\+S\+Y\+S\+\_\+\+M\+A\+X\+\_\+\+C\+H\+A\+R\+S\+\_\+\+P\+E\+R\+\_\+\+C\+A\+L\+L~20}\label{subsys_8c_af78798e347689358aef71dd18a0767bf}
+
+
+Definition at line 65 of file subsys.\+c.
+
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{subsys_8c_a486bbe5066f9300af18aee231dfa57e6}{}\index{subsys.\+c@{subsys.\+c}!com\+\_\+state@{com\+\_\+state}}
+\index{com\+\_\+state@{com\+\_\+state}!subsys.\+c@{subsys.\+c}}
+\subsubsection[{com\+\_\+state}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf com\+\_\+state}}\label{subsys_8c_a486bbe5066f9300af18aee231dfa57e6}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{I\+D\+L\+E@{I\+D\+L\+E}!subsys.\+c@{subsys.\+c}}\index{subsys.\+c@{subsys.\+c}!I\+D\+L\+E@{I\+D\+L\+E}}\item[{\em 
+\hypertarget{subsys_8c_a486bbe5066f9300af18aee231dfa57e6afd6a0e4343048b10646dd2976cc5ad18}{}I\+D\+L\+E\label{subsys_8c_a486bbe5066f9300af18aee231dfa57e6afd6a0e4343048b10646dd2976cc5ad18}
+}]\index{W\+R\+I\+T\+I\+N\+G@{W\+R\+I\+T\+I\+N\+G}!subsys.\+c@{subsys.\+c}}\index{subsys.\+c@{subsys.\+c}!W\+R\+I\+T\+I\+N\+G@{W\+R\+I\+T\+I\+N\+G}}\item[{\em 
+\hypertarget{subsys_8c_a486bbe5066f9300af18aee231dfa57e6ae7eb10d2fdfdd28798102e736c4098e0}{}W\+R\+I\+T\+I\+N\+G\label{subsys_8c_a486bbe5066f9300af18aee231dfa57e6ae7eb10d2fdfdd28798102e736c4098e0}
+}]\end{description}
+\end{Desc}
+
+
+Definition at line 117 of file subsys.\+c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{subsys_8c_ac998b656036e4bf450122e47070c8722}{}\index{subsys.\+c@{subsys.\+c}!Flag\+Str2\+Int@{Flag\+Str2\+Int}}
+\index{Flag\+Str2\+Int@{Flag\+Str2\+Int}!subsys.\+c@{subsys.\+c}}
+\subsubsection[{Flag\+Str2\+Int(char $\ast$ptr)}]{\setlength{\rightskip}{0pt plus 5cm}int16\+\_\+t Flag\+Str2\+Int (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}\label{subsys_8c_ac998b656036e4bf450122e47070c8722}
+
+
+Definition at line 198 of file subsys.\+c.
+
+\hypertarget{subsys_8c_a9136493d6bc952fd18f9b9cd74d2db63}{}\index{subsys.\+c@{subsys.\+c}!Log\+Header@{Log\+Header}}
+\index{Log\+Header@{Log\+Header}!subsys.\+c@{subsys.\+c}}
+\subsubsection[{Log\+Header(uint8\+\_\+t subsystem\+\_\+id)}]{\setlength{\rightskip}{0pt plus 5cm}void Log\+Header (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{subsystem\+\_\+id}
+\end{DoxyParamCaption}
+)}\label{subsys_8c_a9136493d6bc952fd18f9b9cd74d2db63}
+\hypertarget{subsys_8c_a86ca495cd29972a9f7c9994ba4af782e}{}\index{subsys.\+c@{subsys.\+c}!Log\+Levels@{Log\+Levels}}
+\index{Log\+Levels@{Log\+Levels}!subsys.\+c@{subsys.\+c}}
+\subsubsection[{Log\+Levels(void)}]{\setlength{\rightskip}{0pt plus 5cm}void Log\+Levels (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{subsys_8c_a86ca495cd29972a9f7c9994ba4af782e}
+\hypertarget{subsys_8c_a6ff7f1bd0f362141bc1c924191ef7425}{}\index{subsys.\+c@{subsys.\+c}!Log\+Subsystem@{Log\+Subsystem}}
+\index{Log\+Subsystem@{Log\+Subsystem}!subsys.\+c@{subsys.\+c}}
+\subsubsection[{Log\+Subsystem(int16\+\_\+t s)}]{\setlength{\rightskip}{0pt plus 5cm}void Log\+Subsystem (
+\begin{DoxyParamCaption}
+\item[{int16\+\_\+t}]{s}
+\end{DoxyParamCaption}
+)}\label{subsys_8c_a6ff7f1bd0f362141bc1c924191ef7425}
+\hypertarget{subsys_8c_a1046c186fc5d7bfe760953fdf6f95830}{}\index{subsys.\+c@{subsys.\+c}!Log\+Versions@{Log\+Versions}}
+\index{Log\+Versions@{Log\+Versions}!subsys.\+c@{subsys.\+c}}
+\subsubsection[{Log\+Versions(void)}]{\setlength{\rightskip}{0pt plus 5cm}void Log\+Versions (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{subsys_8c_a1046c186fc5d7bfe760953fdf6f95830}
+\hypertarget{subsys_8c_af18634cc82d124212e47a67d0625addf}{}\index{subsys.\+c@{subsys.\+c}!Process\+Msg@{Process\+Msg}}
+\index{Process\+Msg@{Process\+Msg}!subsys.\+c@{subsys.\+c}}
+\subsubsection[{Process\+Msg(void)}]{\setlength{\rightskip}{0pt plus 5cm}void Process\+Msg (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{subsys_8c_af18634cc82d124212e47a67d0625addf}
+
+
+Definition at line 154 of file subsys.\+c.
+
+\hypertarget{subsys_8c_a238c9a188c88d67796b4a56da02c6f37}{}\index{subsys.\+c@{subsys.\+c}!Receive\+Char@{Receive\+Char}}
+\index{Receive\+Char@{Receive\+Char}!subsys.\+c@{subsys.\+c}}
+\subsubsection[{Receive\+Char(char c)}]{\setlength{\rightskip}{0pt plus 5cm}void Receive\+Char (
+\begin{DoxyParamCaption}
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)}\label{subsys_8c_a238c9a188c88d67796b4a56da02c6f37}
+
+
+Definition at line 123 of file subsys.\+c.
+
+\hypertarget{subsys_8c_a93f514700ccf00d08dbdcff7f1224eb2}{}\index{subsys.\+c@{subsys.\+c}!System\+Init@{System\+Init}}
+\index{System\+Init@{System\+Init}!subsys.\+c@{subsys.\+c}}
+\subsubsection[{System\+Init(void)}]{\setlength{\rightskip}{0pt plus 5cm}void System\+Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{subsys_8c_a93f514700ccf00d08dbdcff7f1224eb2}
+
+
+Definition at line 89 of file subsys.\+c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{subsys_8c_ace9d62f1b669b308c4392fe4e7b73c57}{}\index{subsys.\+c@{subsys.\+c}!priority\+\_\+level\+\_\+name@{priority\+\_\+level\+\_\+name}}
+\index{priority\+\_\+level\+\_\+name@{priority\+\_\+level\+\_\+name}!subsys.\+c@{subsys.\+c}}
+\subsubsection[{priority\+\_\+level\+\_\+name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ priority\+\_\+level\+\_\+name\mbox{[}$\,$\mbox{]}}\label{subsys_8c_ace9d62f1b669b308c4392fe4e7b73c57}
+{\bfseries Initial value\+:}
+\begin{DoxyCode}
+= \{
+    \textcolor{stringliteral}{"FORCE"},
+    \textcolor{stringliteral}{"ERR1"},
+    \textcolor{stringliteral}{"ERR2"},
+    \textcolor{stringliteral}{"ERR3"},
+    \textcolor{stringliteral}{"WNG1"},
+    \textcolor{stringliteral}{"WNG2"},
+    \textcolor{stringliteral}{"WNG3"},
+    \textcolor{stringliteral}{"MSG1"},
+    \textcolor{stringliteral}{"MSG2"},
+    \textcolor{stringliteral}{"MSG3"},
+    \textcolor{stringliteral}{"ALL\_"}
+\}
+\end{DoxyCode}
+
+
+Definition at line 69 of file subsys.\+c.
+
+\hypertarget{subsys_8c_a3ee6092824778f90e1e0e5490e332efa}{}\index{subsys.\+c@{subsys.\+c}!receive\+\_\+buffer@{receive\+\_\+buffer}}
+\index{receive\+\_\+buffer@{receive\+\_\+buffer}!subsys.\+c@{subsys.\+c}}
+\subsubsection[{receive\+\_\+buffer}]{\setlength{\rightskip}{0pt plus 5cm}char receive\+\_\+buffer\mbox{[}{\bf R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+T\+H}\mbox{]}}\label{subsys_8c_a3ee6092824778f90e1e0e5490e332efa}
+
+
+Definition at line 121 of file subsys.\+c.
+
+\hypertarget{subsys_8c_a5c487665c5fed819e0062555da2db68f}{}\index{subsys.\+c@{subsys.\+c}!sys@{sys}}
+\index{sys@{sys}!subsys.\+c@{subsys.\+c}}
+\subsubsection[{sys}]{\setlength{\rightskip}{0pt plus 5cm}{\bf system\+\_\+t} sys}\label{subsys_8c_a5c487665c5fed819e0062555da2db68f}
+
+
+Definition at line 61 of file subsys.\+c.
+

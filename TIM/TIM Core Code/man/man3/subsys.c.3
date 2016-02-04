@@ -1,0 +1,209 @@
+.TH "subsys.c" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+subsys.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'system\&.h'\fP
+.br
+\fC#include 'macros\&.h'\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <strings\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBsubsystem_t\fP"
+.br
+.ti -1c
+.RI "struct \fBsystem_t\fP"
+.br
+.RI "\fIsystem module structure \fP"
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX_SUBSYSTEMS\fP   10"
+.br
+.ti -1c
+.RI "#define \fBNUM_ADDRESS\fP"
+.br
+.ti -1c
+.RI "#define \fBSUBSYS_MAX_CHARS_PER_CALL\fP   20"
+.br
+.ti -1c
+.RI "#define \fBLogChar\fP(c)   \fBUART_WriteByte\fP(\fBSUBSYS_UART\fP,c)"
+.br
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBcom_state\fP { \fBIDLE\fP, \fBWRITING\fP }"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBReceiveChar\fP (char c)"
+.br
+.ti -1c
+.RI "void \fBProcessMsg\fP (void)"
+.br
+.ti -1c
+.RI "void \fBLogLevels\fP (void)"
+.br
+.ti -1c
+.RI "void \fBLogVersions\fP (void)"
+.br
+.ti -1c
+.RI "void \fBLogSubsystem\fP (int16_t s)"
+.br
+.ti -1c
+.RI "char * \fBGetSubsystemName\fP (uint8_t subsystem_id)"
+.br
+.ti -1c
+.RI "void \fBSystemInit\fP (void)"
+.br
+.ti -1c
+.RI "uint8_t \fBSubsystem_Init\fP (char *name, \fBversion_t\fP version, void(*callback)(int argc, char *argv[]))"
+.br
+.ti -1c
+.RI "void \fBSubsystem_RegisterCallback\fP (uint8_t subsystem_id, void(*callback)(int argc, char *argv[]))"
+.br
+.ti -1c
+.RI "int16_t \fBFlagStr2Int\fP (char *ptr)"
+.br
+.ti -1c
+.RI "void \fBLogHeader\fP (uint8_t subsystem_id)"
+.br
+.ti -1c
+.RI "void \fBLogStr\fP (char *str,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "void \fBLogMsg\fP (uint8_t subsystem_id, char *str,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "void \fBLog_Header\fP (uint8_t subsystem_id)"
+.br
+.ti -1c
+.RI "void \fBLog_EchoOn\fP (void)"
+.br
+.ti -1c
+.RI "void \fBLog_EchoOff\fP (void)"
+.br
+.ti -1c
+.RI "uint8_t \fBLog_GetEcho\fP (void)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBsystem_t\fP \fBsys\fP"
+.br
+.ti -1c
+.RI "char * \fBpriority_level_name\fP []"
+.br
+.ti -1c
+.RI "char \fBreceive_buffer\fP [\fBRECEIVE_MAX_LENGTH\fP]"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define LogChar(c)   \fBUART_WriteByte\fP(\fBSUBSYS_UART\fP,c)"
+
+.PP
+Definition at line 260 of file subsys\&.c\&.
+.SS "#define MAX_SUBSYSTEMS   10"
+
+.PP
+Definition at line 22 of file subsys\&.c\&.
+.SS "#define NUM_ADDRESS"
+
+.PP
+Definition at line 25 of file subsys\&.c\&.
+.SS "#define SUBSYS_MAX_CHARS_PER_CALL   20"
+
+.PP
+Definition at line 65 of file subsys\&.c\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBcom_state\fP"
+
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIIDLE \fP\fP
+.TP
+\fB\fIWRITING \fP\fP
+.PP
+Definition at line 117 of file subsys\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "int16_t FlagStr2Int (char * ptr)"
+
+.PP
+Definition at line 198 of file subsys\&.c\&.
+.SS "void LogHeader (uint8_t subsystem_id)"
+
+.SS "void LogLevels (void)"
+
+.SS "void LogSubsystem (int16_t s)"
+
+.SS "void LogVersions (void)"
+
+.SS "void ProcessMsg (void)"
+
+.PP
+Definition at line 154 of file subsys\&.c\&.
+.SS "void ReceiveChar (char c)"
+
+.PP
+Definition at line 123 of file subsys\&.c\&.
+.SS "void SystemInit (void)"
+
+.PP
+Definition at line 89 of file subsys\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "char* priority_level_name[]"
+\fBInitial value:\fP
+.PP
+.nf
+= {
+    "FORCE",
+    "ERR1",
+    "ERR2",
+    "ERR3",
+    "WNG1",
+    "WNG2",
+    "WNG3",
+    "MSG1",
+    "MSG2",
+    "MSG3",
+    "ALL_"
+}
+.fi
+.PP
+Definition at line 69 of file subsys\&.c\&.
+.SS "char receive_buffer[\fBRECEIVE_MAX_LENGTH\fP]"
+
+.PP
+Definition at line 121 of file subsys\&.c\&.
+.SS "\fBsystem_t\fP sys"
+
+.PP
+Definition at line 61 of file subsys\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

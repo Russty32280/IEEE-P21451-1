@@ -1,0 +1,322 @@
+\hypertarget{group__buffer__printf}{}\section{printf Functionality for Buffer Module}
+\label{group__buffer__printf}\index{printf Functionality for Buffer Module@{printf Functionality for Buffer Module}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__buffer__printf_gab003a6708a2b979e7910c68adcab9f3c}{Push\+\_\+printf} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, char $\ast$str,...)
+\begin{DoxyCompactList}\small\item\em printf implementation to char buffer \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_ga893906e6b7b5cb026c0084dda73b9f76}{Push\+\_\+vprintf} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, char $\ast$str, va\+\_\+list vars)
+\begin{DoxyCompactList}\small\item\em vprintf implementation to char buffer \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_gacba148d6061ff774027ad014e5c5640c}{Push\+Binary16} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, uint16\+\_\+t x)
+\begin{DoxyCompactList}\small\item\em Push 16 bit binary number to char buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_gad72750cbd158a3b49c544426e00ee923}{Push\+\_\+uint16} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, uint16\+\_\+t x)
+\begin{DoxyCompactList}\small\item\em Push unsigned integer to char buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_gaee96546229e607ffe14f0fa18d424f84}{Push\+\_\+int16} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, int16\+\_\+t x)
+\begin{DoxyCompactList}\small\item\em Push integer to char buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_gac138be24ecf405d8efaf1311cecc6f8b}{Push\+\_\+uint32} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, uint32\+\_\+t x)
+\begin{DoxyCompactList}\small\item\em Push unsigned long integer to char buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_ga6dade9cec52d66a03fb17f1e7473c912}{Push\+\_\+int32} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, int32\+\_\+t x)
+\begin{DoxyCompactList}\small\item\em Push long to char buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_ga542a3f217761e35cd7067f468e667495}{Push\+Str} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Push char array (string) to char buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_gab6d3d9b051da3fc0e7f989b1d20d7acd}{Push\+Hex} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, uint16\+\_\+t x)
+\begin{DoxyCompactList}\small\item\em Push 16 bit value to char buffer in hex format. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_gab855c78568480d35865d7a4dc92e3ddc}{Push\+Float} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, float x)
+\begin{DoxyCompactList}\small\item\em Cheap implementation of float to char buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\hyperlink{buffer__printf_8h}{buffer\+\_\+printf.\+h}
+
+Created on\+: Mar 11, 2014 Author\+: Michael
+
+\begin{DoxyVersion}{Version}
+1.\+1 changed naming to match stdint and removed 2\+Buf from function names 
+
+1.\+2 added l for int32 and b for 16-\/bit binary 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\hypertarget{group__buffer__printf_gaee96546229e607ffe14f0fa18d424f84}{}\index{printf Functionality for Buffer Module@{printf Functionality for Buffer Module}!Push\+\_\+int16@{Push\+\_\+int16}}
+\index{Push\+\_\+int16@{Push\+\_\+int16}!printf Functionality for Buffer Module@{printf Functionality for Buffer Module}}
+\subsubsection[{Push\+\_\+int16(buffer\+\_\+t $\ast$buf, int16\+\_\+t x)}]{\setlength{\rightskip}{0pt plus 5cm}void Push\+\_\+int16 (
+\begin{DoxyParamCaption}
+\item[{{\bf buffer\+\_\+t} $\ast$}]{buf, }
+\item[{int16\+\_\+t}]{x}
+\end{DoxyParamCaption}
+)}\label{group__buffer__printf_gaee96546229e607ffe14f0fa18d424f84}
+
+
+Push integer to char buffer. 
+
+Note this function is dependent on \hyperlink{group__buffer__printf_gad72750cbd158a3b49c544426e00ee923}{Push\+\_\+uint16()}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em buf} & Pointer to char buffer to print int to \\
+\hline
+\mbox{\tt in}  & {\em x} & Integer to convert to text \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 121 of file buffer\+\_\+printf.\+c.
+
+\hypertarget{group__buffer__printf_ga6dade9cec52d66a03fb17f1e7473c912}{}\index{printf Functionality for Buffer Module@{printf Functionality for Buffer Module}!Push\+\_\+int32@{Push\+\_\+int32}}
+\index{Push\+\_\+int32@{Push\+\_\+int32}!printf Functionality for Buffer Module@{printf Functionality for Buffer Module}}
+\subsubsection[{Push\+\_\+int32(buffer\+\_\+t $\ast$buf, int32\+\_\+t x)}]{\setlength{\rightskip}{0pt plus 5cm}void Push\+\_\+int32 (
+\begin{DoxyParamCaption}
+\item[{{\bf buffer\+\_\+t} $\ast$}]{buf, }
+\item[{int32\+\_\+t}]{x}
+\end{DoxyParamCaption}
+)}\label{group__buffer__printf_ga6dade9cec52d66a03fb17f1e7473c912}
+
+
+Push long to char buffer. 
+
+Note this function is dependent on \hyperlink{group__buffer__printf_gac138be24ecf405d8efaf1311cecc6f8b}{Push\+\_\+uint32()}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em buf} & Pointer to char buffer to print int to \\
+\hline
+\mbox{\tt in}  & {\em x} & Long to convert to text \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 129 of file buffer\+\_\+printf.\+c.
+
+\hypertarget{group__buffer__printf_gab003a6708a2b979e7910c68adcab9f3c}{}\index{printf Functionality for Buffer Module@{printf Functionality for Buffer Module}!Push\+\_\+printf@{Push\+\_\+printf}}
+\index{Push\+\_\+printf@{Push\+\_\+printf}!printf Functionality for Buffer Module@{printf Functionality for Buffer Module}}
+\subsubsection[{Push\+\_\+printf(buffer\+\_\+t $\ast$buf, char $\ast$str,...)}]{\setlength{\rightskip}{0pt plus 5cm}void Push\+\_\+printf (
+\begin{DoxyParamCaption}
+\item[{{\bf buffer\+\_\+t} $\ast$}]{buf, }
+\item[{char $\ast$}]{str, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{group__buffer__printf_gab003a6708a2b979e7910c68adcab9f3c}
+
+
+printf implementation to char buffer 
+
+Currently supports the following replacement flags\+:
+\begin{DoxyItemize}
+\item {\ttfamily c} char, replaces flag with specified A\+S\+C\+I\+I char
+\item {\ttfamily b} binary, replaces flag with Binary representation See \hyperlink{group__buffer__printf_gacba148d6061ff774027ad014e5c5640c}{Push\+Binary16()}
+\item {\ttfamily l} long, replaces flag with Binary Representation See \hyperlink{group__buffer__printf_ga6dade9cec52d66a03fb17f1e7473c912}{Push\+\_\+int32()}
+\item {\ttfamily d} signed 16 bit integer, replaces flag with specified int. See \hyperlink{group__buffer__printf_gaee96546229e607ffe14f0fa18d424f84}{Push\+\_\+int16()}
+\item {\ttfamily e} {\ttfamily f} or {\ttfamily g} float, replaces flag with specified float See \hyperlink{group__buffer__printf_gab855c78568480d35865d7a4dc92e3ddc}{Push\+Float()}
+\item {\ttfamily s} string, replaces flag with specified null terminated string See Push\+String()
+\item {\ttfamily u} unsigned 16 bit integer, replaces flag with specified unsigned int See \hyperlink{group__buffer__printf_gad72750cbd158a3b49c544426e00ee923}{Push\+\_\+uint16()}
+\item {\ttfamily x} 16 bit hex formated integer, replaces flag with 4 digit hex value See \hyperlink{group__buffer__printf_gab6d3d9b051da3fc0e7f989b1d20d7acd}{Push\+Hex()}
+\end{DoxyItemize}
+
+Example\+: 
+\begin{DoxyCode}
+1 buffer\_t tx;
+2 ...
+3 int16\_t x = -1;
+4 char name[] = "Muhlbaier";
+5 Push\_printf(&tx, "x = %d, hex - 0x%x, unsigned %u, name = %s);
+\end{DoxyCode}
+ Would push to the buffer\+: \char`\"{}x = -\/1, hex -\/ 0x\+F\+F\+F\+F, unsigned 65535, name = Muhlbaier\char`\"{}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em buf} & Pointer to char buffer to print formatted string to \\
+\hline
+\mbox{\tt in}  & {\em str} & Pointer to null terminated string with replacement flags \\
+\hline
+\mbox{\tt in}  & {\em ...} & Variable argument list corresponding with replacement flags \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 17 of file buffer\+\_\+printf.\+c.
+
+\hypertarget{group__buffer__printf_gad72750cbd158a3b49c544426e00ee923}{}\index{printf Functionality for Buffer Module@{printf Functionality for Buffer Module}!Push\+\_\+uint16@{Push\+\_\+uint16}}
+\index{Push\+\_\+uint16@{Push\+\_\+uint16}!printf Functionality for Buffer Module@{printf Functionality for Buffer Module}}
+\subsubsection[{Push\+\_\+uint16(buffer\+\_\+t $\ast$buf, uint16\+\_\+t x)}]{\setlength{\rightskip}{0pt plus 5cm}void Push\+\_\+uint16 (
+\begin{DoxyParamCaption}
+\item[{{\bf buffer\+\_\+t} $\ast$}]{buf, }
+\item[{uint16\+\_\+t}]{x}
+\end{DoxyParamCaption}
+)}\label{group__buffer__printf_gad72750cbd158a3b49c544426e00ee923}
+
+
+Push unsigned integer to char buffer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em buf} & Pointer to char buffer to print unsigned int to \\
+\hline
+\mbox{\tt in}  & {\em x} & Unsigned integer to convert to text \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 100 of file buffer\+\_\+printf.\+c.
+
+\hypertarget{group__buffer__printf_gac138be24ecf405d8efaf1311cecc6f8b}{}\index{printf Functionality for Buffer Module@{printf Functionality for Buffer Module}!Push\+\_\+uint32@{Push\+\_\+uint32}}
+\index{Push\+\_\+uint32@{Push\+\_\+uint32}!printf Functionality for Buffer Module@{printf Functionality for Buffer Module}}
+\subsubsection[{Push\+\_\+uint32(buffer\+\_\+t $\ast$buf, uint32\+\_\+t x)}]{\setlength{\rightskip}{0pt plus 5cm}void Push\+\_\+uint32 (
+\begin{DoxyParamCaption}
+\item[{{\bf buffer\+\_\+t} $\ast$}]{buf, }
+\item[{uint32\+\_\+t}]{x}
+\end{DoxyParamCaption}
+)}\label{group__buffer__printf_gac138be24ecf405d8efaf1311cecc6f8b}
+
+
+Push unsigned long integer to char buffer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em buf} & Pointer to char buffer to print unsigned long to \\
+\hline
+\mbox{\tt in}  & {\em x} & Unsigned integer to convert to text \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 137 of file buffer\+\_\+printf.\+c.
+
+\hypertarget{group__buffer__printf_ga893906e6b7b5cb026c0084dda73b9f76}{}\index{printf Functionality for Buffer Module@{printf Functionality for Buffer Module}!Push\+\_\+vprintf@{Push\+\_\+vprintf}}
+\index{Push\+\_\+vprintf@{Push\+\_\+vprintf}!printf Functionality for Buffer Module@{printf Functionality for Buffer Module}}
+\subsubsection[{Push\+\_\+vprintf(buffer\+\_\+t $\ast$buf, char $\ast$str, va\+\_\+list vars)}]{\setlength{\rightskip}{0pt plus 5cm}void Push\+\_\+vprintf (
+\begin{DoxyParamCaption}
+\item[{{\bf buffer\+\_\+t} $\ast$}]{buf, }
+\item[{char $\ast$}]{str, }
+\item[{va\+\_\+list}]{vars}
+\end{DoxyParamCaption}
+)}\label{group__buffer__printf_ga893906e6b7b5cb026c0084dda73b9f76}
+
+
+vprintf implementation to char buffer 
+
+Same as \hyperlink{group__buffer__printf_gab003a6708a2b979e7910c68adcab9f3c}{Push\+\_\+printf()} except with a va\+\_\+list pointer instead of an actual variable argument list. This allows other functions similar to Push\+\_\+printf to be implemented.
+
+For example\+: 
+\begin{DoxyCode}
+1 void LogStr(char * str, ...) \{
+2    va\_list vars;
+3    va\_start(vars, str);
+4    // use Push\_vprintf to log to SUBSYS\_UART
+5    Push\_vprintf(SUBSYS\_UART, str, vars);
+6    va\_end(vars);
+7 \}
+\end{DoxyCode}
+
+
+See \hyperlink{group__buffer__printf_gab003a6708a2b979e7910c68adcab9f3c}{Push\+\_\+printf()}
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em buf} & Pointer to char buffer to print formatted string to \\
+\hline
+\mbox{\tt in}  & {\em str} & Pointer to null terminated string with replacement flags \\
+\hline
+\mbox{\tt in}  & {\em vars} & Variable argument list corresponding with replacement flags \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 27 of file buffer\+\_\+printf.\+c.
+
+\hypertarget{group__buffer__printf_gacba148d6061ff774027ad014e5c5640c}{}\index{printf Functionality for Buffer Module@{printf Functionality for Buffer Module}!Push\+Binary16@{Push\+Binary16}}
+\index{Push\+Binary16@{Push\+Binary16}!printf Functionality for Buffer Module@{printf Functionality for Buffer Module}}
+\subsubsection[{Push\+Binary16(buffer\+\_\+t $\ast$buf, uint16\+\_\+t x)}]{\setlength{\rightskip}{0pt plus 5cm}void Push\+Binary16 (
+\begin{DoxyParamCaption}
+\item[{{\bf buffer\+\_\+t} $\ast$}]{buf, }
+\item[{uint16\+\_\+t}]{x}
+\end{DoxyParamCaption}
+)}\label{group__buffer__printf_gacba148d6061ff774027ad014e5c5640c}
+
+
+Push 16 bit binary number to char buffer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em buf} & Pointer to char buffer to print to \\
+\hline
+\mbox{\tt in}  & {\em x} & Unsigned 16-\/bit integer to convert to text in binary format \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 113 of file buffer\+\_\+printf.\+c.
+
+\hypertarget{group__buffer__printf_gab855c78568480d35865d7a4dc92e3ddc}{}\index{printf Functionality for Buffer Module@{printf Functionality for Buffer Module}!Push\+Float@{Push\+Float}}
+\index{Push\+Float@{Push\+Float}!printf Functionality for Buffer Module@{printf Functionality for Buffer Module}}
+\subsubsection[{Push\+Float(buffer\+\_\+t $\ast$buf, float x)}]{\setlength{\rightskip}{0pt plus 5cm}void Push\+Float (
+\begin{DoxyParamCaption}
+\item[{{\bf buffer\+\_\+t} $\ast$}]{buf, }
+\item[{float}]{x}
+\end{DoxyParamCaption}
+)}\label{group__buffer__printf_gab855c78568480d35865d7a4dc92e3ddc}
+
+
+Cheap implementation of float to char buffer. 
+
+Current implementation will format float as 0.\+000 by first printing out the integer portion of the float then multiplying the float by 1000 and subtracting the integer portion x 1000 and printing that after the .
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em buf} & Pointer to char buffer to print float to \\
+\hline
+\mbox{\tt in}  & {\em x} & Float value to convert to text \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 171 of file buffer\+\_\+printf.\+c.
+
+\hypertarget{group__buffer__printf_gab6d3d9b051da3fc0e7f989b1d20d7acd}{}\index{printf Functionality for Buffer Module@{printf Functionality for Buffer Module}!Push\+Hex@{Push\+Hex}}
+\index{Push\+Hex@{Push\+Hex}!printf Functionality for Buffer Module@{printf Functionality for Buffer Module}}
+\subsubsection[{Push\+Hex(buffer\+\_\+t $\ast$buf, uint16\+\_\+t x)}]{\setlength{\rightskip}{0pt plus 5cm}void Push\+Hex (
+\begin{DoxyParamCaption}
+\item[{{\bf buffer\+\_\+t} $\ast$}]{buf, }
+\item[{uint16\+\_\+t}]{x}
+\end{DoxyParamCaption}
+)}\label{group__buffer__printf_gab6d3d9b051da3fc0e7f989b1d20d7acd}
+
+
+Push 16 bit value to char buffer in hex format. 
+
+Will push four char\textquotesingle{}s to the buffer, for example\+: A0\+F3
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em buf} & Pointer to char buffer to print hex formatted int to \\
+\hline
+\mbox{\tt in}  & {\em x} & Integer to convert to hex \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 156 of file buffer\+\_\+printf.\+c.
+
+\hypertarget{group__buffer__printf_ga542a3f217761e35cd7067f468e667495}{}\index{printf Functionality for Buffer Module@{printf Functionality for Buffer Module}!Push\+Str@{Push\+Str}}
+\index{Push\+Str@{Push\+Str}!printf Functionality for Buffer Module@{printf Functionality for Buffer Module}}
+\subsubsection[{Push\+Str(buffer\+\_\+t $\ast$buf, char $\ast$str)}]{\setlength{\rightskip}{0pt plus 5cm}void Push\+Str (
+\begin{DoxyParamCaption}
+\item[{{\bf buffer\+\_\+t} $\ast$}]{buf, }
+\item[{char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}\label{group__buffer__printf_ga542a3f217761e35cd7067f468e667495}
+
+
+Push char array (string) to char buffer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\tt in}  & {\em buf} & Pointer to char buffer to print string to \\
+\hline
+\mbox{\tt in}  & {\em str} & Pointer to null terminated char array (e.\+g. string) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 150 of file buffer\+\_\+printf.\+c.
+

@@ -1,0 +1,141 @@
+\hypertarget{_t_i_m1_8c}{}\section{T\+I\+M1.\+c File Reference}
+\label{_t_i_m1_8c}\index{T\+I\+M1.\+c@{T\+I\+M1.\+c}}
+{\ttfamily \#include \char`\"{}library.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}T\+I\+M\+\_\+\+Core.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}random\+\_\+int.\+h\char`\"{}}\\*
+{\ttfamily \#include $<$string.\+h$>$}\\*
+{\ttfamily \#include $<$strings.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_channel_data}{Channel\+Data}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_t_i_m1_8c_ab0bf2da84344cc59e76fdf07beb14e73}{Meta\+T\+E\+D\+S\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Initializes the Meta\+T\+E\+D\+S in R\+A\+M for use by the N\+C\+A\+P. \end{DoxyCompactList}\item 
+int \hyperlink{_t_i_m1_8c_afc000f73c85278581fda25ab38797497}{Read\+Channel\+Transducer\+Data} (char $\ast$Channel\+I\+D)
+\begin{DoxyCompactList}\small\item\em Reads the data from a specific channel. \end{DoxyCompactList}\item 
+void \hyperlink{_t_i_m1_8c_a03b0af099ef9f2bc44533b90d00d7cbd}{Write\+Channel\+Transducer\+Data} (char $\ast$Channel\+I\+D, int Write\+Data)
+\begin{DoxyCompactList}\small\item\em Writes data to a specific channel. \end{DoxyCompactList}\item 
+void \hyperlink{_t_i_m1_8c_af966cacd113c4fb6a2ebdcd1082af15b}{Read\+Meta\+T\+E\+D\+S} (void)
+\begin{DoxyCompactList}\small\item\em Returns the content of the current verson of the Meta\+T\+E\+D\+S in R\+A\+M. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_channel_data}{Channel\+Data} \hyperlink{_t_i_m1_8c_aaef946a06f16670a5722e832a67f8dc1}{Chan\+Data}
+\item 
+\hyperlink{struct_m_e_t_a___t_e_d_s}{M\+E\+T\+A\+\_\+\+T\+E\+D\+S} \hyperlink{_t_i_m1_8c_a89746acc72a4360e6ab270762c5e7d0b}{M\+T\+E\+D\+S}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{_t_i_m1_8c_ab0bf2da84344cc59e76fdf07beb14e73}{}\index{T\+I\+M1.\+c@{T\+I\+M1.\+c}!Meta\+T\+E\+D\+S\+Init@{Meta\+T\+E\+D\+S\+Init}}
+\index{Meta\+T\+E\+D\+S\+Init@{Meta\+T\+E\+D\+S\+Init}!T\+I\+M1.\+c@{T\+I\+M1.\+c}}
+\subsubsection[{Meta\+T\+E\+D\+S\+Init(void)}]{\setlength{\rightskip}{0pt plus 5cm}void Meta\+T\+E\+D\+S\+Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_t_i_m1_8c_ab0bf2da84344cc59e76fdf07beb14e73}
+
+
+Initializes the Meta\+T\+E\+D\+S in R\+A\+M for use by the N\+C\+A\+P. 
+
+\begin{DoxyWarning}{Warning}
+All current values are arbitrary! Please refer to P21451-\/2 for proper value ranges. 
+\end{DoxyWarning}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000035}{Todo}]Implement Flash Memory read/write so that changes are saved between power cycles. \end{DoxyRefDesc}
+$<$ 
+
+Definition at line 28 of file T\+I\+M1.\+c.
+
+\hypertarget{_t_i_m1_8c_afc000f73c85278581fda25ab38797497}{}\index{T\+I\+M1.\+c@{T\+I\+M1.\+c}!Read\+Channel\+Transducer\+Data@{Read\+Channel\+Transducer\+Data}}
+\index{Read\+Channel\+Transducer\+Data@{Read\+Channel\+Transducer\+Data}!T\+I\+M1.\+c@{T\+I\+M1.\+c}}
+\subsubsection[{Read\+Channel\+Transducer\+Data(char $\ast$\+Channel\+I\+D)}]{\setlength{\rightskip}{0pt plus 5cm}int Read\+Channel\+Transducer\+Data (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{Channel\+I\+D}
+\end{DoxyParamCaption}
+)}\label{_t_i_m1_8c_afc000f73c85278581fda25ab38797497}
+
+
+Reads the data from a specific channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Channel\+I\+D} & The channel number in the form of \char`\"{}\+X\+X\+X\char`\"{}, where X is a char from 0-\/9. ad X\+X\+X ranges from \char`\"{}000\char`\"{} -\/ \char`\"{}255\char`\"{} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Current implementation only produces a random number when asked for data. 
+\end{DoxyWarning}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000036}{Todo}]Implement a proper sensor and produce readings for it.\end{DoxyRefDesc}
+
+
+Definition at line 60 of file T\+I\+M1.\+c.
+
+\hypertarget{_t_i_m1_8c_af966cacd113c4fb6a2ebdcd1082af15b}{}\index{T\+I\+M1.\+c@{T\+I\+M1.\+c}!Read\+Meta\+T\+E\+D\+S@{Read\+Meta\+T\+E\+D\+S}}
+\index{Read\+Meta\+T\+E\+D\+S@{Read\+Meta\+T\+E\+D\+S}!T\+I\+M1.\+c@{T\+I\+M1.\+c}}
+\subsubsection[{Read\+Meta\+T\+E\+D\+S(void)}]{\setlength{\rightskip}{0pt plus 5cm}void Read\+Meta\+T\+E\+D\+S (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_t_i_m1_8c_af966cacd113c4fb6a2ebdcd1082af15b}
+
+
+Returns the content of the current verson of the Meta\+T\+E\+D\+S in R\+A\+M. 
+
+Currently this function is implemented using U\+A\+R\+T\+\_\+\+Printf. \begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000038}{Todo}]Find a more efficient way of returning the Meta\+T\+E\+D\+S back to the N\+C\+A\+P. \end{DoxyRefDesc}
+
+
+Definition at line 80 of file T\+I\+M1.\+c.
+
+\hypertarget{_t_i_m1_8c_a03b0af099ef9f2bc44533b90d00d7cbd}{}\index{T\+I\+M1.\+c@{T\+I\+M1.\+c}!Write\+Channel\+Transducer\+Data@{Write\+Channel\+Transducer\+Data}}
+\index{Write\+Channel\+Transducer\+Data@{Write\+Channel\+Transducer\+Data}!T\+I\+M1.\+c@{T\+I\+M1.\+c}}
+\subsubsection[{Write\+Channel\+Transducer\+Data(char $\ast$\+Channel\+I\+D, int Write\+Data)}]{\setlength{\rightskip}{0pt plus 5cm}void Write\+Channel\+Transducer\+Data (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{Channel\+I\+D, }
+\item[{int}]{Write\+Data}
+\end{DoxyParamCaption}
+)}\label{_t_i_m1_8c_a03b0af099ef9f2bc44533b90d00d7cbd}
+
+
+Writes data to a specific channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Channel\+I\+D} & The channel number in the form \char`\"{}\+X\+X\+X\char`\"{}, where X is a char from 0-\/9 and X\+X\+X ranges from \char`\"{}000\char`\"{}-\/ \char`\"{}255\char`\"{} \\
+\hline
+{\em Write\+Data} & Data to be written to the specific transducer.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyWarning}{Warning}
+Currently not implemented in T\+I\+M\+\_\+\+C\+O\+R\+E. 
+\end{DoxyWarning}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000037}{Todo}]Find in the standard how Write\+Data needs to be formatted (if at all). \end{DoxyRefDesc}
+
+
+Definition at line 72 of file T\+I\+M1.\+c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{_t_i_m1_8c_aaef946a06f16670a5722e832a67f8dc1}{}\index{T\+I\+M1.\+c@{T\+I\+M1.\+c}!Chan\+Data@{Chan\+Data}}
+\index{Chan\+Data@{Chan\+Data}!T\+I\+M1.\+c@{T\+I\+M1.\+c}}
+\subsubsection[{Chan\+Data}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf Channel\+Data} Chan\+Data}\label{_t_i_m1_8c_aaef946a06f16670a5722e832a67f8dc1}
+
+
+Definition at line 21 of file T\+I\+M1.\+c.
+
+\hypertarget{_t_i_m1_8c_a89746acc72a4360e6ab270762c5e7d0b}{}\index{T\+I\+M1.\+c@{T\+I\+M1.\+c}!M\+T\+E\+D\+S@{M\+T\+E\+D\+S}}
+\index{M\+T\+E\+D\+S@{M\+T\+E\+D\+S}!T\+I\+M1.\+c@{T\+I\+M1.\+c}}
+\subsubsection[{M\+T\+E\+D\+S}]{\setlength{\rightskip}{0pt plus 5cm}{\bf M\+E\+T\+A\+\_\+\+T\+E\+D\+S} M\+T\+E\+D\+S}\label{_t_i_m1_8c_a89746acc72a4360e6ab270762c5e7d0b}
+
+
+Definition at line 24 of file T\+I\+M1.\+c.
+

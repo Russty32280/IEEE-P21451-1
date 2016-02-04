@@ -1,0 +1,60 @@
+.TH "buffer_printf.c" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+buffer_printf.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'system\&.h'\fP
+.br
+\fC#include <stdarg\&.h>\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBPush_printf\fP (\fBbuffer_t\fP *buf, char *str,\&.\&.\&.)"
+.br
+.RI "\fIprintf implementation to char buffer \fP"
+.ti -1c
+.RI "void \fBPush_vprintf\fP (\fBbuffer_t\fP *buf, char *str, va_list vars)"
+.br
+.RI "\fIvprintf implementation to char buffer \fP"
+.ti -1c
+.RI "void \fBPush_uint16\fP (\fBbuffer_t\fP *buf, uint16_t x)"
+.br
+.RI "\fIPush unsigned integer to char buffer\&. \fP"
+.ti -1c
+.RI "void \fBPushBinary16\fP (\fBbuffer_t\fP *buf, uint16_t x)"
+.br
+.RI "\fIPush 16 bit binary number to char buffer\&. \fP"
+.ti -1c
+.RI "void \fBPush_int16\fP (\fBbuffer_t\fP *buf, int16_t x)"
+.br
+.RI "\fIPush integer to char buffer\&. \fP"
+.ti -1c
+.RI "void \fBPush_int32\fP (\fBbuffer_t\fP *buf, int32_t x)"
+.br
+.RI "\fIPush long to char buffer\&. \fP"
+.ti -1c
+.RI "void \fBPush_uint32\fP (\fBbuffer_t\fP *buf, uint32_t x)"
+.br
+.RI "\fIPush unsigned long integer to char buffer\&. \fP"
+.ti -1c
+.RI "void \fBPushStr\fP (\fBbuffer_t\fP *buf, char *str)"
+.br
+.RI "\fIPush char array (string) to char buffer\&. \fP"
+.ti -1c
+.RI "void \fBPushHex\fP (\fBbuffer_t\fP *buf, uint16_t x)"
+.br
+.RI "\fIPush 16 bit value to char buffer in hex format\&. \fP"
+.ti -1c
+.RI "void \fBPushFloat\fP (\fBbuffer_t\fP *buf, float x)"
+.br
+.RI "\fICheap implementation of float to char buffer\&. \fP"
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

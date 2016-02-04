@@ -1,0 +1,48 @@
+.TH "version_mmb_t" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+version_mmb_t \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <subsys\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint16_t \fBbuild\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBminor\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBmajor\fP"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Version typedef to store software version of subsystem
+.PP
+The version is split into three numbers: major\&.minor\&.build where major and minor are 0-255 and build is 0-65535 build should be incremented as frequently as possible (automatically on build if possible with the compiler) 
+.PP
+Definition at line 37 of file subsys\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint16_t build"
+build number 
+.PP
+Definition at line 38 of file subsys\&.h\&.
+.SS "uint8_t major"
+major version 
+.PP
+Definition at line 40 of file subsys\&.h\&.
+.SS "uint8_t minor"
+minor version 
+.PP
+Definition at line 39 of file subsys\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

@@ -1,0 +1,62 @@
+.TH "hal_general.h" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+hal_general.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <msp430\&.h>\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBNop\fP()   _NOP()"
+.br
+.ti -1c
+.RI "#define \fBDisableInterrupts\fP()   _DINT()"
+.br
+.ti -1c
+.RI "#define \fBEnableInterrupts\fP()   _EINT()"
+.br
+.ti -1c
+.RI "#define \fBBlockInterrupts\fP()   uint8_t intSta = (_get_SR_register() & GIE); \fBDisableInterrupts\fP()"
+.br
+.ti -1c
+.RI "#define \fBRestoreInterrupts\fP()   if(intSta){\fBEnableInterrupts\fP();}"
+.br
+.ti -1c
+.RI "#define \fBRESET\fP()   (WDTCTL=1)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define BlockInterrupts()   uint8_t intSta = (_get_SR_register() & GIE); \fBDisableInterrupts\fP()"
+
+.PP
+Definition at line 17 of file hal_general\&.h\&.
+.SS "#define DisableInterrupts()   _DINT()"
+
+.PP
+Definition at line 15 of file hal_general\&.h\&.
+.SS "#define EnableInterrupts()   _EINT()"
+
+.PP
+Definition at line 16 of file hal_general\&.h\&.
+.SS "#define Nop()   _NOP()"
+
+.PP
+Definition at line 13 of file hal_general\&.h\&.
+.SS "#define RESET()   (WDTCTL=1)"
+
+.PP
+Definition at line 19 of file hal_general\&.h\&.
+.SS "#define RestoreInterrupts()   if(intSta){\fBEnableInterrupts\fP();}"
+
+.PP
+Definition at line 18 of file hal_general\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

@@ -1,0 +1,127 @@
+.TH "task.c" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+task.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'system\&.h'\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBtask_t\fP"
+.br
+.RI "\fItask structure \fP"
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBMAX_TASK_LENGTH\fP   20"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef struct \fBtask_t\fP \fBtask_t\fP"
+.br
+.RI "\fItask structure \fP"
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBRollTimer\fP (void)"
+.br
+.ti -1c
+.RI "uint8_t \fBsort_tasks\fP (\fBtask_t\fP *a, \fBtask_t\fP *b)"
+.br
+.ti -1c
+.RI "uint8_t \fBidentify_task\fP (void *fn_and_ptr[], \fBtask_t\fP *task)"
+.br
+.ti -1c
+.RI "void \fBTask_Init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSystemTick\fP (void)"
+.br
+.ti -1c
+.RI "void \fBTask_Queue\fP (\fBtask_fn_t\fP fn, void *pointer)"
+.br
+.RI "\fIAdds a function to the task queue\&. \fP"
+.ti -1c
+.RI "void \fBTask_Schedule\fP (\fBtask_fn_t\fP fn, void *pointer, \fBtint_t\fP delay, \fBtint_t\fP period)"
+.br
+.RI "\fIAdds task to be scheduled for execution\&. \fP"
+.ti -1c
+.RI "void \fBTask_Remove\fP (\fBtask_fn_t\fP fn, void *pointer)"
+.br
+.RI "\fIRemoves Task\&. \fP"
+.ti -1c
+.RI "void \fBWaitMs\fP (\fBtint_t\fP wait)"
+.br
+.ti -1c
+.RI "uint8_t \fBTask_IsScheduled\fP (\fBtask_fn_t\fP fn)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBtask_t\fP \fBtask_array\fP [\fBMAX_TASK_LENGTH\fP]"
+.br
+.ti -1c
+.RI "\fBlist_link_t\fP \fBtask_links\fP [\fBMAX_TASK_LENGTH\fP]"
+.br
+.ti -1c
+.RI "\fBlist_t\fP \fBtask_list\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define MAX_TASK_LENGTH   20"
+
+.PP
+Definition at line 10 of file task\&.c\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef struct \fBtask_t\fP  \fBtask_t\fP"
+
+.PP
+task structure 
+.SH "Function Documentation"
+.PP 
+.SS "uint8_t identify_task (void * fn_and_ptr[], \fBtask_t\fP * task)"
+
+.PP
+Definition at line 40 of file task\&.c\&.
+.SS "void RollTimer (void)"
+
+.PP
+Definition at line 136 of file task\&.c\&.
+.SS "uint8_t sort_tasks (\fBtask_t\fP * a, \fBtask_t\fP * b)"
+
+.PP
+Definition at line 30 of file task\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "\fBtask_t\fP task_array[\fBMAX_TASK_LENGTH\fP]"
+
+.PP
+Definition at line 24 of file task\&.c\&.
+.SS "\fBlist_link_t\fP task_links[\fBMAX_TASK_LENGTH\fP]"
+
+.PP
+Definition at line 25 of file task\&.c\&.
+.SS "\fBlist_t\fP task_list"
+
+.PP
+Definition at line 26 of file task\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

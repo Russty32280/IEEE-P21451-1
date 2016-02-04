@@ -1,0 +1,33 @@
+\hypertarget{buffer_8h}{}\section{buffer.\+h File Reference}
+\label{buffer_8h}\index{buffer.\+h@{buffer.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structbuffer__t}{buffer\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__buffer_ga8b3828d728c4b468929da4c0a9ac421e}{B\+U\+F\+F\+E\+R\+\_\+\+P\+U\+S\+H\+\_\+\+F\+A\+I\+L\+E\+D}~1
+\begin{DoxyCompactList}\small\item\em push failed (return value of \hyperlink{group__buffer_ga1a97e2269e9b21fc61b6e72ffdd2e374}{Push\+Data()} ) \end{DoxyCompactList}\item 
+\#define \hyperlink{group__buffer_ga3fe3330725cee94f2c690f7e394a7cb0}{B\+U\+F\+F\+E\+R\+\_\+\+P\+U\+S\+H\+\_\+\+S\+U\+C\+C\+E\+E\+D\+E\+D}~0
+\begin{DoxyCompactList}\small\item\em push succeeded (return value of \hyperlink{group__buffer_ga1a97e2269e9b21fc61b6e72ffdd2e374}{Push\+Data()} ) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__buffer_ga04dedbe0ceb1f5628c637eeb22aa99dc}{Push} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buffer, char data)
+\item 
+char \hyperlink{group__buffer_gaedbaa6dbfaaad8dffa141ed477e19b5f}{Pop} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buffer)
+\item 
+uint16\+\_\+t \hyperlink{group__buffer_ga01cf612935f5c2ae330920b78e8c8b9f}{Get\+Size} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buffer)
+\item 
+void \hyperlink{group__buffer_gaa5f81f606966455aa57a314ddd4e50d4}{Buffer\+Init} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buffer, char $\ast$data\+\_\+array, uint16\+\_\+t max\+\_\+size)
+\item 
+void \hyperlink{group__buffer_gaa42698076e74a52bac047b35b3bf6b97}{Buffer\+Set\+Callback} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buffer, void($\ast$Callback)(\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buffer))
+\item 
+void \hyperlink{group__buffer_ga56da56e8e27b583bd46efb4d391b53da}{Buffer\+Clear\+Callback} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buffer)
+\item 
+char \hyperlink{group__buffer_ga1a97e2269e9b21fc61b6e72ffdd2e374}{Push\+Data} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buffer, char $\ast$data, uint16\+\_\+t length)
+\end{DoxyCompactItemize}

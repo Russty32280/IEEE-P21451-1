@@ -1,0 +1,77 @@
+.TH "TIM_Core.c" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TIM_Core.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <string\&.h>\fP
+.br
+\fC#include <strings\&.h>\fP
+.br
+\fC#include 'macros\&.h'\fP
+.br
+\fC#include 'system\&.h'\fP
+.br
+\fC#include 'library\&.h'\fP
+.br
+\fC#include 'random_int\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBUART_CHANNEL\fP   1"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBTIM_Init\fP (void)"
+.br
+.RI "\fIRuns UART and TEDS Initialization\&. \fP"
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "char \fBreceive_buffer\fP [\fBRECEIVE_MAX_LENGTH\fP]"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define UART_CHANNEL   1"
+
+.PP
+Definition at line 17 of file TIM_Core\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void TIM_Init (void)"
+
+.PP
+Runs UART and TEDS Initialization\&. Initializes the TIM by registering the UART reciever as well as calling \fBMetaTEDSInit()\fP to load the MetaTEDs into memory\&.
+.PP
+\fBTodo\fP
+.RS 4
+Implement and call the ChannelTEDS Init funciton\&. 
+.PP
+Add in support for other connection mediums (NRF, SPI, etc)\&. 
+.RE
+.PP
+
+.PP
+Definition at line 29 of file TIM_Core\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "char receive_buffer[\fBRECEIVE_MAX_LENGTH\fP]"
+
+.PP
+Definition at line 21 of file TIM_Core\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

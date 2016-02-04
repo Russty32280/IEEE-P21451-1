@@ -1,0 +1,386 @@
+\hypertarget{uart_8c}{}\section{uart.\+c File Reference}
+\label{uart_8c}\index{uart.\+c@{uart.\+c}}
+{\ttfamily \#include \char`\"{}system.\+h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}hal\+\_\+uart.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{uart_8c_a1fac9153314479ad0ad495d752f0224a}{U\+A\+R\+T\+\_\+\+B\+A\+U\+D}~115200
+\item 
+\#define \hyperlink{uart_8c_aa55605484e783ee738b6f4e7b251cbee}{N\+U\+M\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S}~2
+\item 
+\#define \hyperlink{uart_8c_a89c72e8dda77303481c66ea58c87745a}{U\+A\+R\+T\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}~128
+\item 
+\#define \hyperlink{uart_8c_a908134ab7e98ba6c65a82355b15485b9}{U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}~32
+\item 
+\#define \hyperlink{uart_8c_a849cdffed1f4946b2f28e1a2559e205e}{U\+A\+R\+T\+\_\+\+M\+A\+X\+\_\+\+C\+H\+A\+R\+S\+\_\+\+P\+E\+R\+\_\+\+C\+A\+L\+L}~20
+\item 
+\#define \hyperlink{uart_8c_a1a082325089226ec1c3d5e7692d6f103}{U\+A\+R\+T1\+\_\+\+B\+A\+U\+D}~\hyperlink{uart_8c_a1fac9153314479ad0ad495d752f0224a}{U\+A\+R\+T\+\_\+\+B\+A\+U\+D}
+\item 
+\#define \hyperlink{uart_8c_af75f9e07ac4c2a7d37afb2c70acff17b}{N\+U\+M\+\_\+\+U\+A\+R\+T1\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S}~\hyperlink{uart_8c_aa55605484e783ee738b6f4e7b251cbee}{N\+U\+M\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S}
+\item 
+\#define \hyperlink{uart_8c_a97b8382171909218ec2063bfee8e0cc2}{U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}~\hyperlink{uart_8c_a908134ab7e98ba6c65a82355b15485b9}{U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}
+\item 
+\#define \hyperlink{uart_8c_a5cb76874abe271e651a6fbb682deb1e4}{U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}~\hyperlink{uart_8c_a89c72e8dda77303481c66ea58c87745a}{U\+A\+R\+T\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}
+\item 
+\#define \hyperlink{uart_8c_a8309e50d2ad7393eda0b9b3dccb273b0}{N\+U\+M\+\_\+\+U\+A\+R\+T\+S}~2
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{uart_8c_a09072ba6bc738148904a63c42e3a6ba2}{U\+A\+R\+T\+\_\+\+Tx\+\_\+\+Start} (uint8\+\_\+t channel)
+\item 
+void \hyperlink{uart_8c_ace506ef2867a6ee30406b132eb624ed8}{U\+A\+R\+T\+\_\+\+Init} (uint8\+\_\+t channel)
+\item 
+void \hyperlink{uart_8c_a008186aec9ff8f73dd86d85470e98633}{U\+A\+R\+T\+\_\+\+Tick} (void)
+\item 
+void \hyperlink{uart_8c_a40486aeabcf8a17f819de9d0e619f887}{U\+A\+R\+T\+\_\+\+Tx\+\_\+\+Handler} (uint8\+\_\+t channel)
+\item 
+void \hyperlink{uart_8c_a522aaeb0db3ac744ef8684ee67b66c4c}{U\+A\+R\+T\+\_\+\+Rx\+\_\+\+Handler} (uint8\+\_\+t channel)
+\item 
+void \hyperlink{uart_8c_a48cc1ee3aadabfcf41e7bbc34e599591}{U\+A\+R\+T\+\_\+\+Write\+Byte} (uint8\+\_\+t channel, char data)
+\item 
+void \hyperlink{uart_8c_a7c3b2c7e6262eeb1a935a3f71cece10f}{U\+A\+R\+T\+\_\+\+Write} (uint8\+\_\+t channel, char $\ast$data, uint16\+\_\+t length)
+\item 
+void \hyperlink{uart_8c_a938ff162e09b003006152435a33ba5f5}{U\+A\+R\+T\+\_\+\+Printf} (uint8\+\_\+t channel, char $\ast$str,...)
+\item 
+void \hyperlink{uart_8c_abdf0ba3f8f1394b4341cbcd4311b8fc1}{U\+A\+R\+T\+\_\+vprintf} (uint8\+\_\+t channel, char $\ast$str, va\+\_\+list vars)
+\item 
+void \hyperlink{uart_8c_a1ea8231d46fb22882c651e4a366b405d}{U\+A\+R\+T\+\_\+\+Register\+Receiver} (uint8\+\_\+t channel, \hyperlink{group__receiverlist_ga69666a2f4dbb47a4ffd7b07c252777cf}{char\+Receiver\+\_\+t} fn)
+\item 
+void \hyperlink{uart_8c_ab8131c604cf143b5e978881a3f043de6}{U\+A\+R\+T\+\_\+\+Unregister\+Receiver} (uint8\+\_\+t channel, \hyperlink{group__receiverlist_ga69666a2f4dbb47a4ffd7b07c252777cf}{char\+Receiver\+\_\+t} fn)
+\item 
+uint8\+\_\+t \hyperlink{uart_8c_abfcf7b1a99eb08daa5715769c224c7f5}{U\+A\+R\+T\+\_\+\+Is\+Transmitting} (uint8\+\_\+t channel)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structbuffer__t}{buffer\+\_\+t} \hyperlink{uart_8c_a510a4fd51e1e3242d95a27544607288b}{rx1}
+\item 
+\hyperlink{structbuffer__t}{buffer\+\_\+t} \hyperlink{uart_8c_a2d48e4797a64844f13a98cf99d6d77bc}{tx1}
+\item 
+char \hyperlink{uart_8c_ac5f64edd8d238968efb6edb14f775035}{tx\+\_\+buffer\+\_\+array1} \mbox{[}\hyperlink{uart_8c_a89c72e8dda77303481c66ea58c87745a}{U\+A\+R\+T\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}\mbox{]}
+\item 
+char \hyperlink{uart_8c_aa1ec2c798dd6e747d75ebf08ef3dc293}{rx\+\_\+buffer\+\_\+array1} \mbox{[}\hyperlink{uart_8c_a908134ab7e98ba6c65a82355b15485b9}{U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}\mbox{]}
+\item 
+\hyperlink{structchar_receiver_list__t}{char\+Receiver\+List\+\_\+t} \hyperlink{uart_8c_a0501b1dc1cc0330b1684a47096725a4d}{receiver\+List1}
+\item 
+\hyperlink{group__receiverlist_ga69666a2f4dbb47a4ffd7b07c252777cf}{char\+Receiver\+\_\+t} \hyperlink{uart_8c_a60aa6512ac83d5ae3315b0c7c458e0f6}{receiver\+\_\+array1} \mbox{[}\hyperlink{uart_8c_af75f9e07ac4c2a7d37afb2c70acff17b}{N\+U\+M\+\_\+\+U\+A\+R\+T1\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S}\mbox{]}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\hyperlink{structbuffer__t}{buffer\_t} $\ast$ \hyperlink{uart_8c_a13c4779addfb53cb87d014a0eb04ea0d}{rx}\\
+\>\hyperlink{structbuffer__t}{buffer\_t} $\ast$ \hyperlink{uart_8c_a7915f81b46bf81cec1c8c716d5d6bdf1}{tx}\\
+\>\hyperlink{structchar_receiver_list__t}{charReceiverList\_t} $\ast$ \hyperlink{uart_8c_ae7ad565619f04d6d1bb47aa7c6a5e02e}{receiverList}\\
+\} \hyperlink{uart_8c_ac0d5e67a623f5c0ff666fdf5342aa162}{uart} \mbox{[}\hyperlink{uart_8c_a8309e50d2ad7393eda0b9b3dccb273b0}{NUM\_UARTS}\mbox{]}\\
+
+\end{tabbing}\item 
+uint8\+\_\+t \hyperlink{uart_8c_a1d2e5e2303676dccf03415c32adef94b}{rx\+\_\+flags}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{uart_8c_aa55605484e783ee738b6f4e7b251cbee}{}\index{uart.\+c@{uart.\+c}!N\+U\+M\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S@{N\+U\+M\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S}}
+\index{N\+U\+M\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S@{N\+U\+M\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S}!uart.\+c@{uart.\+c}}
+\subsubsection[{N\+U\+M\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+U\+M\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S~2}\label{uart_8c_aa55605484e783ee738b6f4e7b251cbee}
+
+
+Definition at line 35 of file uart.\+c.
+
+\hypertarget{uart_8c_af75f9e07ac4c2a7d37afb2c70acff17b}{}\index{uart.\+c@{uart.\+c}!N\+U\+M\+\_\+\+U\+A\+R\+T1\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S@{N\+U\+M\+\_\+\+U\+A\+R\+T1\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S}}
+\index{N\+U\+M\+\_\+\+U\+A\+R\+T1\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S@{N\+U\+M\+\_\+\+U\+A\+R\+T1\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S}!uart.\+c@{uart.\+c}}
+\subsubsection[{N\+U\+M\+\_\+\+U\+A\+R\+T1\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+U\+M\+\_\+\+U\+A\+R\+T1\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S~{\bf N\+U\+M\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S}}\label{uart_8c_af75f9e07ac4c2a7d37afb2c70acff17b}
+
+
+Definition at line 165 of file uart.\+c.
+
+\hypertarget{uart_8c_a8309e50d2ad7393eda0b9b3dccb273b0}{}\index{uart.\+c@{uart.\+c}!N\+U\+M\+\_\+\+U\+A\+R\+T\+S@{N\+U\+M\+\_\+\+U\+A\+R\+T\+S}}
+\index{N\+U\+M\+\_\+\+U\+A\+R\+T\+S@{N\+U\+M\+\_\+\+U\+A\+R\+T\+S}!uart.\+c@{uart.\+c}}
+\subsubsection[{N\+U\+M\+\_\+\+U\+A\+R\+T\+S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\+U\+M\+\_\+\+U\+A\+R\+T\+S~2}\label{uart_8c_a8309e50d2ad7393eda0b9b3dccb273b0}
+
+
+Definition at line 212 of file uart.\+c.
+
+\hypertarget{uart_8c_a1a082325089226ec1c3d5e7692d6f103}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T1\+\_\+\+B\+A\+U\+D@{U\+A\+R\+T1\+\_\+\+B\+A\+U\+D}}
+\index{U\+A\+R\+T1\+\_\+\+B\+A\+U\+D@{U\+A\+R\+T1\+\_\+\+B\+A\+U\+D}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T1\+\_\+\+B\+A\+U\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T1\+\_\+\+B\+A\+U\+D~{\bf U\+A\+R\+T\+\_\+\+B\+A\+U\+D}}\label{uart_8c_a1a082325089226ec1c3d5e7692d6f103}
+
+
+Definition at line 162 of file uart.\+c.
+
+\hypertarget{uart_8c_a97b8382171909218ec2063bfee8e0cc2}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H@{U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}}
+\index{U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H@{U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T1\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H~{\bf U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}}\label{uart_8c_a97b8382171909218ec2063bfee8e0cc2}
+
+
+Definition at line 168 of file uart.\+c.
+
+\hypertarget{uart_8c_a5cb76874abe271e651a6fbb682deb1e4}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H@{U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}}
+\index{U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H@{U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T1\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H~{\bf U\+A\+R\+T\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}}\label{uart_8c_a5cb76874abe271e651a6fbb682deb1e4}
+
+
+Definition at line 171 of file uart.\+c.
+
+\hypertarget{uart_8c_a1fac9153314479ad0ad495d752f0224a}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T\+\_\+\+B\+A\+U\+D@{U\+A\+R\+T\+\_\+\+B\+A\+U\+D}}
+\index{U\+A\+R\+T\+\_\+\+B\+A\+U\+D@{U\+A\+R\+T\+\_\+\+B\+A\+U\+D}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+B\+A\+U\+D}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T\+\_\+\+B\+A\+U\+D~115200}\label{uart_8c_a1fac9153314479ad0ad495d752f0224a}
+
+
+Definition at line 33 of file uart.\+c.
+
+\hypertarget{uart_8c_a849cdffed1f4946b2f28e1a2559e205e}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T\+\_\+\+M\+A\+X\+\_\+\+C\+H\+A\+R\+S\+\_\+\+P\+E\+R\+\_\+\+C\+A\+L\+L@{U\+A\+R\+T\+\_\+\+M\+A\+X\+\_\+\+C\+H\+A\+R\+S\+\_\+\+P\+E\+R\+\_\+\+C\+A\+L\+L}}
+\index{U\+A\+R\+T\+\_\+\+M\+A\+X\+\_\+\+C\+H\+A\+R\+S\+\_\+\+P\+E\+R\+\_\+\+C\+A\+L\+L@{U\+A\+R\+T\+\_\+\+M\+A\+X\+\_\+\+C\+H\+A\+R\+S\+\_\+\+P\+E\+R\+\_\+\+C\+A\+L\+L}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+M\+A\+X\+\_\+\+C\+H\+A\+R\+S\+\_\+\+P\+E\+R\+\_\+\+C\+A\+L\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T\+\_\+\+M\+A\+X\+\_\+\+C\+H\+A\+R\+S\+\_\+\+P\+E\+R\+\_\+\+C\+A\+L\+L~20}\label{uart_8c_a849cdffed1f4946b2f28e1a2559e205e}
+
+
+Definition at line 43 of file uart.\+c.
+
+\hypertarget{uart_8c_a908134ab7e98ba6c65a82355b15485b9}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H@{U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}}
+\index{U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H@{U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H~32}\label{uart_8c_a908134ab7e98ba6c65a82355b15485b9}
+
+
+Definition at line 40 of file uart.\+c.
+
+\hypertarget{uart_8c_a89c72e8dda77303481c66ea58c87745a}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H@{U\+A\+R\+T\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}}
+\index{U\+A\+R\+T\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H@{U\+A\+R\+T\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H~128}\label{uart_8c_a89c72e8dda77303481c66ea58c87745a}
+
+
+Definition at line 37 of file uart.\+c.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{uart_8c_ace506ef2867a6ee30406b132eb624ed8}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T\+\_\+\+Init@{U\+A\+R\+T\+\_\+\+Init}}
+\index{U\+A\+R\+T\+\_\+\+Init@{U\+A\+R\+T\+\_\+\+Init}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Init(uint8\+\_\+t channel)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel}
+\end{DoxyParamCaption}
+)}\label{uart_8c_ace506ef2867a6ee30406b132eb624ed8}
+Initialize U\+A\+R\+T module
+
+Example usage\+: 
+\begin{DoxyCode}
+1 UART\_Init(UART0\_CHANNEL);
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & -\/ The channel of U\+A\+R\+T to be used. Macros for these should be defined in the H\+A\+L of the specific device. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 227 of file uart.\+c.
+
+\hypertarget{uart_8c_abfcf7b1a99eb08daa5715769c224c7f5}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T\+\_\+\+Is\+Transmitting@{U\+A\+R\+T\+\_\+\+Is\+Transmitting}}
+\index{U\+A\+R\+T\+\_\+\+Is\+Transmitting@{U\+A\+R\+T\+\_\+\+Is\+Transmitting}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Is\+Transmitting(uint8\+\_\+t channel)}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t U\+A\+R\+T\+\_\+\+Is\+Transmitting (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel}
+\end{DoxyParamCaption}
+)}\label{uart_8c_abfcf7b1a99eb08daa5715769c224c7f5}
+
+
+Definition at line 432 of file uart.\+c.
+
+\hypertarget{uart_8c_a938ff162e09b003006152435a33ba5f5}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T\+\_\+\+Printf@{U\+A\+R\+T\+\_\+\+Printf}}
+\index{U\+A\+R\+T\+\_\+\+Printf@{U\+A\+R\+T\+\_\+\+Printf}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Printf(uint8\+\_\+t channel, char $\ast$str,...)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Printf (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel, }
+\item[{char $\ast$}]{str, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{uart_8c_a938ff162e09b003006152435a33ba5f5}
+
+
+Definition at line 401 of file uart.\+c.
+
+\hypertarget{uart_8c_a1ea8231d46fb22882c651e4a366b405d}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T\+\_\+\+Register\+Receiver@{U\+A\+R\+T\+\_\+\+Register\+Receiver}}
+\index{U\+A\+R\+T\+\_\+\+Register\+Receiver@{U\+A\+R\+T\+\_\+\+Register\+Receiver}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Register\+Receiver(uint8\+\_\+t channel, char\+Receiver\+\_\+t fn)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Register\+Receiver (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel, }
+\item[{{\bf char\+Receiver\+\_\+t}}]{fn}
+\end{DoxyParamCaption}
+)}\label{uart_8c_a1ea8231d46fb22882c651e4a366b405d}
+
+
+Definition at line 422 of file uart.\+c.
+
+\hypertarget{uart_8c_a522aaeb0db3ac744ef8684ee67b66c4c}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T\+\_\+\+Rx\+\_\+\+Handler@{U\+A\+R\+T\+\_\+\+Rx\+\_\+\+Handler}}
+\index{U\+A\+R\+T\+\_\+\+Rx\+\_\+\+Handler@{U\+A\+R\+T\+\_\+\+Rx\+\_\+\+Handler}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Rx\+\_\+\+Handler(uint8\+\_\+t channel)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Rx\+\_\+\+Handler (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel}
+\end{DoxyParamCaption}
+)}\label{uart_8c_a522aaeb0db3ac744ef8684ee67b66c4c}
+
+
+Definition at line 382 of file uart.\+c.
+
+\hypertarget{uart_8c_a008186aec9ff8f73dd86d85470e98633}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T\+\_\+\+Tick@{U\+A\+R\+T\+\_\+\+Tick}}
+\index{U\+A\+R\+T\+\_\+\+Tick@{U\+A\+R\+T\+\_\+\+Tick}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Tick(void)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Tick (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{uart_8c_a008186aec9ff8f73dd86d85470e98633}
+
+
+Definition at line 338 of file uart.\+c.
+
+\hypertarget{uart_8c_a40486aeabcf8a17f819de9d0e619f887}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T\+\_\+\+Tx\+\_\+\+Handler@{U\+A\+R\+T\+\_\+\+Tx\+\_\+\+Handler}}
+\index{U\+A\+R\+T\+\_\+\+Tx\+\_\+\+Handler@{U\+A\+R\+T\+\_\+\+Tx\+\_\+\+Handler}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Tx\+\_\+\+Handler(uint8\+\_\+t channel)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Tx\+\_\+\+Handler (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel}
+\end{DoxyParamCaption}
+)}\label{uart_8c_a40486aeabcf8a17f819de9d0e619f887}
+
+
+Definition at line 360 of file uart.\+c.
+
+\hypertarget{uart_8c_a09072ba6bc738148904a63c42e3a6ba2}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T\+\_\+\+Tx\+\_\+\+Start@{U\+A\+R\+T\+\_\+\+Tx\+\_\+\+Start}}
+\index{U\+A\+R\+T\+\_\+\+Tx\+\_\+\+Start@{U\+A\+R\+T\+\_\+\+Tx\+\_\+\+Start}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Tx\+\_\+\+Start(uint8\+\_\+t channel)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Tx\+\_\+\+Start (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel}
+\end{DoxyParamCaption}
+)}\label{uart_8c_a09072ba6bc738148904a63c42e3a6ba2}
+
+
+Definition at line 371 of file uart.\+c.
+
+\hypertarget{uart_8c_ab8131c604cf143b5e978881a3f043de6}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T\+\_\+\+Unregister\+Receiver@{U\+A\+R\+T\+\_\+\+Unregister\+Receiver}}
+\index{U\+A\+R\+T\+\_\+\+Unregister\+Receiver@{U\+A\+R\+T\+\_\+\+Unregister\+Receiver}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Unregister\+Receiver(uint8\+\_\+t channel, char\+Receiver\+\_\+t fn)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Unregister\+Receiver (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel, }
+\item[{{\bf char\+Receiver\+\_\+t}}]{fn}
+\end{DoxyParamCaption}
+)}\label{uart_8c_ab8131c604cf143b5e978881a3f043de6}
+
+
+Definition at line 427 of file uart.\+c.
+
+\hypertarget{uart_8c_abdf0ba3f8f1394b4341cbcd4311b8fc1}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T\+\_\+vprintf@{U\+A\+R\+T\+\_\+vprintf}}
+\index{U\+A\+R\+T\+\_\+vprintf@{U\+A\+R\+T\+\_\+vprintf}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+vprintf(uint8\+\_\+t channel, char $\ast$str, va\+\_\+list vars)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+vprintf (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel, }
+\item[{char $\ast$}]{str, }
+\item[{va\+\_\+list}]{vars}
+\end{DoxyParamCaption}
+)}\label{uart_8c_abdf0ba3f8f1394b4341cbcd4311b8fc1}
+
+
+Definition at line 416 of file uart.\+c.
+
+\hypertarget{uart_8c_a7c3b2c7e6262eeb1a935a3f71cece10f}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T\+\_\+\+Write@{U\+A\+R\+T\+\_\+\+Write}}
+\index{U\+A\+R\+T\+\_\+\+Write@{U\+A\+R\+T\+\_\+\+Write}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Write(uint8\+\_\+t channel, char $\ast$data, uint16\+\_\+t length)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Write (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel, }
+\item[{char $\ast$}]{data, }
+\item[{uint16\+\_\+t}]{length}
+\end{DoxyParamCaption}
+)}\label{uart_8c_a7c3b2c7e6262eeb1a935a3f71cece10f}
+
+
+Definition at line 395 of file uart.\+c.
+
+\hypertarget{uart_8c_a48cc1ee3aadabfcf41e7bbc34e599591}{}\index{uart.\+c@{uart.\+c}!U\+A\+R\+T\+\_\+\+Write\+Byte@{U\+A\+R\+T\+\_\+\+Write\+Byte}}
+\index{U\+A\+R\+T\+\_\+\+Write\+Byte@{U\+A\+R\+T\+\_\+\+Write\+Byte}!uart.\+c@{uart.\+c}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Write\+Byte(uint8\+\_\+t channel, char data)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Write\+Byte (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel, }
+\item[{char}]{data}
+\end{DoxyParamCaption}
+)}\label{uart_8c_a48cc1ee3aadabfcf41e7bbc34e599591}
+
+
+Definition at line 389 of file uart.\+c.
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{uart_8c_a60aa6512ac83d5ae3315b0c7c458e0f6}{}\index{uart.\+c@{uart.\+c}!receiver\+\_\+array1@{receiver\+\_\+array1}}
+\index{receiver\+\_\+array1@{receiver\+\_\+array1}!uart.\+c@{uart.\+c}}
+\subsubsection[{receiver\+\_\+array1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf char\+Receiver\+\_\+t} receiver\+\_\+array1\mbox{[}{\bf N\+U\+M\+\_\+\+U\+A\+R\+T1\+\_\+\+R\+E\+C\+E\+I\+V\+E\+R\+S}\mbox{]}}\label{uart_8c_a60aa6512ac83d5ae3315b0c7c458e0f6}
+
+
+Definition at line 177 of file uart.\+c.
+
+\hypertarget{uart_8c_ae7ad565619f04d6d1bb47aa7c6a5e02e}{}\index{uart.\+c@{uart.\+c}!receiver\+List@{receiver\+List}}
+\index{receiver\+List@{receiver\+List}!uart.\+c@{uart.\+c}}
+\subsubsection[{receiver\+List}]{\setlength{\rightskip}{0pt plus 5cm}{\bf char\+Receiver\+List\+\_\+t}$\ast$ receiver\+List}\label{uart_8c_ae7ad565619f04d6d1bb47aa7c6a5e02e}
+
+
+Definition at line 222 of file uart.\+c.
+
+\hypertarget{uart_8c_a0501b1dc1cc0330b1684a47096725a4d}{}\index{uart.\+c@{uart.\+c}!receiver\+List1@{receiver\+List1}}
+\index{receiver\+List1@{receiver\+List1}!uart.\+c@{uart.\+c}}
+\subsubsection[{receiver\+List1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf char\+Receiver\+List\+\_\+t} receiver\+List1}\label{uart_8c_a0501b1dc1cc0330b1684a47096725a4d}
+
+
+Definition at line 176 of file uart.\+c.
+
+\hypertarget{uart_8c_a13c4779addfb53cb87d014a0eb04ea0d}{}\index{uart.\+c@{uart.\+c}!rx@{rx}}
+\index{rx@{rx}!uart.\+c@{uart.\+c}}
+\subsubsection[{rx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf buffer\+\_\+t}$\ast$ rx}\label{uart_8c_a13c4779addfb53cb87d014a0eb04ea0d}
+
+
+Definition at line 220 of file uart.\+c.
+
+\hypertarget{uart_8c_a510a4fd51e1e3242d95a27544607288b}{}\index{uart.\+c@{uart.\+c}!rx1@{rx1}}
+\index{rx1@{rx1}!uart.\+c@{uart.\+c}}
+\subsubsection[{rx1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf buffer\+\_\+t} rx1}\label{uart_8c_a510a4fd51e1e3242d95a27544607288b}
+
+
+Definition at line 173 of file uart.\+c.
+
+\hypertarget{uart_8c_aa1ec2c798dd6e747d75ebf08ef3dc293}{}\index{uart.\+c@{uart.\+c}!rx\+\_\+buffer\+\_\+array1@{rx\+\_\+buffer\+\_\+array1}}
+\index{rx\+\_\+buffer\+\_\+array1@{rx\+\_\+buffer\+\_\+array1}!uart.\+c@{uart.\+c}}
+\subsubsection[{rx\+\_\+buffer\+\_\+array1}]{\setlength{\rightskip}{0pt plus 5cm}char rx\+\_\+buffer\+\_\+array1\mbox{[}{\bf U\+A\+R\+T\+\_\+\+R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}\mbox{]}}\label{uart_8c_aa1ec2c798dd6e747d75ebf08ef3dc293}
+
+
+Definition at line 175 of file uart.\+c.
+
+\hypertarget{uart_8c_a1d2e5e2303676dccf03415c32adef94b}{}\index{uart.\+c@{uart.\+c}!rx\+\_\+flags@{rx\+\_\+flags}}
+\index{rx\+\_\+flags@{rx\+\_\+flags}!uart.\+c@{uart.\+c}}
+\subsubsection[{rx\+\_\+flags}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t rx\+\_\+flags}\label{uart_8c_a1d2e5e2303676dccf03415c32adef94b}
+
+
+Definition at line 225 of file uart.\+c.
+
+\hypertarget{uart_8c_a7915f81b46bf81cec1c8c716d5d6bdf1}{}\index{uart.\+c@{uart.\+c}!tx@{tx}}
+\index{tx@{tx}!uart.\+c@{uart.\+c}}
+\subsubsection[{tx}]{\setlength{\rightskip}{0pt plus 5cm}{\bf buffer\+\_\+t}$\ast$ tx}\label{uart_8c_a7915f81b46bf81cec1c8c716d5d6bdf1}
+
+
+Definition at line 221 of file uart.\+c.
+
+\hypertarget{uart_8c_a2d48e4797a64844f13a98cf99d6d77bc}{}\index{uart.\+c@{uart.\+c}!tx1@{tx1}}
+\index{tx1@{tx1}!uart.\+c@{uart.\+c}}
+\subsubsection[{tx1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf buffer\+\_\+t} tx1}\label{uart_8c_a2d48e4797a64844f13a98cf99d6d77bc}
+
+
+Definition at line 173 of file uart.\+c.
+
+\hypertarget{uart_8c_ac5f64edd8d238968efb6edb14f775035}{}\index{uart.\+c@{uart.\+c}!tx\+\_\+buffer\+\_\+array1@{tx\+\_\+buffer\+\_\+array1}}
+\index{tx\+\_\+buffer\+\_\+array1@{tx\+\_\+buffer\+\_\+array1}!uart.\+c@{uart.\+c}}
+\subsubsection[{tx\+\_\+buffer\+\_\+array1}]{\setlength{\rightskip}{0pt plus 5cm}char tx\+\_\+buffer\+\_\+array1\mbox{[}{\bf U\+A\+R\+T\+\_\+\+T\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+T\+H}\mbox{]}}\label{uart_8c_ac5f64edd8d238968efb6edb14f775035}
+
+
+Definition at line 174 of file uart.\+c.
+
+\hypertarget{uart_8c_ac0d5e67a623f5c0ff666fdf5342aa162}{}\index{uart.\+c@{uart.\+c}!uart@{uart}}
+\index{uart@{uart}!uart.\+c@{uart.\+c}}
+\subsubsection[{uart}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   uart\mbox{[}{\bf N\+U\+M\+\_\+\+U\+A\+R\+T\+S}\mbox{]}}\label{uart_8c_ac0d5e67a623f5c0ff666fdf5342aa162}

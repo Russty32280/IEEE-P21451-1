@@ -1,0 +1,47 @@
+var group__list =
+[
+    [ "list_link_t", "structlist__link__t.html", [
+      [ "item_ptr", "structlist__link__t.html#aec51f80a940b56db16311a7ec2700ed3", null ],
+      [ "next", "structlist__link__t.html#ab0e8377d8d84faece172731f34f19398", null ],
+      [ "previous", "structlist__link__t.html#a96afc5312540737fde40567866eef3a7", null ]
+    ] ],
+    [ "list_t", "structlist__t.html", [
+      [ "array_length", "structlist__t.html#a6eb0ced064750a0a9f0b5c6018f16db4", null ],
+      [ "first", "structlist__t.html#ac9669705521df6aa1e4e92369b46619d", null ],
+      [ "identify_fn", "structlist__t.html#a06c316a9560c5d58461c9237d0a81f69", null ],
+      [ "item_array", "structlist__t.html#a3826fdc3e2faf8cbe23972788ca9c3ba", null ],
+      [ "item_size", "structlist__t.html#a5f3a65f91da217e59d1f0d9069a23b07", null ],
+      [ "last", "structlist__t.html#a4a78182ec1f0fe115d1a5dba9bc3341f", null ],
+      [ "length", "structlist__t.html#a1892eba2086d12ac2b09005aeb09ea3b", null ],
+      [ "links", "structlist__t.html#abe18f3666455ade0ae39a85fd76e9f88", null ],
+      [ "sort_fn", "structlist__t.html#a63ac7c8ef2439d1fe9ed4f15d6b34673", null ],
+      [ "unlinked", "structlist__t.html#a1d3f9e10efa30431b659ad02991eabd4", null ],
+      [ "unused", "structlist__t.html#a0e724876cc007c8317967a42645e77a7", null ],
+      [ "working", "structlist__t.html#a06c2beb66c1b4f8684e734cfef26e698", null ]
+    ] ],
+    [ "identify_fn_t", "group__list.html#ga608e5ebc97d34a9cd07a2c44925a1dc2", null ],
+    [ "list_link_t", "group__list.html#ga072d443e962ee5e68a26011a5089325c", null ],
+    [ "list_t", "group__list.html#gac466ff011100add5899254ca98ff8b93", null ],
+    [ "sort_fn_t", "group__list.html#gaec41fb00279c4e4ec77286fa803cbcd2", null ],
+    [ "List_Add", "group__list.html#ga26a446933466c8a9ecc7a86ffec8356e", null ],
+    [ "List_AddAndLink", "group__list.html#gace91195eb28d548f091202d8a8fff06b", null ],
+    [ "List_AddIndirect", "group__list.html#ga1a8339a388bfff7c959d5487ac829cd1", null ],
+    [ "List_GetFirst", "group__list.html#ga8d33461dcffd998d929eff432f32949d", null ],
+    [ "List_GetItem", "group__list.html#ga546288a184f0ac8d5a44e4eb8fb9aab6", null ],
+    [ "List_GetLast", "group__list.html#ga9dab427e2a969ed55c7b2367739f58bd", null ],
+    [ "List_GetNext", "group__list.html#ga4642790508a72a9e6af89eb654417154", null ],
+    [ "List_Init", "group__list.html#gacc707ed1f1ffdb563d26a5197786fbcb", null ],
+    [ "List_Link", "group__list.html#ga645d81a49b82c4009487089fd4f98338", null ],
+    [ "List_LinkItem", "group__list.html#gab6f45e11004da187e5637ab46831d39b", null ],
+    [ "List_Remove", "group__list.html#ga80fa129ff1dfe7cc85d164d5a6fccf42", null ],
+    [ "List_RemoveAll", "group__list.html#ga9aa26203c61296e5fd884941aa98a2cd", null ],
+    [ "List_RemoveFirst", "group__list.html#gafae6d0ac526e5f6e3234953e57230cb7", null ],
+    [ "List_RemoveLast", "group__list.html#ga5c4eb0789125264dc26f77760586d46b", null ],
+    [ "List_ResortFirst", "group__list.html#ga36dab9276628d1025b55b1fb43a3d0d6", null ],
+    [ "List_ResortLast", "group__list.html#ga616d771c42c25750ea9b4c14c4df8c9c", null ],
+    [ "List_SetIdentifyFunction", "group__list.html#ga41266aadaf8ad04a1bf043637bb6eb86", null ],
+    [ "List_SetSortFunction", "group__list.html#ga61c9a347e890a26159c3fa0cb567ae68", null ],
+    [ "List_UnlinkFirst", "group__list.html#ga71bd31a42180cf44b8ee3186c77765a8", null ],
+    [ "List_UnlinkItem", "group__list.html#ga215870e22beacb7be2d84aebcaf23e01", null ],
+    [ "List_UnlinkLast", "group__list.html#ga79393298ee82007018a285e87f763857", null ]
+];

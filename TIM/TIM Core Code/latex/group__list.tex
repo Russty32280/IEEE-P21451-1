@@ -1,0 +1,546 @@
+\hypertarget{group__list}{}\section{List Module}
+\label{group__list}\index{List Module@{List Module}}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structlist__link__t}{list\+\_\+link\+\_\+t}
+\item 
+struct \hyperlink{structlist__t}{list\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint8\+\_\+t($\ast$ \hyperlink{group__list_gaec41fb00279c4e4ec77286fa803cbcd2}{sort\+\_\+fn\+\_\+t}) (void $\ast$, void $\ast$)
+\item 
+typedef uint8\+\_\+t($\ast$ \hyperlink{group__list_ga608e5ebc97d34a9cd07a2c44925a1dc2}{identify\+\_\+fn\+\_\+t}) (void $\ast$, void $\ast$)
+\item 
+typedef struct \hyperlink{structlist__link__t}{list\+\_\+link\+\_\+t} \hyperlink{group__list_ga072d443e962ee5e68a26011a5089325c}{list\+\_\+link\+\_\+t}
+\item 
+typedef struct \hyperlink{structlist__t}{list\+\_\+t} \hyperlink{group__list_gac466ff011100add5899254ca98ff8b93}{list\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__list_gacc707ed1f1ffdb563d26a5197786fbcb}{List\+\_\+\+Init} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, uint16\+\_\+t item\+\_\+size, void $\ast$item\+\_\+array, uint16\+\_\+t item\+\_\+array\+\_\+length, \hyperlink{structlist__link__t}{list\+\_\+link\+\_\+t} $\ast$link\+\_\+array)
+\item 
+void \hyperlink{group__list_ga61c9a347e890a26159c3fa0cb567ae68}{List\+\_\+\+Set\+Sort\+Function} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, uint8\+\_\+t($\ast$sort\+\_\+fn)(void $\ast$a, void $\ast$b))
+\item 
+void \hyperlink{group__list_ga41266aadaf8ad04a1bf043637bb6eb86}{List\+\_\+\+Set\+Identify\+Function} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, uint8\+\_\+t($\ast$identify\+\_\+fn)(void $\ast$identifier, void $\ast$item))
+\item 
+void $\ast$ \hyperlink{group__list_gace91195eb28d548f091202d8a8fff06b}{List\+\_\+\+Add\+And\+Link} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, void $\ast$item)
+\item 
+void $\ast$ \hyperlink{group__list_ga26a446933466c8a9ecc7a86ffec8356e}{List\+\_\+\+Add} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, void $\ast$item)
+\item 
+void $\ast$ \hyperlink{group__list_ga1a8339a388bfff7c959d5487ac829cd1}{List\+\_\+\+Add\+Indirect} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\begin{DoxyCompactList}\small\item\em List\+\_\+\+Add\+Indirect is used to obtain a valid position for which an item can be saved to. \end{DoxyCompactList}\item 
+void \hyperlink{group__list_ga645d81a49b82c4009487089fd4f98338}{List\+\_\+\+Link} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void \hyperlink{group__list_ga36dab9276628d1025b55b1fb43a3d0d6}{List\+\_\+\+Resort\+First} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void \hyperlink{group__list_ga616d771c42c25750ea9b4c14c4df8c9c}{List\+\_\+\+Resort\+Last} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void \hyperlink{group__list_gab6f45e11004da187e5637ab46831d39b}{List\+\_\+\+Link\+Item} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, void $\ast$item)
+\item 
+void $\ast$ \hyperlink{group__list_ga8d33461dcffd998d929eff432f32949d}{List\+\_\+\+Get\+First} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void $\ast$ \hyperlink{group__list_ga9dab427e2a969ed55c7b2367739f58bd}{List\+\_\+\+Get\+Last} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void $\ast$ \hyperlink{group__list_ga4642790508a72a9e6af89eb654417154}{List\+\_\+\+Get\+Next} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, void $\ast$item)
+\item 
+void $\ast$ \hyperlink{group__list_ga546288a184f0ac8d5a44e4eb8fb9aab6}{List\+\_\+\+Get\+Item} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, void $\ast$identifier)
+\item 
+void \hyperlink{group__list_gafae6d0ac526e5f6e3234953e57230cb7}{List\+\_\+\+Remove\+First} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void \hyperlink{group__list_ga5c4eb0789125264dc26f77760586d46b}{List\+\_\+\+Remove\+Last} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void \hyperlink{group__list_ga80fa129ff1dfe7cc85d164d5a6fccf42}{List\+\_\+\+Remove} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, void $\ast$item)
+\item 
+void \hyperlink{group__list_ga9aa26203c61296e5fd884941aa98a2cd}{List\+\_\+\+Remove\+All} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void \hyperlink{group__list_ga215870e22beacb7be2d84aebcaf23e01}{List\+\_\+\+Unlink\+Item} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, void $\ast$item)
+\item 
+void \hyperlink{group__list_ga71bd31a42180cf44b8ee3186c77765a8}{List\+\_\+\+Unlink\+First} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void \hyperlink{group__list_ga79393298ee82007018a285e87f763857}{List\+\_\+\+Unlink\+Last} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000008}{Todo}]fill in the main comment block\end{DoxyRefDesc}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{group__list_ga608e5ebc97d34a9cd07a2c44925a1dc2}{}\index{List Module@{List Module}!identify\+\_\+fn\+\_\+t@{identify\+\_\+fn\+\_\+t}}
+\index{identify\+\_\+fn\+\_\+t@{identify\+\_\+fn\+\_\+t}!List Module@{List Module}}
+\subsubsection[{identify\+\_\+fn\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint8\+\_\+t($\ast$ identify\+\_\+fn\+\_\+t) (void $\ast$, void $\ast$)}\label{group__list_ga608e5ebc97d34a9cd07a2c44925a1dc2}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000010}{Todo}]Josh Hass Document this typedef (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 22 of file list.\+h.
+
+\hypertarget{group__list_ga072d443e962ee5e68a26011a5089325c}{}\index{List Module@{List Module}!list\+\_\+link\+\_\+t@{list\+\_\+link\+\_\+t}}
+\index{list\+\_\+link\+\_\+t@{list\+\_\+link\+\_\+t}!List Module@{List Module}}
+\subsubsection[{list\+\_\+link\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf list\+\_\+link\+\_\+t}  {\bf list\+\_\+link\+\_\+t}}\label{group__list_ga072d443e962ee5e68a26011a5089325c}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000011}{Todo}]Matthew D. Document this struct (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+\hypertarget{group__list_gac466ff011100add5899254ca98ff8b93}{}\index{List Module@{List Module}!list\+\_\+t@{list\+\_\+t}}
+\index{list\+\_\+t@{list\+\_\+t}!List Module@{List Module}}
+\subsubsection[{list\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf list\+\_\+t}  {\bf list\+\_\+t}}\label{group__list_gac466ff011100add5899254ca98ff8b93}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000012}{Todo}]Jacob H. Document this struct (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+\hypertarget{group__list_gaec41fb00279c4e4ec77286fa803cbcd2}{}\index{List Module@{List Module}!sort\+\_\+fn\+\_\+t@{sort\+\_\+fn\+\_\+t}}
+\index{sort\+\_\+fn\+\_\+t@{sort\+\_\+fn\+\_\+t}!List Module@{List Module}}
+\subsubsection[{sort\+\_\+fn\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint8\+\_\+t($\ast$ sort\+\_\+fn\+\_\+t) (void $\ast$, void $\ast$)}\label{group__list_gaec41fb00279c4e4ec77286fa803cbcd2}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000009}{Todo}]Victor C. Document this typedef (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 17 of file list.\+h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{group__list_ga26a446933466c8a9ecc7a86ffec8356e}{}\index{List Module@{List Module}!List\+\_\+\+Add@{List\+\_\+\+Add}}
+\index{List\+\_\+\+Add@{List\+\_\+\+Add}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Add(list\+\_\+t $\ast$list, void $\ast$item)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ List\+\_\+\+Add (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list, }
+\item[{void $\ast$}]{item}
+\end{DoxyParamCaption}
+)}\label{group__list_ga26a446933466c8a9ecc7a86ffec8356e}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em item} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000017}{Todo}]Joseph L. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 81 of file list.\+c.
+
+\hypertarget{group__list_gace91195eb28d548f091202d8a8fff06b}{}\index{List Module@{List Module}!List\+\_\+\+Add\+And\+Link@{List\+\_\+\+Add\+And\+Link}}
+\index{List\+\_\+\+Add\+And\+Link@{List\+\_\+\+Add\+And\+Link}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Add\+And\+Link(list\+\_\+t $\ast$list, void $\ast$item)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ List\+\_\+\+Add\+And\+Link (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list, }
+\item[{void $\ast$}]{item}
+\end{DoxyParamCaption}
+)}\label{group__list_gace91195eb28d548f091202d8a8fff06b}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em item} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000016}{Todo}]Josh K. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 65 of file list.\+c.
+
+\hypertarget{group__list_ga1a8339a388bfff7c959d5487ac829cd1}{}\index{List Module@{List Module}!List\+\_\+\+Add\+Indirect@{List\+\_\+\+Add\+Indirect}}
+\index{List\+\_\+\+Add\+Indirect@{List\+\_\+\+Add\+Indirect}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Add\+Indirect(list\+\_\+t $\ast$list)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ List\+\_\+\+Add\+Indirect (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{group__list_ga1a8339a388bfff7c959d5487ac829cd1}
+
+
+List\+\_\+\+Add\+Indirect is used to obtain a valid position for which an item can be saved to. 
+
+List\+\_\+\+Add\+Indirect gets an unused link using Get\+Unused\+Link. If unused link is available, function will update pointers to unlinked items and update working links. If no unused links are available, return a null pointer
+
+
+\begin{DoxyParams}{Parameters}
+{\em list} & -\/ Pointer to list that an item needs to be added to \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a null pointer if there is no room in list. Otherwise returns item\+\_\+ptr in the first unused link 
+\end{DoxyReturn}
+
+
+Definition at line 94 of file list.\+c.
+
+\hypertarget{group__list_ga8d33461dcffd998d929eff432f32949d}{}\index{List Module@{List Module}!List\+\_\+\+Get\+First@{List\+\_\+\+Get\+First}}
+\index{List\+\_\+\+Get\+First@{List\+\_\+\+Get\+First}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Get\+First(list\+\_\+t $\ast$list)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ List\+\_\+\+Get\+First (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{group__list_ga8d33461dcffd998d929eff432f32949d}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000022}{Todo}]Josh W. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 192 of file list.\+c.
+
+\hypertarget{group__list_ga546288a184f0ac8d5a44e4eb8fb9aab6}{}\index{List Module@{List Module}!List\+\_\+\+Get\+Item@{List\+\_\+\+Get\+Item}}
+\index{List\+\_\+\+Get\+Item@{List\+\_\+\+Get\+Item}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Get\+Item(list\+\_\+t $\ast$list, void $\ast$identifier)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ List\+\_\+\+Get\+Item (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list, }
+\item[{void $\ast$}]{identifier}
+\end{DoxyParamCaption}
+)}\label{group__list_ga546288a184f0ac8d5a44e4eb8fb9aab6}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em identifier} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000025}{Todo}]George L. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 210 of file list.\+c.
+
+\hypertarget{group__list_ga9dab427e2a969ed55c7b2367739f58bd}{}\index{List Module@{List Module}!List\+\_\+\+Get\+Last@{List\+\_\+\+Get\+Last}}
+\index{List\+\_\+\+Get\+Last@{List\+\_\+\+Get\+Last}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Get\+Last(list\+\_\+t $\ast$list)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ List\+\_\+\+Get\+Last (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{group__list_ga9dab427e2a969ed55c7b2367739f58bd}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000023}{Todo}]T\+J G. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 196 of file list.\+c.
+
+\hypertarget{group__list_ga4642790508a72a9e6af89eb654417154}{}\index{List Module@{List Module}!List\+\_\+\+Get\+Next@{List\+\_\+\+Get\+Next}}
+\index{List\+\_\+\+Get\+Next@{List\+\_\+\+Get\+Next}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Get\+Next(list\+\_\+t $\ast$list, void $\ast$item)}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ List\+\_\+\+Get\+Next (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list, }
+\item[{void $\ast$}]{item}
+\end{DoxyParamCaption}
+)}\label{group__list_ga4642790508a72a9e6af89eb654417154}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em item} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+
+\end{DoxyReturn}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000024}{Todo}]T\+J G. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 200 of file list.\+c.
+
+\hypertarget{group__list_gacc707ed1f1ffdb563d26a5197786fbcb}{}\index{List Module@{List Module}!List\+\_\+\+Init@{List\+\_\+\+Init}}
+\index{List\+\_\+\+Init@{List\+\_\+\+Init}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Init(list\+\_\+t $\ast$list, uint16\+\_\+t item\+\_\+size, void $\ast$item\+\_\+array, uint16\+\_\+t item\+\_\+array\+\_\+length, list\+\_\+link\+\_\+t $\ast$link\+\_\+array)}]{\setlength{\rightskip}{0pt plus 5cm}void List\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list, }
+\item[{uint16\+\_\+t}]{item\+\_\+size, }
+\item[{void $\ast$}]{item\+\_\+array, }
+\item[{uint16\+\_\+t}]{item\+\_\+array\+\_\+length, }
+\item[{{\bf list\+\_\+link\+\_\+t} $\ast$}]{link\+\_\+array}
+\end{DoxyParamCaption}
+)}\label{group__list_gacc707ed1f1ffdb563d26a5197786fbcb}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em item\+\_\+size} & \\
+\hline
+{\em item\+\_\+array} & \\
+\hline
+{\em item\+\_\+array\+\_\+length} & \\
+\hline
+{\em link\+\_\+array} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000013}{Todo}]Austin H. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 27 of file list.\+c.
+
+\hypertarget{group__list_ga645d81a49b82c4009487089fd4f98338}{}\index{List Module@{List Module}!List\+\_\+\+Link@{List\+\_\+\+Link}}
+\index{List\+\_\+\+Link@{List\+\_\+\+Link}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Link(list\+\_\+t $\ast$list)}]{\setlength{\rightskip}{0pt plus 5cm}void List\+\_\+\+Link (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{group__list_ga645d81a49b82c4009487089fd4f98338}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000018}{Todo}]James R. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 115 of file list.\+c.
+
+\hypertarget{group__list_gab6f45e11004da187e5637ab46831d39b}{}\index{List Module@{List Module}!List\+\_\+\+Link\+Item@{List\+\_\+\+Link\+Item}}
+\index{List\+\_\+\+Link\+Item@{List\+\_\+\+Link\+Item}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Link\+Item(list\+\_\+t $\ast$list, void $\ast$item)}]{\setlength{\rightskip}{0pt plus 5cm}void List\+\_\+\+Link\+Item (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list, }
+\item[{void $\ast$}]{item}
+\end{DoxyParamCaption}
+)}\label{group__list_gab6f45e11004da187e5637ab46831d39b}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em item} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000021}{Todo}]Jon W. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 157 of file list.\+c.
+
+\hypertarget{group__list_ga80fa129ff1dfe7cc85d164d5a6fccf42}{}\index{List Module@{List Module}!List\+\_\+\+Remove@{List\+\_\+\+Remove}}
+\index{List\+\_\+\+Remove@{List\+\_\+\+Remove}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Remove(list\+\_\+t $\ast$list, void $\ast$item)}]{\setlength{\rightskip}{0pt plus 5cm}void List\+\_\+\+Remove (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list, }
+\item[{void $\ast$}]{item}
+\end{DoxyParamCaption}
+)}\label{group__list_ga80fa129ff1dfe7cc85d164d5a6fccf42}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em item} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000028}{Todo}]Matthew M. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 252 of file list.\+c.
+
+\hypertarget{group__list_ga9aa26203c61296e5fd884941aa98a2cd}{}\index{List Module@{List Module}!List\+\_\+\+Remove\+All@{List\+\_\+\+Remove\+All}}
+\index{List\+\_\+\+Remove\+All@{List\+\_\+\+Remove\+All}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Remove\+All(list\+\_\+t $\ast$list)}]{\setlength{\rightskip}{0pt plus 5cm}void List\+\_\+\+Remove\+All (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{group__list_ga9aa26203c61296e5fd884941aa98a2cd}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000029}{Todo}]Anthony M. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 261 of file list.\+c.
+
+\hypertarget{group__list_gafae6d0ac526e5f6e3234953e57230cb7}{}\index{List Module@{List Module}!List\+\_\+\+Remove\+First@{List\+\_\+\+Remove\+First}}
+\index{List\+\_\+\+Remove\+First@{List\+\_\+\+Remove\+First}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Remove\+First(list\+\_\+t $\ast$list)}]{\setlength{\rightskip}{0pt plus 5cm}void List\+\_\+\+Remove\+First (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{group__list_gafae6d0ac526e5f6e3234953e57230cb7}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000026}{Todo}]George L. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 238 of file list.\+c.
+
+\hypertarget{group__list_ga5c4eb0789125264dc26f77760586d46b}{}\index{List Module@{List Module}!List\+\_\+\+Remove\+Last@{List\+\_\+\+Remove\+Last}}
+\index{List\+\_\+\+Remove\+Last@{List\+\_\+\+Remove\+Last}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Remove\+Last(list\+\_\+t $\ast$list)}]{\setlength{\rightskip}{0pt plus 5cm}void List\+\_\+\+Remove\+Last (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{group__list_ga5c4eb0789125264dc26f77760586d46b}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000027}{Todo}]Matthew M. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 245 of file list.\+c.
+
+\hypertarget{group__list_ga36dab9276628d1025b55b1fb43a3d0d6}{}\index{List Module@{List Module}!List\+\_\+\+Resort\+First@{List\+\_\+\+Resort\+First}}
+\index{List\+\_\+\+Resort\+First@{List\+\_\+\+Resort\+First}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Resort\+First(list\+\_\+t $\ast$list)}]{\setlength{\rightskip}{0pt plus 5cm}void List\+\_\+\+Resort\+First (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{group__list_ga36dab9276628d1025b55b1fb43a3d0d6}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000019}{Todo}]Andrew R. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 133 of file list.\+c.
+
+\hypertarget{group__list_ga616d771c42c25750ea9b4c14c4df8c9c}{}\index{List Module@{List Module}!List\+\_\+\+Resort\+Last@{List\+\_\+\+Resort\+Last}}
+\index{List\+\_\+\+Resort\+Last@{List\+\_\+\+Resort\+Last}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Resort\+Last(list\+\_\+t $\ast$list)}]{\setlength{\rightskip}{0pt plus 5cm}void List\+\_\+\+Resort\+Last (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{group__list_ga616d771c42c25750ea9b4c14c4df8c9c}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000020}{Todo}]Chris R. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 145 of file list.\+c.
+
+\hypertarget{group__list_ga41266aadaf8ad04a1bf043637bb6eb86}{}\index{List Module@{List Module}!List\+\_\+\+Set\+Identify\+Function@{List\+\_\+\+Set\+Identify\+Function}}
+\index{List\+\_\+\+Set\+Identify\+Function@{List\+\_\+\+Set\+Identify\+Function}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Set\+Identify\+Function(list\+\_\+t $\ast$list, uint8\+\_\+t($\ast$identify\+\_\+fn)(void $\ast$identifier, void $\ast$item))}]{\setlength{\rightskip}{0pt plus 5cm}void List\+\_\+\+Set\+Identify\+Function (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list, }
+\item[{uint8\+\_\+t($\ast$)(void $\ast$identifier, void $\ast$item)}]{identify\+\_\+fn}
+\end{DoxyParamCaption}
+)}\label{group__list_ga41266aadaf8ad04a1bf043637bb6eb86}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em identify\+\_\+fn} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000015}{Todo}]Eric J. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 60 of file list.\+c.
+
+\hypertarget{group__list_ga61c9a347e890a26159c3fa0cb567ae68}{}\index{List Module@{List Module}!List\+\_\+\+Set\+Sort\+Function@{List\+\_\+\+Set\+Sort\+Function}}
+\index{List\+\_\+\+Set\+Sort\+Function@{List\+\_\+\+Set\+Sort\+Function}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Set\+Sort\+Function(list\+\_\+t $\ast$list, uint8\+\_\+t($\ast$sort\+\_\+fn)(void $\ast$a, void $\ast$b))}]{\setlength{\rightskip}{0pt plus 5cm}void List\+\_\+\+Set\+Sort\+Function (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list, }
+\item[{uint8\+\_\+t($\ast$)(void $\ast$a, void $\ast$b)}]{sort\+\_\+fn}
+\end{DoxyParamCaption}
+)}\label{group__list_ga61c9a347e890a26159c3fa0cb567ae68}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em sort\+\_\+fn} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000014}{Todo}]Lee H. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 56 of file list.\+c.
+
+\hypertarget{group__list_ga71bd31a42180cf44b8ee3186c77765a8}{}\index{List Module@{List Module}!List\+\_\+\+Unlink\+First@{List\+\_\+\+Unlink\+First}}
+\index{List\+\_\+\+Unlink\+First@{List\+\_\+\+Unlink\+First}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Unlink\+First(list\+\_\+t $\ast$list)}]{\setlength{\rightskip}{0pt plus 5cm}void List\+\_\+\+Unlink\+First (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{group__list_ga71bd31a42180cf44b8ee3186c77765a8}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000031}{Todo}]Tom M. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 287 of file list.\+c.
+
+\hypertarget{group__list_ga215870e22beacb7be2d84aebcaf23e01}{}\index{List Module@{List Module}!List\+\_\+\+Unlink\+Item@{List\+\_\+\+Unlink\+Item}}
+\index{List\+\_\+\+Unlink\+Item@{List\+\_\+\+Unlink\+Item}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Unlink\+Item(list\+\_\+t $\ast$list, void $\ast$item)}]{\setlength{\rightskip}{0pt plus 5cm}void List\+\_\+\+Unlink\+Item (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list, }
+\item[{void $\ast$}]{item}
+\end{DoxyParamCaption}
+)}\label{group__list_ga215870e22beacb7be2d84aebcaf23e01}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+{\em item} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000030}{Todo}]Anthony M. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 279 of file list.\+c.
+
+\hypertarget{group__list_ga79393298ee82007018a285e87f763857}{}\index{List Module@{List Module}!List\+\_\+\+Unlink\+Last@{List\+\_\+\+Unlink\+Last}}
+\index{List\+\_\+\+Unlink\+Last@{List\+\_\+\+Unlink\+Last}!List Module@{List Module}}
+\subsubsection[{List\+\_\+\+Unlink\+Last(list\+\_\+t $\ast$list)}]{\setlength{\rightskip}{0pt plus 5cm}void List\+\_\+\+Unlink\+Last (
+\begin{DoxyParamCaption}
+\item[{{\bf list\+\_\+t} $\ast$}]{list}
+\end{DoxyParamCaption}
+)}\label{group__list_ga79393298ee82007018a285e87f763857}
+
+\begin{DoxyParams}{Parameters}
+{\em list} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000032}{Todo}]Tom M. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 295 of file list.\+c.
+

@@ -1,0 +1,153 @@
+.TH "receiverlist" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+receiverlist \- Receiver List
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBcharReceiverList_t\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBcharReceiver_t\fP) (char)"
+.br
+.ti -1c
+.RI "typedef struct \fBcharReceiverList_t\fP \fBcharReceiverList_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBCharReceiverList_Init\fP (\fBcharReceiverList_t\fP *rList, \fBcharReceiver_t\fP *receiver_array, uint16_t max_size)"
+.br
+.ti -1c
+.RI "void \fBCharReceiverList_Add\fP (\fBcharReceiverList_t\fP *rList, \fBcharReceiver_t\fP receiver)"
+.br
+.ti -1c
+.RI "void \fBCharReceiverList_Remove\fP (\fBcharReceiverList_t\fP *rList, \fBcharReceiver_t\fP receiver)"
+.br
+.ti -1c
+.RI "void \fBCharReceiverList_Run\fP (\fBcharReceiverList_t\fP *rList, char c)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The \fCchar\fP Receiver List module provides a simple way of keeping a list of character receivers and processing a single character through the receivers\&.
+.PP
+This module was developed as a helper to the \fBUART Module\fP UART Module but it has use in any situation where multiple moldules may want to process characters which are received\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Anthony Merlino 
+.PP
+Michael Muhlbaier 
+.RE
+.PP
+
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef void(* charReceiver_t) (char)"
+
+.PP
+\fBTodo\fP
+.RS 4
+Alex A\&. Document this datatype (when done change this line to '@todo MM check <your names> documentation' 
+.RE
+.PP
+
+.PP
+Definition at line 28 of file charReceiverList\&.h\&.
+.SS "typedef struct \fBcharReceiverList_t\fP  \fBcharReceiverList_t\fP"
+
+.PP
+\fBTodo\fP
+.RS 4
+Atharva A\&. Document this structure (when done change this line to '@todo MM check <your names> documentation' 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "void CharReceiverList_Add (\fBcharReceiverList_t\fP * rList, \fBcharReceiver_t\fP receiver)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrList\fP 
+.br
+\fIreceiver\fP 
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+Kate C\&. Document this function (when done change this line to '@todo MM check <your names> documentation' 
+.RE
+.PP
+
+.PP
+Definition at line 13 of file charReceiverList\&.c\&.
+.SS "void CharReceiverList_Init (\fBcharReceiverList_t\fP * rList, \fBcharReceiver_t\fP * receiver_array, uint16_t max_size)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrList\fP 
+.br
+\fIreceiver_array\fP 
+.br
+\fImax_size\fP 
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+Dan B\&. Document this function (when done change this line to '@todo MM check <your names> documentation' 
+.RE
+.PP
+
+.PP
+Definition at line 7 of file charReceiverList\&.c\&.
+.SS "void CharReceiverList_Remove (\fBcharReceiverList_t\fP * rList, \fBcharReceiver_t\fP receiver)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrList\fP 
+.br
+\fIreceiver\fP 
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+Matthew D\&. Document this function (when done change this line to '@todo MM check <your names> documentation' 
+.RE
+.PP
+
+.PP
+Definition at line 17 of file charReceiverList\&.c\&.
+.SS "void CharReceiverList_Run (\fBcharReceiverList_t\fP * rList, char c)"
+
+.PP
+\fBParameters:\fP
+.RS 4
+\fIrList\fP 
+.br
+\fIc\fP 
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+Victor C\&. Document this function (when done change this line to '@todo MM check <your names> documentation' 
+.RE
+.PP
+
+.PP
+Definition at line 34 of file charReceiverList\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

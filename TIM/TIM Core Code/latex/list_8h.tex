@@ -1,0 +1,66 @@
+\hypertarget{list_8h}{}\section{list.\+h File Reference}
+\label{list_8h}\index{list.\+h@{list.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structlist__link__t}{list\+\_\+link\+\_\+t}
+\item 
+struct \hyperlink{structlist__t}{list\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint8\+\_\+t($\ast$ \hyperlink{group__list_gaec41fb00279c4e4ec77286fa803cbcd2}{sort\+\_\+fn\+\_\+t}) (void $\ast$, void $\ast$)
+\item 
+typedef uint8\+\_\+t($\ast$ \hyperlink{group__list_ga608e5ebc97d34a9cd07a2c44925a1dc2}{identify\+\_\+fn\+\_\+t}) (void $\ast$, void $\ast$)
+\item 
+typedef struct \hyperlink{structlist__link__t}{list\+\_\+link\+\_\+t} \hyperlink{group__list_ga072d443e962ee5e68a26011a5089325c}{list\+\_\+link\+\_\+t}
+\item 
+typedef struct \hyperlink{structlist__t}{list\+\_\+t} \hyperlink{group__list_gac466ff011100add5899254ca98ff8b93}{list\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__list_gacc707ed1f1ffdb563d26a5197786fbcb}{List\+\_\+\+Init} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, uint16\+\_\+t item\+\_\+size, void $\ast$item\+\_\+array, uint16\+\_\+t item\+\_\+array\+\_\+length, \hyperlink{structlist__link__t}{list\+\_\+link\+\_\+t} $\ast$link\+\_\+array)
+\item 
+void \hyperlink{group__list_ga61c9a347e890a26159c3fa0cb567ae68}{List\+\_\+\+Set\+Sort\+Function} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, uint8\+\_\+t($\ast$sort\+\_\+fn)(void $\ast$a, void $\ast$b))
+\item 
+void \hyperlink{group__list_ga41266aadaf8ad04a1bf043637bb6eb86}{List\+\_\+\+Set\+Identify\+Function} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, uint8\+\_\+t($\ast$identify\+\_\+fn)(void $\ast$identifier, void $\ast$item))
+\item 
+void $\ast$ \hyperlink{group__list_gace91195eb28d548f091202d8a8fff06b}{List\+\_\+\+Add\+And\+Link} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, void $\ast$item)
+\item 
+void $\ast$ \hyperlink{group__list_ga26a446933466c8a9ecc7a86ffec8356e}{List\+\_\+\+Add} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, void $\ast$item)
+\item 
+void $\ast$ \hyperlink{group__list_ga1a8339a388bfff7c959d5487ac829cd1}{List\+\_\+\+Add\+Indirect} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\begin{DoxyCompactList}\small\item\em List\+\_\+\+Add\+Indirect is used to obtain a valid position for which an item can be saved to. \end{DoxyCompactList}\item 
+void \hyperlink{group__list_ga645d81a49b82c4009487089fd4f98338}{List\+\_\+\+Link} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void \hyperlink{group__list_ga36dab9276628d1025b55b1fb43a3d0d6}{List\+\_\+\+Resort\+First} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void \hyperlink{group__list_ga616d771c42c25750ea9b4c14c4df8c9c}{List\+\_\+\+Resort\+Last} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void \hyperlink{group__list_gab6f45e11004da187e5637ab46831d39b}{List\+\_\+\+Link\+Item} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, void $\ast$item)
+\item 
+void $\ast$ \hyperlink{group__list_ga8d33461dcffd998d929eff432f32949d}{List\+\_\+\+Get\+First} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void $\ast$ \hyperlink{group__list_ga9dab427e2a969ed55c7b2367739f58bd}{List\+\_\+\+Get\+Last} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void $\ast$ \hyperlink{group__list_ga4642790508a72a9e6af89eb654417154}{List\+\_\+\+Get\+Next} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, void $\ast$item)
+\item 
+void $\ast$ \hyperlink{group__list_ga546288a184f0ac8d5a44e4eb8fb9aab6}{List\+\_\+\+Get\+Item} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, void $\ast$identifier)
+\item 
+void \hyperlink{group__list_gafae6d0ac526e5f6e3234953e57230cb7}{List\+\_\+\+Remove\+First} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void \hyperlink{group__list_ga5c4eb0789125264dc26f77760586d46b}{List\+\_\+\+Remove\+Last} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void \hyperlink{group__list_ga80fa129ff1dfe7cc85d164d5a6fccf42}{List\+\_\+\+Remove} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, void $\ast$item)
+\item 
+void \hyperlink{group__list_ga9aa26203c61296e5fd884941aa98a2cd}{List\+\_\+\+Remove\+All} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void \hyperlink{group__list_ga215870e22beacb7be2d84aebcaf23e01}{List\+\_\+\+Unlink\+Item} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list, void $\ast$item)
+\item 
+void \hyperlink{group__list_ga71bd31a42180cf44b8ee3186c77765a8}{List\+\_\+\+Unlink\+First} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\item 
+void \hyperlink{group__list_ga79393298ee82007018a285e87f763857}{List\+\_\+\+Unlink\+Last} (\hyperlink{structlist__t}{list\+\_\+t} $\ast$list)
+\end{DoxyCompactItemize}

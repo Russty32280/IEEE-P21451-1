@@ -1,0 +1,49 @@
+.TH "charReceiverList.h" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+charReceiverList.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stdbool\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBcharReceiverList_t\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBcharReceiver_t\fP) (char)"
+.br
+.ti -1c
+.RI "typedef struct \fBcharReceiverList_t\fP \fBcharReceiverList_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBCharReceiverList_Init\fP (\fBcharReceiverList_t\fP *rList, \fBcharReceiver_t\fP *receiver_array, uint16_t max_size)"
+.br
+.ti -1c
+.RI "void \fBCharReceiverList_Add\fP (\fBcharReceiverList_t\fP *rList, \fBcharReceiver_t\fP receiver)"
+.br
+.ti -1c
+.RI "void \fBCharReceiverList_Remove\fP (\fBcharReceiverList_t\fP *rList, \fBcharReceiver_t\fP receiver)"
+.br
+.ti -1c
+.RI "void \fBCharReceiverList_Run\fP (\fBcharReceiverList_t\fP *rList, char c)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

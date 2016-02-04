@@ -1,0 +1,416 @@
+\hypertarget{group__subsys}{}\section{Subsystem Module}
+\label{group__subsys}\index{Subsystem Module@{Subsystem Module}}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structversion__mmb__t}{version\+\_\+mmb\+\_\+t}
+\item 
+union \hyperlink{unionversion__t}{version\+\_\+t}
+\begin{DoxyCompactList}\small\item\em version union \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__subsys_gac13b39d92263b3c765189651110c64f3}{S\+Y\+S\+T\+E\+M\+\_\+\+V\+E\+R\+S\+I\+O\+N}~0x03010001u
+\begin{DoxyCompactList}\small\item\em subsystem module version number \end{DoxyCompactList}\item 
+\#define \hyperlink{group__subsys_gaf7b1ce1a8ab4b9ec92d8773f90cb991c}{R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+T\+H}~64
+\begin{DoxyCompactList}\small\item\em default length of receive line for commands \end{DoxyCompactList}\item 
+\#define \hyperlink{group__subsys_ga91e743817f50d117deeaca986b4c8e4d}{R\+E\+C\+E\+I\+V\+E\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+H\+A\+R}~\textquotesingle{}\$\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em start character for command lines \end{DoxyCompactList}\item 
+\#define \hyperlink{group__subsys_ga37a39f2cef5d4f3989c8932c3d7346f6}{R\+E\+C\+E\+I\+V\+E\+\_\+\+S\+T\+O\+P\+\_\+\+C\+H\+A\+R}~\textquotesingle{}\textbackslash{}r\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em stop character for command lines \end{DoxyCompactList}\item 
+\#define \hyperlink{group__subsys_ga7295a34bc57dde069397cf280dc94f32}{R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+A\+R\+G\+C}~8
+\begin{DoxyCompactList}\small\item\em max number of arguments after the command name \end{DoxyCompactList}\item 
+\#define \hyperlink{group__subsys_ga5ecc8d4d514ebae84adabf96e0517f6f}{Get\+Log\+Timestamp}()~\hyperlink{group__timing_gad33d57773db985176e2722aeebfee9cc}{Time\+Now}()
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__subsys_gad5c93d1d78ea66a8e631957653e03a74}{Log\+Str} (char $\ast$str,...)
+\item 
+void \hyperlink{group__subsys_gafb675e7cfe55b8b02e927e5c82a98ac0}{Log\+Msg} (uint8\+\_\+t subsystem\+\_\+id, char $\ast$str,...)
+\item 
+uint8\+\_\+t \hyperlink{group__subsys_ga4af744f35168691bbcdf5abe0b5ff4ca}{Subsystem\+\_\+\+Init} (char $\ast$name, \hyperlink{unionversion__t}{version\+\_\+t} version, void($\ast$callback)(int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}))
+\item 
+void \hyperlink{group__subsys_ga1e9ede8a23cc1f69f6c9aef8f8718584}{Subsystem\+\_\+\+Register\+Callback} (uint8\+\_\+t subsystem\+\_\+id, void($\ast$callback)(int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}))
+\item 
+char $\ast$ \hyperlink{group__subsys_ga6e52643db93bcc255c89cc27e644042d}{Get\+Subsystem\+Name} (uint8\+\_\+t subsystem\+\_\+id)
+\item 
+void \hyperlink{group__subsys_ga0788adbc985fe17ec878d3c0f9f06bff}{Log\+\_\+\+Echo\+On} (void)
+\item 
+void \hyperlink{group__subsys_gaaaddf9437be992e2ab59cbc7c6c8a913}{Log\+\_\+\+Echo\+Off} (void)
+\item 
+uint8\+\_\+t \hyperlink{group__subsys_ga8267834e6ee146c03ae4eba2eb0defc9}{Log\+\_\+\+Get\+Echo} (void)
+\item 
+void \hyperlink{group__subsys_gab04a3ed723beeb04411222c5ed8be911}{Log\+\_\+\+Header} (uint8\+\_\+t subsystem\+\_\+id)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Created on\+: Mar 12, 2014 \begin{DoxyAuthor}{Author}
+\+: Michael
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+2014.\+03.\+26 changed System\+Tick to Subsystem\+Tick so the Task Management Module can own \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()} 
+
+2.\+0.\+1 added version, setup S\+Y\+S\+T\+E\+M subsystem, changed warning messages to priority W\+A\+R\+N\+I\+N\+G and set default priority to E\+R\+R\+O\+R to suppress messages 
+
+3.\+1.\+1 removed log levels and redueced to mute or unmute. Moved receiver functionality to U\+A\+R\+T module. Changed callback to take argc argv inputs and added parsing to create argc and argv. 
+\end{DoxyVersion}
+\hypertarget{sys_receive}{}\subsubsection{Sub\+System module command interface}\label{sys_receive}
+If bi-\/directional communication is available (e.\+g. U\+A\+R\+T) then the user can interface with the Sub\+System module in real time using the module\textquotesingle{}s command interface.
+
+A command can be sent to the module in the following format\+: 
+\begin{DoxyCode}
+$command -f0
+\end{DoxyCode}
+ Where the \$ indicates the start of the command, command is the name of the command and -\/f8 is a flag with a value of 8. ~\newline
+Valid system flags are {\ttfamily -\/s}, {\ttfamily -\/l} and {\ttfamily -\/g} 
+
+The commands available are\+:
+
+{\ttfamily version} (or {\ttfamily ver}) -\/ will output a list of subsystems and their version. No flags are applicable.
+
+{\ttfamily level} (or {\ttfamily lev}) -\/ if no flags are given {\ttfamily level} will output level a list of valid level codes and their names as used in the log messages. If a {\ttfamily -\/l} flag is given but not a {\ttfamily -\/s} flag then the level specified with the {\ttfamily -\/l} flag is set as the global level. If the {\ttfamily -\/l} and {\ttfamily -\/s} flags are given then set the level specified with the {\ttfamily -\/l} flag for the subsystem specified with the {\ttfamily -\/s} flag. If a {\ttfamily -\/g} flag is given it will set the global log level to the specified value. The global log level will for any message from any subsystem to be logged if its level is at the global level or below.
+
+{\ttfamily subsystem} (or {\ttfamily sub} or {\ttfamily sys} or {\ttfamily system}) -\/ will output a list of valid subsystem codes and their associated subsystem names and their current log level setting as used by the log message functions. The {\ttfamily -\/s} flag can be used to return only information about the specified subsystem.
+
+Example usage\+: 
+\begin{DoxyCode}
+$version
+
+$sub
+
+$level
+
+$level -l0
+
+$level -s0 -l2
+\end{DoxyCode}
+
+
+In the above example\+:
+\begin{DoxyItemize}
+\item output the subsystems and their versions
+\item output the subsystems and their codes
+\item output the log levels and their codes
+\item set the global log level to 0 (O\+F\+F)
+\item set the log level for subsystem 0 (S\+Y\+S\+T\+E\+M) is set to 2 (E\+R\+R\+O\+R).
+\end{DoxyItemize}
+
+The end result is that no messages would be logged unless they were S\+Y\+S\+T\+E\+M messages with a priority level greater than or equal to E\+R\+R\+O\+R (note higher priority is lower numerically).
+
+Additionally commands may be forwarded to the callback of compatible subsystems using the following format 
+\begin{DoxyCode}
+$12 command <anything goes>
+$MUH play
+\end{DoxyCode}
+ In the first line subsystem index 12 is sent the command string starting after the space. In the second line a module named M\+U\+H is sent a command \char`\"{}play\char`\"{}
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000033}{Todo}]M\+M Update this comment block \end{DoxyRefDesc}
+\hypertarget{subsys_init}{}\subsubsection{Subsystem module initialization}\label{subsys_init}
+Below are three example of how a subsystem could initialize itself.
+
+
+\begin{DoxyCode}
+\textcolor{comment}{// define the version}
+\textcolor{preprocessor}{#define TASK\_VERSION (version\_t)0x01010014u}
+
+\textcolor{comment}{// initialize module to log EVERYTHING and to use "task" to refer}
+\textcolor{comment}{// to this subsystem in output messages}
+SubsystemInit(TASK, EVERYTHING, \textcolor{stringliteral}{"task"}, TASK\_VERSION);
+
+\textcolor{comment}{// or another way to do the same thing}
+
+\textcolor{preprocessor}{#define TASK\_VERSION\_MAJOR 1}
+\textcolor{preprocessor}{#define TASK\_VERSION\_MINOR 1}
+\textcolor{preprocessor}{#define TASK\_VERSION\_BUILD 20}
+
+\hyperlink{unionversion__t}{version\_t} task\_version;
+task\_version.major = TASK\_VERSION\_MAJOR;
+task\_version.minor = TASK\_VERSION\_MINOR;
+task\_version.build = TASK\_VERSION\_BUILD;
+
+SubsystemInit(TASK, EVERYTHING, \textcolor{stringliteral}{"task"}, task\_version);
+
+\textcolor{comment}{// or to do it all in one line}
+uint8\_t task\_id;
+task\_id = SubsystemInit(EVERYTHING, \textcolor{stringliteral}{"task"}, (\hyperlink{unionversion__t}{version\_t})0x01010014u);
+LogMsG(task\_id, WARNING, \textcolor{stringliteral}{"Crap hit the fan"});
+\end{DoxyCode}
+
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000034}{Todo}]M\+M Update this comment block \end{DoxyRefDesc}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{group__subsys_ga5ecc8d4d514ebae84adabf96e0517f6f}{}\index{Subsystem Module@{Subsystem Module}!Get\+Log\+Timestamp@{Get\+Log\+Timestamp}}
+\index{Get\+Log\+Timestamp@{Get\+Log\+Timestamp}!Subsystem Module@{Subsystem Module}}
+\subsubsection[{Get\+Log\+Timestamp}]{\setlength{\rightskip}{0pt plus 5cm}\#define Get\+Log\+Timestamp(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf Time\+Now}()}\label{group__subsys_ga5ecc8d4d514ebae84adabf96e0517f6f}
+Get\+Log\+Timestamp must be defined so that it returns a integer (up to 32 bits) timestamp 
+
+Definition at line 156 of file subsys.\+h.
+
+\hypertarget{group__subsys_ga7295a34bc57dde069397cf280dc94f32}{}\index{Subsystem Module@{Subsystem Module}!R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+A\+R\+G\+C@{R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+A\+R\+G\+C}}
+\index{R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+A\+R\+G\+C@{R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+A\+R\+G\+C}!Subsystem Module@{Subsystem Module}}
+\subsubsection[{R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+A\+R\+G\+C}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+A\+R\+G\+C~8}\label{group__subsys_ga7295a34bc57dde069397cf280dc94f32}
+
+
+max number of arguments after the command name 
+
+
+
+Definition at line 27 of file subsys.\+h.
+
+\hypertarget{group__subsys_gaf7b1ce1a8ab4b9ec92d8773f90cb991c}{}\index{Subsystem Module@{Subsystem Module}!R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+T\+H@{R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+T\+H}}
+\index{R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+T\+H@{R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+T\+H}!Subsystem Module@{Subsystem Module}}
+\subsubsection[{R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+T\+H}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+T\+H~64}\label{group__subsys_gaf7b1ce1a8ab4b9ec92d8773f90cb991c}
+
+
+default length of receive line for commands 
+
+
+
+Definition at line 23 of file subsys.\+h.
+
+\hypertarget{group__subsys_ga91e743817f50d117deeaca986b4c8e4d}{}\index{Subsystem Module@{Subsystem Module}!R\+E\+C\+E\+I\+V\+E\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+H\+A\+R@{R\+E\+C\+E\+I\+V\+E\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+H\+A\+R}}
+\index{R\+E\+C\+E\+I\+V\+E\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+H\+A\+R@{R\+E\+C\+E\+I\+V\+E\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+H\+A\+R}!Subsystem Module@{Subsystem Module}}
+\subsubsection[{R\+E\+C\+E\+I\+V\+E\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+H\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+E\+C\+E\+I\+V\+E\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+H\+A\+R~\textquotesingle{}\$\textquotesingle{}}\label{group__subsys_ga91e743817f50d117deeaca986b4c8e4d}
+
+
+start character for command lines 
+
+
+
+Definition at line 25 of file subsys.\+h.
+
+\hypertarget{group__subsys_ga37a39f2cef5d4f3989c8932c3d7346f6}{}\index{Subsystem Module@{Subsystem Module}!R\+E\+C\+E\+I\+V\+E\+\_\+\+S\+T\+O\+P\+\_\+\+C\+H\+A\+R@{R\+E\+C\+E\+I\+V\+E\+\_\+\+S\+T\+O\+P\+\_\+\+C\+H\+A\+R}}
+\index{R\+E\+C\+E\+I\+V\+E\+\_\+\+S\+T\+O\+P\+\_\+\+C\+H\+A\+R@{R\+E\+C\+E\+I\+V\+E\+\_\+\+S\+T\+O\+P\+\_\+\+C\+H\+A\+R}!Subsystem Module@{Subsystem Module}}
+\subsubsection[{R\+E\+C\+E\+I\+V\+E\+\_\+\+S\+T\+O\+P\+\_\+\+C\+H\+A\+R}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+E\+C\+E\+I\+V\+E\+\_\+\+S\+T\+O\+P\+\_\+\+C\+H\+A\+R~\textquotesingle{}\textbackslash{}r\textquotesingle{}}\label{group__subsys_ga37a39f2cef5d4f3989c8932c3d7346f6}
+
+
+stop character for command lines 
+
+
+
+Definition at line 26 of file subsys.\+h.
+
+\hypertarget{group__subsys_gac13b39d92263b3c765189651110c64f3}{}\index{Subsystem Module@{Subsystem Module}!S\+Y\+S\+T\+E\+M\+\_\+\+V\+E\+R\+S\+I\+O\+N@{S\+Y\+S\+T\+E\+M\+\_\+\+V\+E\+R\+S\+I\+O\+N}}
+\index{S\+Y\+S\+T\+E\+M\+\_\+\+V\+E\+R\+S\+I\+O\+N@{S\+Y\+S\+T\+E\+M\+\_\+\+V\+E\+R\+S\+I\+O\+N}!Subsystem Module@{Subsystem Module}}
+\subsubsection[{S\+Y\+S\+T\+E\+M\+\_\+\+V\+E\+R\+S\+I\+O\+N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\+Y\+S\+T\+E\+M\+\_\+\+V\+E\+R\+S\+I\+O\+N~0x03010001u}\label{group__subsys_gac13b39d92263b3c765189651110c64f3}
+
+
+subsystem module version number 
+
+
+
+Definition at line 20 of file subsys.\+h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{group__subsys_ga6e52643db93bcc255c89cc27e644042d}{}\index{Subsystem Module@{Subsystem Module}!Get\+Subsystem\+Name@{Get\+Subsystem\+Name}}
+\index{Get\+Subsystem\+Name@{Get\+Subsystem\+Name}!Subsystem Module@{Subsystem Module}}
+\subsubsection[{Get\+Subsystem\+Name(uint8\+\_\+t subsystem\+\_\+id)}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Get\+Subsystem\+Name (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{subsystem\+\_\+id}
+\end{DoxyParamCaption}
+)}\label{group__subsys_ga6e52643db93bcc255c89cc27e644042d}
+Return a pointer to a string corresponding to the name of the subsystem
+
+The name returned is the one set by Subsystem\+Init()
+
+
+\begin{DoxyParams}{Parameters}
+{\em subsystem\+\_\+id} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ pointer to a null terminated string corresponding to the name of the subsystem 
+\end{DoxyReturn}
+
+
+Definition at line 85 of file subsys.\+c.
+
+\hypertarget{group__subsys_gaaaddf9437be992e2ab59cbc7c6c8a913}{}\index{Subsystem Module@{Subsystem Module}!Log\+\_\+\+Echo\+Off@{Log\+\_\+\+Echo\+Off}}
+\index{Log\+\_\+\+Echo\+Off@{Log\+\_\+\+Echo\+Off}!Subsystem Module@{Subsystem Module}}
+\subsubsection[{Log\+\_\+\+Echo\+Off(void)}]{\setlength{\rightskip}{0pt plus 5cm}void Log\+\_\+\+Echo\+Off (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__subsys_gaaaddf9437be992e2ab59cbc7c6c8a913}
+Turn echo feature off 
+
+Definition at line 349 of file subsys.\+c.
+
+\hypertarget{group__subsys_ga0788adbc985fe17ec878d3c0f9f06bff}{}\index{Subsystem Module@{Subsystem Module}!Log\+\_\+\+Echo\+On@{Log\+\_\+\+Echo\+On}}
+\index{Log\+\_\+\+Echo\+On@{Log\+\_\+\+Echo\+On}!Subsystem Module@{Subsystem Module}}
+\subsubsection[{Log\+\_\+\+Echo\+On(void)}]{\setlength{\rightskip}{0pt plus 5cm}void Log\+\_\+\+Echo\+On (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__subsys_ga0788adbc985fe17ec878d3c0f9f06bff}
+Turn echo featuren on (default is off) 
+
+Definition at line 345 of file subsys.\+c.
+
+\hypertarget{group__subsys_ga8267834e6ee146c03ae4eba2eb0defc9}{}\index{Subsystem Module@{Subsystem Module}!Log\+\_\+\+Get\+Echo@{Log\+\_\+\+Get\+Echo}}
+\index{Log\+\_\+\+Get\+Echo@{Log\+\_\+\+Get\+Echo}!Subsystem Module@{Subsystem Module}}
+\subsubsection[{Log\+\_\+\+Get\+Echo(void)}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Log\+\_\+\+Get\+Echo (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__subsys_ga8267834e6ee146c03ae4eba2eb0defc9}
+Get status of echo setting
+
+\begin{DoxyReturn}{Returns}
+echo setting, 1 if echo is on 
+\end{DoxyReturn}
+
+
+Definition at line 353 of file subsys.\+c.
+
+\hypertarget{group__subsys_gab04a3ed723beeb04411222c5ed8be911}{}\index{Subsystem Module@{Subsystem Module}!Log\+\_\+\+Header@{Log\+\_\+\+Header}}
+\index{Log\+\_\+\+Header@{Log\+\_\+\+Header}!Subsystem Module@{Subsystem Module}}
+\subsubsection[{Log\+\_\+\+Header(uint8\+\_\+t subsystem\+\_\+id)}]{\setlength{\rightskip}{0pt plus 5cm}void Log\+\_\+\+Header (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{subsystem\+\_\+id}
+\end{DoxyParamCaption}
+)}\label{group__subsys_gab04a3ed723beeb04411222c5ed8be911}
+Log header (timestamp and subsystem name)
+
+
+\begin{DoxyParams}{Parameters}
+{\em subsystem\+\_\+id} & subsystem id (index) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 294 of file subsys.\+c.
+
+\hypertarget{group__subsys_gafb675e7cfe55b8b02e927e5c82a98ac0}{}\index{Subsystem Module@{Subsystem Module}!Log\+Msg@{Log\+Msg}}
+\index{Log\+Msg@{Log\+Msg}!Subsystem Module@{Subsystem Module}}
+\subsubsection[{Log\+Msg(uint8\+\_\+t subsystem\+\_\+id, char $\ast$str,...)}]{\setlength{\rightskip}{0pt plus 5cm}void Log\+Msg (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{subsystem\+\_\+id, }
+\item[{char $\ast$}]{str, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{group__subsys_gafb675e7cfe55b8b02e927e5c82a98ac0}
+Logs the message at the pointer (str) with a timestamp and subsystem name
+
+Before logging the message the function will check the current log setting of the subsystem and to determine if the message should be logged
+
+This function is implemented using Push\+\_\+vprintf. See \hyperlink{group__buffer__printf_gab003a6708a2b979e7910c68adcab9f3c}{Push\+\_\+printf()} for supported flags/features.
+
+Will log the string to the buffer defined by S\+U\+S\+S\+Y\+S\+\_\+\+U\+A\+R\+T
+
+
+\begin{DoxyParams}{Parameters}
+{\em subsystem\+\_\+id} & subsystem id \\
+\hline
+{\em str} & pointer to message to log \\
+\hline
+{\em ...} & variable number of replacement parameters for the str string\\
+\hline
+\end{DoxyParams}
+Example usage\+: 
+\begin{DoxyCode}
+1 LogMsg(sys.id, "oops I crapped my pants");
+2 LogMsg(sys.id, "System Index %d, System Name %s.", sys.id, GetSubsystemName(SYSTEM));
+\end{DoxyCode}
+ 
+
+Definition at line 275 of file subsys.\+c.
+
+\hypertarget{group__subsys_gad5c93d1d78ea66a8e631957653e03a74}{}\index{Subsystem Module@{Subsystem Module}!Log\+Str@{Log\+Str}}
+\index{Log\+Str@{Log\+Str}!Subsystem Module@{Subsystem Module}}
+\subsubsection[{Log\+Str(char $\ast$str,...)}]{\setlength{\rightskip}{0pt plus 5cm}void Log\+Str (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{str, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{group__subsys_gad5c93d1d78ea66a8e631957653e03a74}
+Logs the null terminated string at the pointer (str)
+
+Same as \hyperlink{group__subsys_gafb675e7cfe55b8b02e927e5c82a98ac0}{Log\+Msg()} without the header in the beginning and without the C\+R\+L\+F at the end.
+
+This function is implemented using Push\+\_\+vprintf. See \hyperlink{group__buffer__printf_gab003a6708a2b979e7910c68adcab9f3c}{Push\+\_\+printf()} for supported flags/features.
+
+Will log the string to the buffer defined by L\+O\+G\+\_\+\+B\+U\+F (typically tx0)
+
+
+\begin{DoxyParams}{Parameters}
+{\em str} & pointer to string to log \\
+\hline
+{\em ...} & variable number of replacement parameters for the str string\\
+\hline
+\end{DoxyParams}
+Example usage\+: 
+\begin{DoxyCode}
+1 LogStr("oops I crapped my pants");
+2 LogStr("System Index %d, System Name %s.", SYSTEM, GetSubsystemName(SYSTEM));
+\end{DoxyCode}
+ 
+
+Definition at line 264 of file subsys.\+c.
+
+\hypertarget{group__subsys_ga4af744f35168691bbcdf5abe0b5ff4ca}{}\index{Subsystem Module@{Subsystem Module}!Subsystem\+\_\+\+Init@{Subsystem\+\_\+\+Init}}
+\index{Subsystem\+\_\+\+Init@{Subsystem\+\_\+\+Init}!Subsystem Module@{Subsystem Module}}
+\subsubsection[{Subsystem\+\_\+\+Init(char $\ast$name, version\+\_\+t version, void($\ast$callback)(int argc, char $\ast$argv[]))}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Subsystem\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{name, }
+\item[{{\bf version\+\_\+t}}]{version, }
+\item[{void($\ast$)(int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})}]{callback}
+\end{DoxyParamCaption}
+)}\label{group__subsys_ga4af744f35168691bbcdf5abe0b5ff4ca}
+Initialize settings for a subsystem -\/ critical for proper logging and command interface
+
+If a module/subsystem uses logging it should call this function with the appropriate inputs when the subsystem is initializing.
+
+\begin{DoxyReturn}{Returns}
+subsystem index 
+\end{DoxyReturn}
+
+\begin{DoxyParams}{Parameters}
+{\em name} & pointer to name of the subsystem (recommended to make the name 8 characters or less) \\
+\hline
+{\em version} & software version of subsystem, see \hyperlink{unionversion__t}{version\+\_\+t} for more info \\
+\hline
+{\em callback} & callback function to be called when the user inputs a command in the form of \char`\"{}\$name var1 var2 var3...\char`\"{}. Where name is the name passed to this function. The callback will be passed the number of arguments, {\ttfamily argc} , and a array of pointers to the argument strings, {\ttfamily argv}. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 102 of file subsys.\+c.
+
+\hypertarget{group__subsys_ga1e9ede8a23cc1f69f6c9aef8f8718584}{}\index{Subsystem Module@{Subsystem Module}!Subsystem\+\_\+\+Register\+Callback@{Subsystem\+\_\+\+Register\+Callback}}
+\index{Subsystem\+\_\+\+Register\+Callback@{Subsystem\+\_\+\+Register\+Callback}!Subsystem Module@{Subsystem Module}}
+\subsubsection[{Subsystem\+\_\+\+Register\+Callback(uint8\+\_\+t subsystem\+\_\+id, void($\ast$callback)(int argc, char $\ast$argv[]))}]{\setlength{\rightskip}{0pt plus 5cm}void Subsystem\+\_\+\+Register\+Callback (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{subsystem\+\_\+id, }
+\item[{void($\ast$)(int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})}]{callback}
+\end{DoxyParamCaption}
+)}\label{group__subsys_ga1e9ede8a23cc1f69f6c9aef8f8718584}
+Register a callback function for a subsystem
+
+When a command is received by the logging module for the subsystem {\ttfamily sys} the {\ttfamily callback} function will be executed and passed the number of arguments {\ttfamily argc} and a array (vector) of pointer to the argument strungs {\ttfamily argv}.
+
+The callback is set by \hyperlink{group__subsys_ga4af744f35168691bbcdf5abe0b5ff4ca}{Subsystem\+\_\+\+Init()}, this function can be used to update the callback.
+
+
+\begin{DoxyParams}{Parameters}
+{\em subsystem\+\_\+id} & -\/ subsystem to register the callback for \\
+\hline
+{\em callback} & -\/ function pointer to the function to run when a command is received for the subsystem. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 113 of file subsys.\+c.
+

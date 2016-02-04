@@ -1,0 +1,44 @@
+.TH "timing.h" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+timing.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBtint_t\fP   uint32_t"
+.br
+.ti -1c
+.RI "#define \fBTIME_MAX\fP   0xFFFFFFFFU"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBTiming_Init\fP (void)"
+.br
+.RI "\fIInitialize the timing module\&. \fP"
+.ti -1c
+.RI "uint32_t \fBTimeNow\fP (void)"
+.br
+.RI "\fIReturns the current system time in milliseconds\&. \fP"
+.ti -1c
+.RI "uint32_t \fBTimeSince\fP (\fBtint_t\fP t)"
+.br
+.RI "\fIGet the elapsed time\&. \fP"
+.ti -1c
+.RI "void \fBDelayMs\fP (\fBtint_t\fP delay)"
+.br
+.RI "\fIDelay a specific number of milliseconds\&. \fP"
+.ti -1c
+.RI "void \fBTiming_Roll\fP (void)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

@@ -1,0 +1,32 @@
+.TH "hal_timing" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+hal_timing \- (HAL) Timing module
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBhal_Timing_Init\fP (void)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This module provides the hardware abstraction needed for the timing module
+.PP
+This module needs to do the following:
+.IP "\(bu" 2
+Define \fBhal_Timing_Init()\fP as detailed below \fBhal_Timing_Init()\fP
+.IP "\(bu" 2
+Call \fBTimingISR()\fP macro from within the timer ISR and clear the interrupt flag if required 
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "void hal_Timing_Init (void)"
+Initialize hardware timer peripheral 
+.PP
+Definition at line 9 of file hal_timing\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

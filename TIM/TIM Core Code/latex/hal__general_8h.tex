@@ -1,0 +1,87 @@
+\hypertarget{hal__general_8h}{}\section{hal\+\_\+general.\+h File Reference}
+\label{hal__general_8h}\index{hal\+\_\+general.\+h@{hal\+\_\+general.\+h}}
+{\ttfamily \#include $<$msp430.\+h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{hal__general_8h_a153a328af535691126bf4955e5d896e6}{Nop}()~\+\_\+\+N\+O\+P()
+\item 
+\#define \hyperlink{hal__general_8h_a2a42220c4bdacd910f07473ff74f9b46}{Disable\+Interrupts}()~\+\_\+\+D\+I\+N\+T()
+\item 
+\#define \hyperlink{hal__general_8h_ab1eea217dc48da9434887d1b9eca9067}{Enable\+Interrupts}()~\+\_\+\+E\+I\+N\+T()
+\item 
+\#define \hyperlink{hal__general_8h_abc7219022b69e02a6612a0b1c8979a99}{Block\+Interrupts}()~uint8\+\_\+t int\+Sta = (\+\_\+get\+\_\+\+S\+R\+\_\+register() \& G\+I\+E); \hyperlink{hal__general_8h_a2a42220c4bdacd910f07473ff74f9b46}{Disable\+Interrupts}()
+\item 
+\#define \hyperlink{hal__general_8h_ad611e6bdaeef85a035bdeed0527262fe}{Restore\+Interrupts}()~if(int\+Sta)\{\hyperlink{hal__general_8h_ab1eea217dc48da9434887d1b9eca9067}{Enable\+Interrupts}();\}
+\item 
+\#define \hyperlink{hal__general_8h_aafbfa05cdf5682ae67c42fbd7fd94380}{R\+E\+S\+E\+T}()~(W\+D\+T\+C\+T\+L=1)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{hal__general_8h_abc7219022b69e02a6612a0b1c8979a99}{}\index{hal\+\_\+general.\+h@{hal\+\_\+general.\+h}!Block\+Interrupts@{Block\+Interrupts}}
+\index{Block\+Interrupts@{Block\+Interrupts}!hal\+\_\+general.\+h@{hal\+\_\+general.\+h}}
+\subsubsection[{Block\+Interrupts}]{\setlength{\rightskip}{0pt plus 5cm}\#define Block\+Interrupts(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~uint8\+\_\+t int\+Sta = (\+\_\+get\+\_\+\+S\+R\+\_\+register() \& G\+I\+E); {\bf Disable\+Interrupts}()}\label{hal__general_8h_abc7219022b69e02a6612a0b1c8979a99}
+
+
+Definition at line 17 of file hal\+\_\+general.\+h.
+
+\hypertarget{hal__general_8h_a2a42220c4bdacd910f07473ff74f9b46}{}\index{hal\+\_\+general.\+h@{hal\+\_\+general.\+h}!Disable\+Interrupts@{Disable\+Interrupts}}
+\index{Disable\+Interrupts@{Disable\+Interrupts}!hal\+\_\+general.\+h@{hal\+\_\+general.\+h}}
+\subsubsection[{Disable\+Interrupts}]{\setlength{\rightskip}{0pt plus 5cm}\#define Disable\+Interrupts(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~\+\_\+\+D\+I\+N\+T()}\label{hal__general_8h_a2a42220c4bdacd910f07473ff74f9b46}
+
+
+Definition at line 15 of file hal\+\_\+general.\+h.
+
+\hypertarget{hal__general_8h_ab1eea217dc48da9434887d1b9eca9067}{}\index{hal\+\_\+general.\+h@{hal\+\_\+general.\+h}!Enable\+Interrupts@{Enable\+Interrupts}}
+\index{Enable\+Interrupts@{Enable\+Interrupts}!hal\+\_\+general.\+h@{hal\+\_\+general.\+h}}
+\subsubsection[{Enable\+Interrupts}]{\setlength{\rightskip}{0pt plus 5cm}\#define Enable\+Interrupts(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~\+\_\+\+E\+I\+N\+T()}\label{hal__general_8h_ab1eea217dc48da9434887d1b9eca9067}
+
+
+Definition at line 16 of file hal\+\_\+general.\+h.
+
+\hypertarget{hal__general_8h_a153a328af535691126bf4955e5d896e6}{}\index{hal\+\_\+general.\+h@{hal\+\_\+general.\+h}!Nop@{Nop}}
+\index{Nop@{Nop}!hal\+\_\+general.\+h@{hal\+\_\+general.\+h}}
+\subsubsection[{Nop}]{\setlength{\rightskip}{0pt plus 5cm}\#define Nop(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~\+\_\+\+N\+O\+P()}\label{hal__general_8h_a153a328af535691126bf4955e5d896e6}
+
+
+Definition at line 13 of file hal\+\_\+general.\+h.
+
+\hypertarget{hal__general_8h_aafbfa05cdf5682ae67c42fbd7fd94380}{}\index{hal\+\_\+general.\+h@{hal\+\_\+general.\+h}!R\+E\+S\+E\+T@{R\+E\+S\+E\+T}}
+\index{R\+E\+S\+E\+T@{R\+E\+S\+E\+T}!hal\+\_\+general.\+h@{hal\+\_\+general.\+h}}
+\subsubsection[{R\+E\+S\+E\+T}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\+E\+S\+E\+T(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~(W\+D\+T\+C\+T\+L=1)}\label{hal__general_8h_aafbfa05cdf5682ae67c42fbd7fd94380}
+
+
+Definition at line 19 of file hal\+\_\+general.\+h.
+
+\hypertarget{hal__general_8h_ad611e6bdaeef85a035bdeed0527262fe}{}\index{hal\+\_\+general.\+h@{hal\+\_\+general.\+h}!Restore\+Interrupts@{Restore\+Interrupts}}
+\index{Restore\+Interrupts@{Restore\+Interrupts}!hal\+\_\+general.\+h@{hal\+\_\+general.\+h}}
+\subsubsection[{Restore\+Interrupts}]{\setlength{\rightskip}{0pt plus 5cm}\#define Restore\+Interrupts(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~if(int\+Sta)\{{\bf Enable\+Interrupts}();\}}\label{hal__general_8h_ad611e6bdaeef85a035bdeed0527262fe}
+
+
+Definition at line 18 of file hal\+\_\+general.\+h.
+

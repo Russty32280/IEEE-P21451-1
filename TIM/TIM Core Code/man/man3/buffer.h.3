@@ -1,0 +1,60 @@
+.TH "buffer.h" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+buffer.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stdbool\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBbuffer_t\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBBUFFER_PUSH_FAILED\fP   1"
+.br
+.RI "\fIpush failed (return value of \fBPushData()\fP ) \fP"
+.ti -1c
+.RI "#define \fBBUFFER_PUSH_SUCCEEDED\fP   0"
+.br
+.RI "\fIpush succeeded (return value of \fBPushData()\fP ) \fP"
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBPush\fP (\fBbuffer_t\fP *buffer, char data)"
+.br
+.ti -1c
+.RI "char \fBPop\fP (\fBbuffer_t\fP *buffer)"
+.br
+.ti -1c
+.RI "uint16_t \fBGetSize\fP (\fBbuffer_t\fP *buffer)"
+.br
+.ti -1c
+.RI "void \fBBufferInit\fP (\fBbuffer_t\fP *buffer, char *data_array, uint16_t max_size)"
+.br
+.ti -1c
+.RI "void \fBBufferSetCallback\fP (\fBbuffer_t\fP *buffer, void(*Callback)(\fBbuffer_t\fP *buffer))"
+.br
+.ti -1c
+.RI "void \fBBufferClearCallback\fP (\fBbuffer_t\fP *buffer)"
+.br
+.ti -1c
+.RI "char \fBPushData\fP (\fBbuffer_t\fP *buffer, char *data, uint16_t length)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

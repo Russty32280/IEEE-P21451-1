@@ -1,0 +1,67 @@
+.TH "macros.h" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+macros.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBASCII_BACKSPACE\fP   0x08"
+.br
+.RI "\fIbackspace code \fP"
+.ti -1c
+.RI "#define \fBASCII_LF\fP   0x0A"
+.br
+.RI "\fIline feed code \fP"
+.ti -1c
+.RI "#define \fBASCII_NL\fP   \fBASCII_LF\fP"
+.br
+.RI "\fInew line code \fP"
+.ti -1c
+.RI "#define \fBASCII_CR\fP   0x0D"
+.br
+.RI "\fIcarrage return code \fP"
+.ti -1c
+.RI "#define \fBASCII_DEL\fP   0x7F"
+.br
+.RI "\fIdelete code \fP"
+.ti -1c
+.RI "#define \fBASCII_ESC\fP   0x1B"
+.br
+.RI "\fIescape character code \fP"
+.ti -1c
+.RI "#define \fBCAT2\fP(s1,  s2)   \fBCAT2B\fP(s1,s2)"
+.br
+.ti -1c
+.RI "#define \fBCAT2B\fP(s1,  s2)   s1##s2"
+.br
+.RI "\fIhelper for CAT2 \fP"
+.ti -1c
+.RI "#define \fBCAT3\fP(s1,  s2,  s3)   \fBCAT3B\fP(s1,s2,s3)"
+.br
+.ti -1c
+.RI "#define \fBCAT3B\fP(s1,  s2,  s3)   s1##s2##s3"
+.br
+.RI "\fIhelper for CAT3 \fP"
+.ti -1c
+.RI "#define \fBCAT4\fP(s1,  s2,  s3,  s4)   \fBCAT4B\fP(s1,s2,s3,s4)"
+.br
+.ti -1c
+.RI "#define \fBCAT4B\fP(s1,  s2,  s3,  s4)   s1##s2##s3##s4"
+.br
+.RI "\fIhelper for CAT4 \fP"
+.ti -1c
+.RI "#define \fBCAT5\fP(s1,  s2,  s3,  s4,  s5)   \fBCAT5B\fP(s1,s2,s3,s4,s5)"
+.br
+.ti -1c
+.RI "#define \fBCAT5B\fP(s1,  s2,  s3,  s4,  s5)   s1##s2##s3##s4##s5"
+.br
+.RI "\fIhelper for CAT5 \fP"
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

@@ -1,0 +1,67 @@
+\hypertarget{structsubsystem__t}{}\section{subsystem\+\_\+t Struct Reference}
+\label{structsubsystem__t}\index{subsystem\+\_\+t@{subsystem\+\_\+t}}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{structsubsystem__t_a5ac083a645d964373f022d03df4849c8}{name}
+\item 
+uint8\+\_\+t \hyperlink{structsubsystem__t_ae001c74b249ea53b90cc573c1ca7699b}{log}
+\item 
+\hyperlink{unionversion__t}{version\+\_\+t} \hyperlink{structsubsystem__t_a0a8052c72b7c10557400c8df1e52946e}{version}
+\item 
+void($\ast$ \hyperlink{structsubsystem__t_a0ca91c56697bfb67aa0d631ae0d27085}{callback} )(int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\begin{DoxyCompactList}\small\item\em callback function to process commands \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Subsystem struct to organize name, level, and version for each subsystem.
+
+Note\+: this struct is kept local to this file since the user should use the following methods to set and update the subsystem information\+: \begin{DoxySeeAlso}{See also}
+Subsystem\+Log\+Priority() 
+
+Subsystem\+Init() 
+\end{DoxySeeAlso}
+
+
+Definition at line 42 of file subsys.\+c.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structsubsystem__t_a0ca91c56697bfb67aa0d631ae0d27085}{}\index{subsystem\+\_\+t@{subsystem\+\_\+t}!callback@{callback}}
+\index{callback@{callback}!subsystem\+\_\+t@{subsystem\+\_\+t}}
+\subsubsection[{callback}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ callback) (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})}\label{structsubsystem__t_a0ca91c56697bfb67aa0d631ae0d27085}
+
+
+callback function to process commands 
+
+
+
+Definition at line 46 of file subsys.\+c.
+
+\hypertarget{structsubsystem__t_ae001c74b249ea53b90cc573c1ca7699b}{}\index{subsystem\+\_\+t@{subsystem\+\_\+t}!log@{log}}
+\index{log@{log}!subsystem\+\_\+t@{subsystem\+\_\+t}}
+\subsubsection[{log}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t log}\label{structsubsystem__t_ae001c74b249ea53b90cc573c1ca7699b}
+log setting of subsystem/module 
+
+Definition at line 44 of file subsys.\+c.
+
+\hypertarget{structsubsystem__t_a5ac083a645d964373f022d03df4849c8}{}\index{subsystem\+\_\+t@{subsystem\+\_\+t}!name@{name}}
+\index{name@{name}!subsystem\+\_\+t@{subsystem\+\_\+t}}
+\subsubsection[{name}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ name}\label{structsubsystem__t_a5ac083a645d964373f022d03df4849c8}
+pointer to name of subsystem/module 
+
+Definition at line 43 of file subsys.\+c.
+
+\hypertarget{structsubsystem__t_a0a8052c72b7c10557400c8df1e52946e}{}\index{subsystem\+\_\+t@{subsystem\+\_\+t}!version@{version}}
+\index{version@{version}!subsystem\+\_\+t@{subsystem\+\_\+t}}
+\subsubsection[{version}]{\setlength{\rightskip}{0pt plus 5cm}{\bf version\+\_\+t} version}\label{structsubsystem__t_a0a8052c72b7c10557400c8df1e52946e}
+software version of module 
+
+Definition at line 45 of file subsys.\+c.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{subsys_8c}{subsys.\+c}\end{DoxyCompactItemize}

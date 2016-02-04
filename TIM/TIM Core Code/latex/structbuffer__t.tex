@@ -1,0 +1,87 @@
+\hypertarget{structbuffer__t}{}\section{buffer\+\_\+t Struct Reference}
+\label{structbuffer__t}\index{buffer\+\_\+t@{buffer\+\_\+t}}
+
+
+{\ttfamily \#include $<$buffer.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \hyperlink{structbuffer__t_aaba88b24a21a6c70c895c0d55f4a69a0}{size}
+\item 
+uint16\+\_\+t \hyperlink{structbuffer__t_a58516967d6d94fcbcd0b8fc2320e581f}{max\+\_\+size}
+\item 
+char $\ast$ \hyperlink{structbuffer__t_a76c4b89775aec874cd21ff80a9c099e1}{front}
+\item 
+char $\ast$ \hyperlink{structbuffer__t_a96c6c547bf6a43ef40eeca3198cce36e}{rear}
+\item 
+char $\ast$ \hyperlink{structbuffer__t_af127db1c17ed58547ff5125a912d02b9}{buffer\+\_\+start}
+\item 
+char $\ast$ \hyperlink{structbuffer__t_ab7869299a8099ebb2ed9bdd49962baf2}{buffer\+\_\+end}
+\item 
+void($\ast$ \hyperlink{structbuffer__t_a7957c810329d9c779aad2a456bd77757}{Callback} )(void $\ast$buf)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+data structure to hold the required information for each buffer 
+
+Definition at line 52 of file buffer.\+h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structbuffer__t_ab7869299a8099ebb2ed9bdd49962baf2}{}\index{buffer\+\_\+t@{buffer\+\_\+t}!buffer\+\_\+end@{buffer\+\_\+end}}
+\index{buffer\+\_\+end@{buffer\+\_\+end}!buffer\+\_\+t@{buffer\+\_\+t}}
+\subsubsection[{buffer\+\_\+end}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ buffer\+\_\+end}\label{structbuffer__t_ab7869299a8099ebb2ed9bdd49962baf2}
+buffer end location in memory (buffer\+\_\+start + max\+\_\+size) $>$ 
+
+Definition at line 58 of file buffer.\+h.
+
+\hypertarget{structbuffer__t_af127db1c17ed58547ff5125a912d02b9}{}\index{buffer\+\_\+t@{buffer\+\_\+t}!buffer\+\_\+start@{buffer\+\_\+start}}
+\index{buffer\+\_\+start@{buffer\+\_\+start}!buffer\+\_\+t@{buffer\+\_\+t}}
+\subsubsection[{buffer\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ buffer\+\_\+start}\label{structbuffer__t_af127db1c17ed58547ff5125a912d02b9}
+buffer start location in memory $>$ 
+
+Definition at line 57 of file buffer.\+h.
+
+\hypertarget{structbuffer__t_a7957c810329d9c779aad2a456bd77757}{}\index{buffer\+\_\+t@{buffer\+\_\+t}!Callback@{Callback}}
+\index{Callback@{Callback}!buffer\+\_\+t@{buffer\+\_\+t}}
+\subsubsection[{Callback}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ Callback) (void $\ast$buf)}\label{structbuffer__t_a7957c810329d9c779aad2a456bd77757}
+Push callback, useful if buffer is used for communications, does not need to be used/set, initializes to 0$>$ 
+
+Definition at line 59 of file buffer.\+h.
+
+\hypertarget{structbuffer__t_a76c4b89775aec874cd21ff80a9c099e1}{}\index{buffer\+\_\+t@{buffer\+\_\+t}!front@{front}}
+\index{front@{front}!buffer\+\_\+t@{buffer\+\_\+t}}
+\subsubsection[{front}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ front}\label{structbuffer__t_a76c4b89775aec874cd21ff80a9c099e1}
+pointer to first item in buffer $>$ 
+
+Definition at line 55 of file buffer.\+h.
+
+\hypertarget{structbuffer__t_a58516967d6d94fcbcd0b8fc2320e581f}{}\index{buffer\+\_\+t@{buffer\+\_\+t}!max\+\_\+size@{max\+\_\+size}}
+\index{max\+\_\+size@{max\+\_\+size}!buffer\+\_\+t@{buffer\+\_\+t}}
+\subsubsection[{max\+\_\+size}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t max\+\_\+size}\label{structbuffer__t_a58516967d6d94fcbcd0b8fc2320e581f}
+max\+\_\+size is the length of the buffer array provided by the user $>$ 
+
+Definition at line 54 of file buffer.\+h.
+
+\hypertarget{structbuffer__t_a96c6c547bf6a43ef40eeca3198cce36e}{}\index{buffer\+\_\+t@{buffer\+\_\+t}!rear@{rear}}
+\index{rear@{rear}!buffer\+\_\+t@{buffer\+\_\+t}}
+\subsubsection[{rear}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ rear}\label{structbuffer__t_a96c6c547bf6a43ef40eeca3198cce36e}
+pointer to next open position in the buffer $>$ 
+
+Definition at line 56 of file buffer.\+h.
+
+\hypertarget{structbuffer__t_aaba88b24a21a6c70c895c0d55f4a69a0}{}\index{buffer\+\_\+t@{buffer\+\_\+t}!size@{size}}
+\index{size@{size}!buffer\+\_\+t@{buffer\+\_\+t}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t size}\label{structbuffer__t_aaba88b24a21a6c70c895c0d55f4a69a0}
+size is the number of items in the buffer $>$ 
+
+Definition at line 53 of file buffer.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{buffer_8h}{buffer.\+h}\end{DoxyCompactItemize}

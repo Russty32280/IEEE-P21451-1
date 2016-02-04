@@ -1,0 +1,6 @@
+#ifndef HAL_SETTINGS_H_
+#define HAL_SETTINGS_H_
+
+#define FCPU 1048576L
+#define PERIPHERAL_CLOCK FCPU
+#endif

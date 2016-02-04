@@ -1,0 +1,33 @@
+\hypertarget{task_8h}{}\section{task.\+h File Reference}
+\label{task_8h}\index{task.\+h@{task.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}timing.\+h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__task_ga63e7ac0b07d5527e8110261f64661128}{T\+A\+S\+K\+\_\+\+R\+O\+L\+L\+\_\+\+T\+I\+M\+E}~(\hyperlink{group__timing_ga0540485394df82add6b7c4f2137c7f21}{T\+I\+M\+E\+\_\+\+M\+A\+X}-\/(uint32\+\_\+t)10$\ast$24$\ast$60$\ast$60$\ast$1000)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{group__task_ga08219bddd9fe09eb5192564ad47dad99}{task\+\_\+fn\+\_\+pointer\+\_\+input\+\_\+t}) (void $\ast$)
+\item 
+typedef void($\ast$ \hyperlink{group__task_ga318336c763a22ea5f1c49c52ac5b6fe2}{task\+\_\+fn\+\_\+t}) (void)
+\begin{DoxyCompactList}\small\item\em default task type \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__task_gaa6ab5350efe602f7bdfdca42aa57aff2}{Task\+\_\+\+Init} (void)
+\item 
+void \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick} (void)
+\item 
+void \hyperlink{group__task_gac52c4f77f95df13332873382c71e82dc}{Task\+\_\+\+Queue} (\hyperlink{group__task_ga318336c763a22ea5f1c49c52ac5b6fe2}{task\+\_\+fn\+\_\+t} fn, void $\ast$pointer)
+\begin{DoxyCompactList}\small\item\em Adds a function to the task queue. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_gadbe36e55ccb027326512672c71bf7ff3}{Task\+\_\+\+Schedule} (\hyperlink{group__task_ga318336c763a22ea5f1c49c52ac5b6fe2}{task\+\_\+fn\+\_\+t} fn, void $\ast$pointer, \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} delay, \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} period)
+\begin{DoxyCompactList}\small\item\em Adds task to be scheduled for execution. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_ga7b397e2ec76a8f3899118305a113e76e}{Task\+\_\+\+Remove} (\hyperlink{group__task_ga318336c763a22ea5f1c49c52ac5b6fe2}{task\+\_\+fn\+\_\+t} fn, void $\ast$pointer)
+\begin{DoxyCompactList}\small\item\em Removes Task. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_ga51a214a49e3bca310762452c27c47c90}{Wait\+Ms} (\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} wait)
+\item 
+uint8\+\_\+t \hyperlink{group__task_gaef3188aaf35028172b18eec278647c7e}{Task\+\_\+\+Is\+Scheduled} (\hyperlink{group__task_ga318336c763a22ea5f1c49c52ac5b6fe2}{task\+\_\+fn\+\_\+t} fn)
+\end{DoxyCompactItemize}

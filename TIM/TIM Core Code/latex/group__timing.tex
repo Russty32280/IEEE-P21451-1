@@ -1,0 +1,168 @@
+\hypertarget{group__timing}{}\section{Timing module}
+\label{group__timing}\index{Timing module@{Timing module}}
+\subsection*{Modules}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__hal__timing}{(\+H\+A\+L) Timing module}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t}~uint32\+\_\+t
+\item 
+\#define \hyperlink{group__timing_ga0540485394df82add6b7c4f2137c7f21}{T\+I\+M\+E\+\_\+\+M\+A\+X}~0x\+F\+F\+F\+F\+F\+F\+F\+F\+U
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__timing_ga6a7bd5705bafa4dd205b38a13e50263c}{Timing\+\_\+\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Initialize the timing module. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group__timing_gad33d57773db985176e2722aeebfee9cc}{Time\+Now} (void)
+\begin{DoxyCompactList}\small\item\em Returns the current system time in milliseconds. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{group__timing_gaf31cb5a8f600695cd8bff12328aa65a9}{Time\+Since} (\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} t)
+\begin{DoxyCompactList}\small\item\em Get the elapsed time. \end{DoxyCompactList}\item 
+void \hyperlink{group__timing_ga5a4bf9e6351a738abf338ceabdf4a095}{Delay\+Ms} (\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} delay)
+\begin{DoxyCompactList}\small\item\em Delay a specific number of milliseconds. \end{DoxyCompactList}\item 
+void \hyperlink{group__timing_ga04f06155f2b1fa16cfa8046672048423}{Timing\+\_\+\+Roll} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This module provides some very basic functions to make timing easier. Several other modules rely on the services provided by this module.
+
+The module uses the H\+A\+L layer to provide the hardware specific functionality for the timing module. In this module, the \hyperlink{hal__timing_8c}{hal\+\_\+timing.\+c} file is included to allow the I\+S\+R to access the time variable without externing the variable or making a function call. This allows the I\+S\+R to be very efficient. 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{group__timing_ga0540485394df82add6b7c4f2137c7f21}{}\index{Timing module@{Timing module}!T\+I\+M\+E\+\_\+\+M\+A\+X@{T\+I\+M\+E\+\_\+\+M\+A\+X}}
+\index{T\+I\+M\+E\+\_\+\+M\+A\+X@{T\+I\+M\+E\+\_\+\+M\+A\+X}!Timing module@{Timing module}}
+\subsubsection[{T\+I\+M\+E\+\_\+\+M\+A\+X}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+I\+M\+E\+\_\+\+M\+A\+X~0x\+F\+F\+F\+F\+F\+F\+F\+F\+U}\label{group__timing_ga0540485394df82add6b7c4f2137c7f21}
+Max time that can be held with the tint\+\_\+t type. 
+
+Definition at line 29 of file timing.\+h.
+
+\hypertarget{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{}\index{Timing module@{Timing module}!tint\+\_\+t@{tint\+\_\+t}}
+\index{tint\+\_\+t@{tint\+\_\+t}!Timing module@{Timing module}}
+\subsubsection[{tint\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}\#define tint\+\_\+t~uint32\+\_\+t}\label{group__timing_gaef97c9386393beb1be4ed0b1513ee481}
+type for timer, change override this to uint16\+\_\+t for better efficiency on a 8 or 16 bit system.
+
+Note\+: a define is used instead of a typedef so that the define can be overriden. 
+
+Definition at line 24 of file timing.\+h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{group__timing_ga5a4bf9e6351a738abf338ceabdf4a095}{}\index{Timing module@{Timing module}!Delay\+Ms@{Delay\+Ms}}
+\index{Delay\+Ms@{Delay\+Ms}!Timing module@{Timing module}}
+\subsubsection[{Delay\+Ms(tint\+\_\+t delay)}]{\setlength{\rightskip}{0pt plus 5cm}void Delay\+Ms (
+\begin{DoxyParamCaption}
+\item[{{\bf tint\+\_\+t}}]{delay}
+\end{DoxyParamCaption}
+)}\label{group__timing_ga5a4bf9e6351a738abf338ceabdf4a095}
+
+
+Delay a specific number of milliseconds. 
+
+Delay\+Ms uses \hyperlink{group__timing_gad33d57773db985176e2722aeebfee9cc}{Time\+Now()} and \hyperlink{group__timing_gaf31cb5a8f600695cd8bff12328aa65a9}{Time\+Since()} to implement the delay
+
+
+\begin{DoxyParams}{Parameters}
+{\em delay} & specifies the number of milliseconds to delay \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 44 of file timing.\+c.
+
+\hypertarget{group__timing_gad33d57773db985176e2722aeebfee9cc}{}\index{Timing module@{Timing module}!Time\+Now@{Time\+Now}}
+\index{Time\+Now@{Time\+Now}!Timing module@{Timing module}}
+\subsubsection[{Time\+Now(void)}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Time\+Now (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__timing_gad33d57773db985176e2722aeebfee9cc}
+
+
+Returns the current system time in milliseconds. 
+
+\begin{DoxyReturn}{Returns}
+the current system time in milliseconds
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__timing_gaf31cb5a8f600695cd8bff12328aa65a9}{Time\+Since} 
+\end{DoxySeeAlso}
+
+
+Definition at line 31 of file timing.\+c.
+
+\hypertarget{group__timing_gaf31cb5a8f600695cd8bff12328aa65a9}{}\index{Timing module@{Timing module}!Time\+Since@{Time\+Since}}
+\index{Time\+Since@{Time\+Since}!Timing module@{Timing module}}
+\subsubsection[{Time\+Since(tint\+\_\+t t)}]{\setlength{\rightskip}{0pt plus 5cm}uint32\+\_\+t Time\+Since (
+\begin{DoxyParamCaption}
+\item[{{\bf tint\+\_\+t}}]{t}
+\end{DoxyParamCaption}
+)}\label{group__timing_gaf31cb5a8f600695cd8bff12328aa65a9}
+
+
+Get the elapsed time. 
+
+Calculate and return the time elapsed since a given time. Typically used with \hyperlink{group__timing_gad33d57773db985176e2722aeebfee9cc}{Time\+Now()}. See the example usage.
+
+
+\begin{DoxyCode}
+1 uint32\_t t;
+2 t = TimeNow();
+3 while(TimeSince(t) < 5000)\{
+4     //Insert code here
+5 \}
+\end{DoxyCode}
+
+
+\begin{DoxySeeAlso}{See also}
+\hyperlink{group__timing_gad33d57773db985176e2722aeebfee9cc}{Time\+Now}
+\end{DoxySeeAlso}
+
+\begin{DoxyParams}{Parameters}
+{\em t} & -\/ The time in milliseconds to calculate the elapsed time since \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+-\/ The time elapsed since the time given in milliseconds 
+\end{DoxyReturn}
+
+
+Definition at line 35 of file timing.\+c.
+
+\hypertarget{group__timing_ga6a7bd5705bafa4dd205b38a13e50263c}{}\index{Timing module@{Timing module}!Timing\+\_\+\+Init@{Timing\+\_\+\+Init}}
+\index{Timing\+\_\+\+Init@{Timing\+\_\+\+Init}!Timing module@{Timing module}}
+\subsubsection[{Timing\+\_\+\+Init(void)}]{\setlength{\rightskip}{0pt plus 5cm}void Timing\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__timing_ga6a7bd5705bafa4dd205b38a13e50263c}
+
+
+Initialize the timing module. 
+
+Call the H\+A\+L layer to initialize a timer to interrupt every 1ms. Clears the timing count 
+
+Definition at line 21 of file timing.\+c.
+
+\hypertarget{group__timing_ga04f06155f2b1fa16cfa8046672048423}{}\index{Timing module@{Timing module}!Timing\+\_\+\+Roll@{Timing\+\_\+\+Roll}}
+\index{Timing\+\_\+\+Roll@{Timing\+\_\+\+Roll}!Timing module@{Timing module}}
+\subsubsection[{Timing\+\_\+\+Roll(void)}]{\setlength{\rightskip}{0pt plus 5cm}void Timing\+\_\+\+Roll (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__timing_ga04f06155f2b1fa16cfa8046672048423}
+Reset the system time
+
+Reset system time (e.\+g. \hyperlink{group__timing_gad33d57773db985176e2722aeebfee9cc}{Time\+Now()} will return 0) and set appropriate rollover times so Time\+Since will work properly.
+
+\begin{DoxyWarning}{Warning}
+Timing discrepancies will occur if Timer\+Roll is called and not called again for the next timer rollover. \hyperlink{group__timing_gaf31cb5a8f600695cd8bff12328aa65a9}{Time\+Since()} will result in a shorter time than expected if the timer is allowed to naturally roll over after calling Timer\+Roll. The difference will be M\+A\+X\+\_\+\+T\+I\+M\+E -\/ the time when Timer\+Roll was last called. This could be fixed by adding a check for the timer rolling over naturally and setting rollover\+\_\+time to T\+I\+M\+E\+\_\+\+M\+A\+X in \hyperlink{timing_8c}{timing.\+c}. Note\+: This is handled by the task management system which typically will be the only user of \hyperlink{group__timing_ga04f06155f2b1fa16cfa8046672048423}{Timing\+\_\+\+Roll()} 
+\end{DoxyWarning}
+
+
+Definition at line 53 of file timing.\+c.
+

@@ -1,0 +1,77 @@
+\hypertarget{index_getting_started}{}\section{Getting Started With Using the Library}\label{index_getting_started}
+To use this library\+:
+\begin{DoxyItemize}
+\item add the desired modules (.c files) to your project and include the corresponding header files (.h files) in \hyperlink{system_8h}{system.\+h} (you must create \hyperlink{system_8h}{system.\+h}).
+\item add the \textbackslash{} include directory to the compilers include directories
+\item add the \textbackslash{} hal \textbackslash{} hal\+\_\+includes directory to the compilers include directories
+\item add the \textbackslash{} hal \textbackslash{} processor\+\_\+family \textbackslash{} processor\+\_\+number directory to the compilers include directories
+\item enjoy
+\end{DoxyItemize}
+
+For example to make a simple project which says \char`\"{}\+Hello World\char`\"{} every 10 seconds you would add the following c files to your project\+:
+\begin{DoxyItemize}
+\item \hyperlink{buffer_8c}{buffer.\+c} (used by the U\+A\+R\+T module)
+\item \hyperlink{buffer__printf_8c}{buffer\+\_\+printf.\+c} (optional -\/ used by the U\+A\+R\+T module if you use U\+A\+R\+T\+\_\+printf)
+\item \hyperlink{char_receiver_list_8c}{char\+Receiver\+List.\+c} (used by the U\+A\+R\+T module)
+\item \hyperlink{hal__uart_8c}{hal\+\_\+uart.\+c} (found in the hal \textbackslash{} processor\+\_\+family \textbackslash{} processor\+\_\+number folder
+\item \hyperlink{list_8c}{list.\+c} (used by the task management module)
+\item \hyperlink{task_8c}{task.\+c}
+\item \hyperlink{timing_8c}{timing.\+c} (used by the task management module)
+\item \hyperlink{uart_8c}{uart.\+c}
+\end{DoxyItemize}
+
+Your \hyperlink{system_8h}{system.\+h} may look something like the following\+: 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#ifndef \_SYSTEM\_H\_}
+\textcolor{preprocessor}{#define \_SYSTEM\_H\_}
+
+\textcolor{comment}{// include the library header}
+\textcolor{preprocessor}{#include "\hyperlink{library_8h}{library.h}"}
+\textcolor{comment}{// include list of modules used}
+\textcolor{preprocessor}{#include "\hyperlink{task_8h}{task.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{timing_8h}{timing.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{list_8h}{list.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{buffer_8h}{buffer.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{buffer__printf_8h}{buffer\_printf.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{char_receiver_list_8h}{charReceiverList.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{item_buffer_8h}{itemBuffer.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{uart_8h}{uart.h}"}
+
+\textcolor{comment}{//hint: the MSP430F5529 uses UART1 for the builtin MSP Application UART1 virtual COM port}
+\textcolor{preprocessor}{#define USE\_UART2}
+
+\textcolor{comment}{// hint: the default clock for the MSP430F5529 is 1048576}
+\textcolor{comment}{// the default clock for the PIC32MX is set by configuration bits}
+\textcolor{preprocessor}{#define FCPU     8000000L}
+\textcolor{comment}{// if peripheral clock is slower than main clock change it here}
+\textcolor{preprocessor}{#define PERIPHERAL\_CLOCK FCPU}
+
+\textcolor{preprocessor}{#endif // \_SYSTEM\_H\_}
+\end{DoxyCode}
+
+
+The main for this project may look something like this\+: 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include "\hyperlink{library_8h}{library.h}"}
+\textcolor{preprocessor}{#include "\hyperlink{system_8h}{system.h}"}
+\textcolor{comment}{// define which uart channel to use}
+\textcolor{preprocessor}{#define UART\_CHANNEL 2}
+\textcolor{keywordtype}{void} hello\_world(\textcolor{keywordtype}{void}) \{
+    \hyperlink{uart_8c_a938ff162e09b003006152435a33ba5f5}{UART\_Printf}(\hyperlink{main_8c_a83c524f684970472a9ae3ba181fdec80}{UART\_CHANNEL}, \textcolor{stringliteral}{"Hello World\(\backslash\)r\(\backslash\)n"});
+\}
+int32\_t \hyperlink{main_8c_a52d2cba30e6946c95578be946ac12a65}{main}(\textcolor{keywordtype}{void})
+\{
+    \textcolor{comment}{// do any device specific configuration here}
+    \textcolor{comment}{// SYSTEMConfig(FCPU, SYS\_CFG\_ALL); // config clock for PIC32}
+    \textcolor{comment}{// WDTCTL = WDTPW | WDTHOLD;    // Stop watchdog timer for MSP430}
+
+    \hyperlink{group__timing_ga6a7bd5705bafa4dd205b38a13e50263c}{Timing\_Init}(); \textcolor{comment}{// initialize the timing module first}
+    \hyperlink{group__task_gaa6ab5350efe602f7bdfdca42aa57aff2}{Task\_Init}(); \textcolor{comment}{// initialize task management module next}
+    \hyperlink{uart_8c_ace506ef2867a6ee30406b132eb624ed8}{UART\_Init}(\hyperlink{main_8c_a83c524f684970472a9ae3ba181fdec80}{UART\_CHANNEL});
+    \textcolor{comment}{// enable interrupts after modules using interrupts have been initialized}
+    \hyperlink{hal__general_8h_ab1eea217dc48da9434887d1b9eca9067}{EnableInterrupts}();
+    \hyperlink{group__task_gadbe36e55ccb027326512672c71bf7ff3}{Task\_Schedule}(hello\_world, 0, 10000, 10000);
+    \textcolor{keywordflow}{while}(1) \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{SystemTick}();
+\}
+\end{DoxyCode}
+ 

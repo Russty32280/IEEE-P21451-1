@@ -1,0 +1,65 @@
+.TH "subsystem_t" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+subsystem_t \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "char * \fBname\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBlog\fP"
+.br
+.ti -1c
+.RI "\fBversion_t\fP \fBversion\fP"
+.br
+.ti -1c
+.RI "void(* \fBcallback\fP )(int argc, char *argv[])"
+.br
+.RI "\fIcallback function to process commands \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+Subsystem struct to organize name, level, and version for each subsystem\&.
+.PP
+Note: this struct is kept local to this file since the user should use the following methods to set and update the subsystem information: 
+.PP
+\fBSee also:\fP
+.RS 4
+SubsystemLogPriority() 
+.PP
+SubsystemInit() 
+.RE
+.PP
+
+.PP
+Definition at line 42 of file subsys\&.c\&.
+.SH "Field Documentation"
+.PP 
+.SS "void(* callback) (int argc, char *argv[])"
+
+.PP
+callback function to process commands 
+.PP
+Definition at line 46 of file subsys\&.c\&.
+.SS "uint8_t log"
+log setting of subsystem/module 
+.PP
+Definition at line 44 of file subsys\&.c\&.
+.SS "char* name"
+pointer to name of subsystem/module 
+.PP
+Definition at line 43 of file subsys\&.c\&.
+.SS "\fBversion_t\fP version"
+software version of module 
+.PP
+Definition at line 45 of file subsys\&.c\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

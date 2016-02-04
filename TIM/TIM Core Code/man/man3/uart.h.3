@@ -1,0 +1,113 @@
+.TH "uart.h" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+uart.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include <stdbool\&.h>\fP
+.br
+\fC#include 'charReceiverList\&.h'\fP
+.br
+
+.SS "Functions"
+
+.PP
+.RI "\fB\fP"
+.br
+
+.in +1c
+.in +1c
+.ti -1c
+.RI "void \fBUART_Init\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "void \fBUART_WriteByte\fP (uint8_t channel, char c)"
+.br
+.ti -1c
+.RI "void \fBUART_Write\fP (uint8_t channel, char *data, uint16_t length)"
+.br
+.ti -1c
+.RI "void \fBUART_Printf\fP (uint8_t channel, char *str,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "void \fBUART_vprintf\fP (uint8_t channel, char *str, va_list vars)"
+.br
+.ti -1c
+.RI "uint8_t \fBUART_IsTransmitting\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "void \fBUART_Tick\fP (void)"
+.br
+.ti -1c
+.RI "void \fBUART_RegisterReceiver\fP (uint8_t channel, \fBcharReceiver_t\fP fn)"
+.br
+.ti -1c
+.RI "void \fBUART_UnregisterReceiver\fP (uint8_t channel, \fBcharReceiver_t\fP fn)"
+.br
+.in -1c
+.in -1c
+.SH "Detailed Description"
+.PP 
+Created on: Mar 12, 2014 Author: Michael Muhlbaier Updated on: Feb 7, 2015 Author: Anthony Merlino 
+.PP
+Definition in file \fBuart\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void UART_Init (uint8_t channel)"
+Initialize UART module
+.PP
+Example usage: 
+.PP
+.nf
+1 UART_Init(UART0_CHANNEL);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchannel\fP - The channel of UART to be used\&. Macros for these should be defined in the HAL of the specific device\&. 
+.RE
+.PP
+
+.PP
+Definition at line 227 of file uart\&.c\&.
+.SS "uint8_t UART_IsTransmitting (uint8_t channel)"
+
+.PP
+Definition at line 432 of file uart\&.c\&.
+.SS "void UART_Printf (uint8_t channel, char * str,  \&.\&.\&.)"
+
+.PP
+Definition at line 401 of file uart\&.c\&.
+.SS "void UART_RegisterReceiver (uint8_t channel, \fBcharReceiver_t\fP fn)"
+
+.PP
+Definition at line 422 of file uart\&.c\&.
+.SS "void UART_Tick (void)"
+
+.PP
+Definition at line 338 of file uart\&.c\&.
+.SS "void UART_UnregisterReceiver (uint8_t channel, \fBcharReceiver_t\fP fn)"
+
+.PP
+Definition at line 427 of file uart\&.c\&.
+.SS "void UART_vprintf (uint8_t channel, char * str, va_list vars)"
+
+.PP
+Definition at line 416 of file uart\&.c\&.
+.SS "void UART_Write (uint8_t channel, char * data, uint16_t length)"
+
+.PP
+Definition at line 395 of file uart\&.c\&.
+.SS "void UART_WriteByte (uint8_t channel, char c)"
+
+.PP
+Definition at line 389 of file uart\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

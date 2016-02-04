@@ -1,0 +1,163 @@
+.TH "list.c" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+list.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'system\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBNULL_LINK\fP   0"
+.br
+.ti -1c
+.RI "#define \fBUNUSED_LINK\fP   (\fBlist_link_t\fP*)1"
+.br
+.ti -1c
+.RI "#define \fBPENDING_LINK\fP   (\fBlist_link_t\fP*)2"
+.br
+.ti -1c
+.RI "#define \fBLINK_IN_USE\fP   (\fBlist_link_t\fP*)3"
+.br
+.ti -1c
+.RI "#define \fBIsLinkValid\fP(link)   (link > \fBLINK_IN_USE\fP)"
+.br
+.ti -1c
+.RI "#define \fBERROR_NO_ROOM_IN_LIST\fP   1"
+.br
+.ti -1c
+.RI "#define \fBERROR_ITEM_NOT_FOUND\fP   2"
+.br
+.ti -1c
+.RI "#define \fBERROR_INVALID_LINK\fP   3"
+.br
+.ti -1c
+.RI "#define \fBUpdateWorkingLinks\fP(list,  link)    "
+.br
+.ti -1c
+.RI "#define \fBList_Error\fP(error)"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBList_Init\fP (\fBlist_t\fP *list, uint16_t item_size, void *item_array, uint16_t item_array_length, \fBlist_link_t\fP *link_array)"
+.br
+.ti -1c
+.RI "void \fBList_SetSortFunction\fP (\fBlist_t\fP *list, uint8_t(*sort_fn)(void *a, void *b))"
+.br
+.ti -1c
+.RI "void \fBList_SetIdentifyFunction\fP (\fBlist_t\fP *list, uint8_t(*identify_fn)(void *identifier, void *item))"
+.br
+.ti -1c
+.RI "void * \fBList_AddAndLink\fP (\fBlist_t\fP *list, void *item)"
+.br
+.ti -1c
+.RI "void * \fBList_Add\fP (\fBlist_t\fP *list, void *item)"
+.br
+.ti -1c
+.RI "void * \fBList_AddIndirect\fP (\fBlist_t\fP *list)"
+.br
+.RI "\fIList_AddIndirect is used to obtain a valid position for which an item can be saved to\&. \fP"
+.ti -1c
+.RI "void \fBList_Link\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void \fBList_ResortFirst\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void \fBList_ResortLast\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void \fBList_LinkItem\fP (\fBlist_t\fP *list, void *item)"
+.br
+.ti -1c
+.RI "void * \fBList_GetFirst\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void * \fBList_GetLast\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void * \fBList_GetNext\fP (\fBlist_t\fP *list, void *item)"
+.br
+.ti -1c
+.RI "void * \fBList_GetItem\fP (\fBlist_t\fP *list, void *identifier)"
+.br
+.ti -1c
+.RI "void \fBList_RemoveFirst\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void \fBList_RemoveLast\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void \fBList_Remove\fP (\fBlist_t\fP *list, void *item)"
+.br
+.ti -1c
+.RI "void \fBList_RemoveAll\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void \fBList_UnlinkItem\fP (\fBlist_t\fP *list, void *item)"
+.br
+.ti -1c
+.RI "void \fBList_UnlinkFirst\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void \fBList_UnlinkLast\fP (\fBlist_t\fP *list)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define ERROR_INVALID_LINK   3"
+
+.PP
+Definition at line 15 of file list\&.c\&.
+.SS "#define ERROR_ITEM_NOT_FOUND   2"
+
+.PP
+Definition at line 14 of file list\&.c\&.
+.SS "#define ERROR_NO_ROOM_IN_LIST   1"
+
+.PP
+Definition at line 13 of file list\&.c\&.
+.SS "#define IsLinkValid(link)   (link > \fBLINK_IN_USE\fP)"
+
+.PP
+Definition at line 11 of file list\&.c\&.
+.SS "#define LINK_IN_USE   (\fBlist_link_t\fP*)3"
+
+.PP
+Definition at line 9 of file list\&.c\&.
+.SS "#define List_Error(error)"
+
+.PP
+Definition at line 25 of file list\&.c\&.
+.SS "#define NULL_LINK   0"
+
+.PP
+Definition at line 6 of file list\&.c\&.
+.SS "#define PENDING_LINK   (\fBlist_link_t\fP*)2"
+
+.PP
+Definition at line 8 of file list\&.c\&.
+.SS "#define UNUSED_LINK   (\fBlist_link_t\fP*)1"
+
+.PP
+Definition at line 7 of file list\&.c\&.
+.SS "#define UpdateWorkingLinks(list, link)"
+\fBValue:\fP
+.PP
+.nf
+list->working[1] = list->working[0]; \
+                                    list->working[0] = link;
+.fi
+.PP
+Definition at line 23 of file list\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

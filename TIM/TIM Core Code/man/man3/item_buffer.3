@@ -1,0 +1,187 @@
+.TH "item_buffer" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+item_buffer \- FIFO Item Buffer
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBitem_buffer_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBPushItem\fP (\fBitem_buffer_t\fP *buffer, uint16_t *data)"
+.br
+.ti -1c
+.RI "void \fBPopItem\fP (\fBitem_buffer_t\fP *buffer, uint16_t *data)"
+.br
+.ti -1c
+.RI "uint16_t \fBItemBufferGetSize\fP (\fBitem_buffer_t\fP *buffer)"
+.br
+.ti -1c
+.RI "void \fBItemBufferInit\fP (\fBitem_buffer_t\fP *buffer, uint16_t *data_array, uint16_t max_size, uint8_t type_size)"
+.br
+.ti -1c
+.RI "void \fBItemBufferSetCallback\fP (\fBitem_buffer_t\fP *buffer, void(*Callback)(\fBitem_buffer_t\fP *buffer))"
+.br
+.ti -1c
+.RI "void \fBItemBufferClearCallback\fP (\fBitem_buffer_t\fP *buffer)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+
+.PP
+\fBAuthor:\fP
+.RS 4
+Anthony Merlino 
+.RE
+.PP
+
+.SH "Function Documentation"
+.PP 
+.SS "void ItemBufferClearCallback (\fBitem_buffer_t\fP * buffer)"
+Clear/remove the callback function for 'buffer'
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP Pointer to the \fBbuffer_t\fP data structure whose callback function is to be cleared 
+.RE
+.PP
+
+.PP
+Definition at line 62 of file itemBuffer\&.c\&.
+.SS "uint16_t ItemBufferGetSize (\fBitem_buffer_t\fP * buffer)"
+GetSize returns the number of items in the FIFO buffer
+.PP
+\fBBufferInit()\fP should be used to initialize the buffer otherwise the return value will be meaningless
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP Pointer to the \fBbuffer_t\fP data structure holding the buffer info 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+Number of items in the buffer 
+.RE
+.PP
+
+.PP
+Definition at line 44 of file itemBuffer\&.c\&.
+.SS "void ItemBufferInit (\fBitem_buffer_t\fP * buffer, uint16_t * data_array, uint16_t max_size, uint8_t type_size)"
+Initialize a FIFO buffer
+.PP
+Example code: 
+.PP
+.nf
+1 #define TX_BUFFER_LENGTH 512
+2 buffer_t tx; // transmit buffer
+3 item_t tx_buffer_array[TX_BUFFER_LENGTH]
+4 \&.\&.\&.
+5 BufferInit(&tx, &tx_buffer_array[0], TX_BUFFER_LENGTH);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP Pointer to the \fBbuffer_t\fP data structure to be initialized 
+.br
+\fIdata_array\fP Array of item_t data to implement the actual buffer 
+.br
+\fImax_size\fP Maximum size of the buffer (should be the same length as the array) 
+.br
+\fItype_size\fP Size of the item 
+.RE
+.PP
+
+.PP
+Definition at line 48 of file itemBuffer\&.c\&.
+.SS "void ItemBufferSetCallback (\fBitem_buffer_t\fP * buffer, void(*)(\fBitem_buffer_t\fP *buffer) Callback)"
+Set Callback function for buffer to be called after items are Push'd to the buffer
+.PP
+The callback function will be called after anything is Push'd to the buffer\&. The function will be called with a pointer to the buffer which had an item pushed onto it\&.
+.PP
+Example: 
+.PP
+.nf
+1 void TxCallback(buffer_t * buf);
+2 #define TX_BUFFER_LENGTH 512
+3 buffer_t tx; // transmit buffer
+4 item_t tx_buffer_array[TX_BUFFER_LENGTH]
+5 \&.\&.\&.
+6 BufferInit(&tx, &tx_buffer_array[0], TX_BUFFER_LENGTH);
+7 BufferSetCallback(&tx, TxCallback);
+8 \&.\&.\&.
+9 void TxCallback(buffer_t * buf) {
+10         SET_UART_TX_IE();
+11 }
+
+.fi
+.PP
+ This example is useful for a uC which has a hardware Tx interrupt flag which is set whenever there is room in the hardware Tx FIFO buffer\&. When done transmitting the interrupt must be disabled to avoid getting stuck in the ISR\&. When data needs to be sent the interrupt must be enabled again, thus the need for the callback\&.
+.PP
+Another usage could be to handle received data on a receive buffer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP Pointer to the \fBbuffer_t\fP data structure whose callback function is to be set 
+.br
+\fICallback\fP Function pointer to a callback function with no return value and a \fBbuffer_t\fP pointer input\&. 
+.RE
+.PP
+
+.PP
+Definition at line 58 of file itemBuffer\&.c\&.
+.SS "void PopItem (\fBitem_buffer_t\fP * buffer, uint16_t * data)"
+Pop will return one item from the front of the FIFO buffer
+.PP
+Pop will return the item at the front of the FIFO buffer then increment (and wrap as needed) the front\&. If the buffer is empty it will return 0\&.
+.PP
+\fBBufferInit()\fP must be used to initialize the buffer prior to calling Pop and passing it a pointer to the buffer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP Pointer to the \fBbuffer_t\fP data structure holding the buffer info 
+.br
+\fIdata\fP Data from the front of the buffer copied to the location pointed to
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+Pop is not yet interrupt safe 
+.RE
+.PP
+
+.PP
+Definition at line 31 of file itemBuffer\&.c\&.
+.SS "bool PushItem (\fBitem_buffer_t\fP * buffer, uint16_t * data)"
+Push will add one item, data, to the FIFO buffer
+.PP
+Push will add one item to the rear of the data buffer then increment (and wrap is needed) the rear\&. If the buffer is full it will overwrite the data at the front of the buffer and increment the front\&.
+.PP
+\fBBufferInit()\fP must be used to initialize the buffer prior to calling Push and passing it a pointer to the buffer\&.
+.PP
+\fBParameters:\fP
+.RS 4
+\fIbuffer\fP Pointer to the \fBbuffer_t\fP data structure holding the buffer info 
+.br
+\fIdata\fP item_t data to be added to the rear of the FIFO buffer
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+Push is not yet interrupt safe 
+.RE
+.PP
+
+.PP
+Definition at line 6 of file itemBuffer\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

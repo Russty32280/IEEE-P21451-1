@@ -1,0 +1,155 @@
+\hypertarget{uart_8h}{}\section{uart.\+h File Reference}
+\label{uart_8h}\index{uart.\+h@{uart.\+h}}
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include $<$stdbool.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}char\+Receiver\+List.\+h\char`\"{}}\\*
+\subsection*{Functions}
+{\bf }\par
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{uart_8h_ace506ef2867a6ee30406b132eb624ed8}{U\+A\+R\+T\+\_\+\+Init} (uint8\+\_\+t channel)
+\item 
+void \hyperlink{uart_8h_a04754ed002244a44d5d4c6a59aaa5b4a}{U\+A\+R\+T\+\_\+\+Write\+Byte} (uint8\+\_\+t channel, char c)
+\item 
+void \hyperlink{uart_8h_a7c3b2c7e6262eeb1a935a3f71cece10f}{U\+A\+R\+T\+\_\+\+Write} (uint8\+\_\+t channel, char $\ast$data, uint16\+\_\+t length)
+\item 
+void \hyperlink{uart_8h_a938ff162e09b003006152435a33ba5f5}{U\+A\+R\+T\+\_\+\+Printf} (uint8\+\_\+t channel, char $\ast$str,...)
+\item 
+void \hyperlink{uart_8h_abdf0ba3f8f1394b4341cbcd4311b8fc1}{U\+A\+R\+T\+\_\+vprintf} (uint8\+\_\+t channel, char $\ast$str, va\+\_\+list vars)
+\item 
+uint8\+\_\+t \hyperlink{uart_8h_abfcf7b1a99eb08daa5715769c224c7f5}{U\+A\+R\+T\+\_\+\+Is\+Transmitting} (uint8\+\_\+t channel)
+\item 
+void \hyperlink{uart_8h_a008186aec9ff8f73dd86d85470e98633}{U\+A\+R\+T\+\_\+\+Tick} (void)
+\item 
+void \hyperlink{uart_8h_a1ea8231d46fb22882c651e4a366b405d}{U\+A\+R\+T\+\_\+\+Register\+Receiver} (uint8\+\_\+t channel, \hyperlink{group__receiverlist_ga69666a2f4dbb47a4ffd7b07c252777cf}{char\+Receiver\+\_\+t} fn)
+\item 
+void \hyperlink{uart_8h_ab8131c604cf143b5e978881a3f043de6}{U\+A\+R\+T\+\_\+\+Unregister\+Receiver} (uint8\+\_\+t channel, \hyperlink{group__receiverlist_ga69666a2f4dbb47a4ffd7b07c252777cf}{char\+Receiver\+\_\+t} fn)
+\end{DoxyCompactItemize}
+
+
+
+\subsection{Detailed Description}
+Created on\+: Mar 12, 2014 Author\+: Michael Muhlbaier Updated on\+: Feb 7, 2015 Author\+: Anthony Merlino 
+
+\subsection{Function Documentation}
+\hypertarget{uart_8h_ace506ef2867a6ee30406b132eb624ed8}{}\index{uart.\+h@{uart.\+h}!U\+A\+R\+T\+\_\+\+Init@{U\+A\+R\+T\+\_\+\+Init}}
+\index{U\+A\+R\+T\+\_\+\+Init@{U\+A\+R\+T\+\_\+\+Init}!uart.\+h@{uart.\+h}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Init(uint8\+\_\+t channel)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel}
+\end{DoxyParamCaption}
+)}\label{uart_8h_ace506ef2867a6ee30406b132eb624ed8}
+Initialize U\+A\+R\+T module
+
+Example usage\+: 
+\begin{DoxyCode}
+1 UART\_Init(UART0\_CHANNEL);
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em channel} & -\/ The channel of U\+A\+R\+T to be used. Macros for these should be defined in the H\+A\+L of the specific device. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 227 of file uart.\+c.
+
+\hypertarget{uart_8h_abfcf7b1a99eb08daa5715769c224c7f5}{}\index{uart.\+h@{uart.\+h}!U\+A\+R\+T\+\_\+\+Is\+Transmitting@{U\+A\+R\+T\+\_\+\+Is\+Transmitting}}
+\index{U\+A\+R\+T\+\_\+\+Is\+Transmitting@{U\+A\+R\+T\+\_\+\+Is\+Transmitting}!uart.\+h@{uart.\+h}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Is\+Transmitting(uint8\+\_\+t channel)}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t U\+A\+R\+T\+\_\+\+Is\+Transmitting (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel}
+\end{DoxyParamCaption}
+)}\label{uart_8h_abfcf7b1a99eb08daa5715769c224c7f5}
+
+
+Definition at line 432 of file uart.\+c.
+
+\hypertarget{uart_8h_a938ff162e09b003006152435a33ba5f5}{}\index{uart.\+h@{uart.\+h}!U\+A\+R\+T\+\_\+\+Printf@{U\+A\+R\+T\+\_\+\+Printf}}
+\index{U\+A\+R\+T\+\_\+\+Printf@{U\+A\+R\+T\+\_\+\+Printf}!uart.\+h@{uart.\+h}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Printf(uint8\+\_\+t channel, char $\ast$str,...)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Printf (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel, }
+\item[{char $\ast$}]{str, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}\label{uart_8h_a938ff162e09b003006152435a33ba5f5}
+
+
+Definition at line 401 of file uart.\+c.
+
+\hypertarget{uart_8h_a1ea8231d46fb22882c651e4a366b405d}{}\index{uart.\+h@{uart.\+h}!U\+A\+R\+T\+\_\+\+Register\+Receiver@{U\+A\+R\+T\+\_\+\+Register\+Receiver}}
+\index{U\+A\+R\+T\+\_\+\+Register\+Receiver@{U\+A\+R\+T\+\_\+\+Register\+Receiver}!uart.\+h@{uart.\+h}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Register\+Receiver(uint8\+\_\+t channel, char\+Receiver\+\_\+t fn)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Register\+Receiver (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel, }
+\item[{{\bf char\+Receiver\+\_\+t}}]{fn}
+\end{DoxyParamCaption}
+)}\label{uart_8h_a1ea8231d46fb22882c651e4a366b405d}
+
+
+Definition at line 422 of file uart.\+c.
+
+\hypertarget{uart_8h_a008186aec9ff8f73dd86d85470e98633}{}\index{uart.\+h@{uart.\+h}!U\+A\+R\+T\+\_\+\+Tick@{U\+A\+R\+T\+\_\+\+Tick}}
+\index{U\+A\+R\+T\+\_\+\+Tick@{U\+A\+R\+T\+\_\+\+Tick}!uart.\+h@{uart.\+h}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Tick(void)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Tick (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{uart_8h_a008186aec9ff8f73dd86d85470e98633}
+
+
+Definition at line 338 of file uart.\+c.
+
+\hypertarget{uart_8h_ab8131c604cf143b5e978881a3f043de6}{}\index{uart.\+h@{uart.\+h}!U\+A\+R\+T\+\_\+\+Unregister\+Receiver@{U\+A\+R\+T\+\_\+\+Unregister\+Receiver}}
+\index{U\+A\+R\+T\+\_\+\+Unregister\+Receiver@{U\+A\+R\+T\+\_\+\+Unregister\+Receiver}!uart.\+h@{uart.\+h}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Unregister\+Receiver(uint8\+\_\+t channel, char\+Receiver\+\_\+t fn)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Unregister\+Receiver (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel, }
+\item[{{\bf char\+Receiver\+\_\+t}}]{fn}
+\end{DoxyParamCaption}
+)}\label{uart_8h_ab8131c604cf143b5e978881a3f043de6}
+
+
+Definition at line 427 of file uart.\+c.
+
+\hypertarget{uart_8h_abdf0ba3f8f1394b4341cbcd4311b8fc1}{}\index{uart.\+h@{uart.\+h}!U\+A\+R\+T\+\_\+vprintf@{U\+A\+R\+T\+\_\+vprintf}}
+\index{U\+A\+R\+T\+\_\+vprintf@{U\+A\+R\+T\+\_\+vprintf}!uart.\+h@{uart.\+h}}
+\subsubsection[{U\+A\+R\+T\+\_\+vprintf(uint8\+\_\+t channel, char $\ast$str, va\+\_\+list vars)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+vprintf (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel, }
+\item[{char $\ast$}]{str, }
+\item[{va\+\_\+list}]{vars}
+\end{DoxyParamCaption}
+)}\label{uart_8h_abdf0ba3f8f1394b4341cbcd4311b8fc1}
+
+
+Definition at line 416 of file uart.\+c.
+
+\hypertarget{uart_8h_a7c3b2c7e6262eeb1a935a3f71cece10f}{}\index{uart.\+h@{uart.\+h}!U\+A\+R\+T\+\_\+\+Write@{U\+A\+R\+T\+\_\+\+Write}}
+\index{U\+A\+R\+T\+\_\+\+Write@{U\+A\+R\+T\+\_\+\+Write}!uart.\+h@{uart.\+h}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Write(uint8\+\_\+t channel, char $\ast$data, uint16\+\_\+t length)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Write (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel, }
+\item[{char $\ast$}]{data, }
+\item[{uint16\+\_\+t}]{length}
+\end{DoxyParamCaption}
+)}\label{uart_8h_a7c3b2c7e6262eeb1a935a3f71cece10f}
+
+
+Definition at line 395 of file uart.\+c.
+
+\hypertarget{uart_8h_a04754ed002244a44d5d4c6a59aaa5b4a}{}\index{uart.\+h@{uart.\+h}!U\+A\+R\+T\+\_\+\+Write\+Byte@{U\+A\+R\+T\+\_\+\+Write\+Byte}}
+\index{U\+A\+R\+T\+\_\+\+Write\+Byte@{U\+A\+R\+T\+\_\+\+Write\+Byte}!uart.\+h@{uart.\+h}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+Write\+Byte(uint8\+\_\+t channel, char c)}]{\setlength{\rightskip}{0pt plus 5cm}void U\+A\+R\+T\+\_\+\+Write\+Byte (
+\begin{DoxyParamCaption}
+\item[{uint8\+\_\+t}]{channel, }
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)}\label{uart_8h_a04754ed002244a44d5d4c6a59aaa5b4a}
+
+
+Definition at line 389 of file uart.\+c.
+

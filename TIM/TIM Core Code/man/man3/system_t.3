@@ -1,0 +1,74 @@
+.TH "system_t" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+system_t \- system module structure  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "int \fBlast_subsys\fP"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   uint8_t \fBecho\fP:1"
+.br
+.ti -1c
+.RI "   uint8_t \fBmute\fP:1"
+.br
+.ti -1c
+.RI "   uint8_t \fB__pad0__\fP:6"
+.br
+.ti -1c
+.RI "} \fBsettings\fP"
+.br
+.ti -1c
+.RI "int \fBid\fP"
+.br
+.ti -1c
+.RI "\fBsubsystem_t\fP \fBsubsystem\fP [\fBMAX_SUBSYSTEMS\fP]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+system module structure 
+.PP
+Definition at line 50 of file subsys\&.c\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint8_t __pad0__"
+
+.PP
+Definition at line 55 of file subsys\&.c\&.
+.SS "uint8_t echo"
+
+.PP
+Definition at line 53 of file subsys\&.c\&.
+.SS "int id"
+subsystem ID of the subsystem management module 
+.PP
+Definition at line 57 of file subsys\&.c\&.
+.SS "int last_subsys"
+index of the last subsytem in the array 
+.PP
+Definition at line 51 of file subsys\&.c\&.
+.SS "uint8_t mute"
+
+.PP
+Definition at line 54 of file subsys\&.c\&.
+.SS "struct { \&.\&.\&. }   settings"
+binary settings for subsystem management 
+.SS "\fBsubsystem_t\fP subsystem[\fBMAX_SUBSYSTEMS\fP]"
+subsystem array 
+.PP
+Definition at line 58 of file subsys\&.c\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

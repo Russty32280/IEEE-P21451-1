@@ -1,0 +1,36 @@
+.TH "itemBuffer.c" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+itemBuffer.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'system\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "bool \fBPushItem\fP (\fBitem_buffer_t\fP *buffer, uint16_t *data)"
+.br
+.ti -1c
+.RI "void \fBPopItem\fP (\fBitem_buffer_t\fP *buffer, uint16_t *data)"
+.br
+.ti -1c
+.RI "uint16_t \fBItemBufferGetSize\fP (\fBitem_buffer_t\fP *buffer)"
+.br
+.ti -1c
+.RI "void \fBItemBufferInit\fP (\fBitem_buffer_t\fP *buffer, uint16_t *data_array, uint16_t max_size, uint8_t item_size)"
+.br
+.ti -1c
+.RI "void \fBItemBufferSetCallback\fP (\fBitem_buffer_t\fP *buffer, void(*Callback)(\fBitem_buffer_t\fP *buffer))"
+.br
+.ti -1c
+.RI "void \fBItemBufferClearCallback\fP (\fBitem_buffer_t\fP *buffer)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

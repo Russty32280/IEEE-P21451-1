@@ -1,0 +1,108 @@
+.TH "list.h" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+list.h \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <stdint\&.h>\fP
+.br
+
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBlist_link_t\fP"
+.br
+.ti -1c
+.RI "struct \fBlist_t\fP"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef uint8_t(* \fBsort_fn_t\fP) (void *, void *)"
+.br
+.ti -1c
+.RI "typedef uint8_t(* \fBidentify_fn_t\fP) (void *, void *)"
+.br
+.ti -1c
+.RI "typedef struct \fBlist_link_t\fP \fBlist_link_t\fP"
+.br
+.ti -1c
+.RI "typedef struct \fBlist_t\fP \fBlist_t\fP"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBList_Init\fP (\fBlist_t\fP *list, uint16_t item_size, void *item_array, uint16_t item_array_length, \fBlist_link_t\fP *link_array)"
+.br
+.ti -1c
+.RI "void \fBList_SetSortFunction\fP (\fBlist_t\fP *list, uint8_t(*sort_fn)(void *a, void *b))"
+.br
+.ti -1c
+.RI "void \fBList_SetIdentifyFunction\fP (\fBlist_t\fP *list, uint8_t(*identify_fn)(void *identifier, void *item))"
+.br
+.ti -1c
+.RI "void * \fBList_AddAndLink\fP (\fBlist_t\fP *list, void *item)"
+.br
+.ti -1c
+.RI "void * \fBList_Add\fP (\fBlist_t\fP *list, void *item)"
+.br
+.ti -1c
+.RI "void * \fBList_AddIndirect\fP (\fBlist_t\fP *list)"
+.br
+.RI "\fIList_AddIndirect is used to obtain a valid position for which an item can be saved to\&. \fP"
+.ti -1c
+.RI "void \fBList_Link\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void \fBList_ResortFirst\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void \fBList_ResortLast\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void \fBList_LinkItem\fP (\fBlist_t\fP *list, void *item)"
+.br
+.ti -1c
+.RI "void * \fBList_GetFirst\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void * \fBList_GetLast\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void * \fBList_GetNext\fP (\fBlist_t\fP *list, void *item)"
+.br
+.ti -1c
+.RI "void * \fBList_GetItem\fP (\fBlist_t\fP *list, void *identifier)"
+.br
+.ti -1c
+.RI "void \fBList_RemoveFirst\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void \fBList_RemoveLast\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void \fBList_Remove\fP (\fBlist_t\fP *list, void *item)"
+.br
+.ti -1c
+.RI "void \fBList_RemoveAll\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void \fBList_UnlinkItem\fP (\fBlist_t\fP *list, void *item)"
+.br
+.ti -1c
+.RI "void \fBList_UnlinkFirst\fP (\fBlist_t\fP *list)"
+.br
+.ti -1c
+.RI "void \fBList_UnlinkLast\fP (\fBlist_t\fP *list)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

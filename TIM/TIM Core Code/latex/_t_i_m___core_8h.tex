@@ -1,0 +1,83 @@
+\hypertarget{_t_i_m___core_8h}{}\section{T\+I\+M\+\_\+\+Core.\+h File Reference}
+\label{_t_i_m___core_8h}\index{T\+I\+M\+\_\+\+Core.\+h@{T\+I\+M\+\_\+\+Core.\+h}}
+
+
+Core functionality for a P21451-\/2 T\+I\+M utilizing M\+S\+P430 Architecture.  
+
+
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct_m_e_t_a___t_e_d_s}{M\+E\+T\+A\+\_\+\+T\+E\+D\+S}
+\begin{DoxyCompactList}\small\item\em Contains all basic Information for the T\+I\+M; calls upon the \hyperlink{_t_i_m1_8c_ab0bf2da84344cc59e76fdf07beb14e73}{Meta\+T\+E\+D\+S\+Init()} function in \hyperlink{_t_i_m1_8h}{T\+I\+M1.\+h}. \end{DoxyCompactList}\item 
+struct \hyperlink{struct_c_h_a_n_n_e_l___t_e_d_s}{C\+H\+A\+N\+N\+E\+L\+\_\+\+T\+E\+D\+S}
+\begin{DoxyCompactList}\small\item\em Contains all basic Information for each channel of a T\+I\+M; there needs to be N copies where N is the number of channels on the T\+I\+M. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{_t_i_m___core_8h_a83c524f684970472a9ae3ba181fdec80}{U\+A\+R\+T\+\_\+\+C\+H\+A\+N\+N\+E\+L}~1
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{_t_i_m___core_8h_a9caa1e61ee11742e57bfa36da2c187a8}{T\+I\+M\+\_\+\+Init} (void)
+\begin{DoxyCompactList}\small\item\em Runs U\+A\+R\+T and T\+E\+D\+S Initialization. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Core functionality for a P21451-\/2 T\+I\+M utilizing M\+S\+P430 Architecture. 
+
+This file contains the core funcitonality to communicate from an N\+C\+A\+P to a T\+I\+M over U\+A\+R\+T. The current implementaiton is limited in its funcitonality, however, as more work is done, we will continue to update this file. The Transducer Interface Module (T\+I\+M) is one of the three main entities in a I\+E\+E\+E P21451 Smart Transducer Network. The heirarchy of this network can be seen in the figure below. This T\+I\+M will communicate to only O\+N\+E N\+C\+A\+P, however, it is not limited to just communication over U\+A\+R\+T.
+
+Currently, this implementation only supports Read\+Transducer\+Channel\+Data, Write\+Transducer\+Channel\+Data, Read\+Meta\+T\+E\+D\+S, and Meta\+T\+E\+D\+S\+Init. This was done to show the core functionality behind the network, and also lay out the foundation for future work.
+
+To test out this code, open up a U\+A\+R\+T Channel with putty with Baud Rate 115200 and use the following syntax for sending messages\+:
+
+\char`\"{}\$\+X\+X\+X,\+Y\+Y\+Y\char`\"{} Where X\+X\+X is a function I\+D, and Y\+Y\+Y is a channel I\+D. Currently the only function\+I\+Ds supported are \char`\"{}000\char`\"{}, \char`\"{}128\char`\"{}, \char`\"{}160\char`\"{} for \char`\"{}\+Write to all transducers/\+Write to a specific Channel\char`\"{}, \char`\"{}\+Read all Transducers/\+Read Specific Transducer\char`\"{}, \char`\"{}\+Reading Meta/\+Channel T\+E\+D\+S\char`\"{} respectively. What determines which function each message commands (X/\+Y) is the Channel\+I\+D. If the Channel\+I\+D = 000, then it is assumed that the N\+C\+A\+P wants global functionality, otherwise it performs local functions.
+
+Some of the functions will only reply over U\+A\+R\+T a success message which currently are place holders for the proper response.
+
+It is reccomended that for testing the code, you turn on Local Echo and well as local line editing in your serial terminal.
+
+
+
+\begin{DoxyAuthor}{Author}
+Russell Trafford 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+12/22/2015 
+\end{DoxyDate}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{_t_i_m___core_8h_a83c524f684970472a9ae3ba181fdec80}{}\index{T\+I\+M\+\_\+\+Core.\+h@{T\+I\+M\+\_\+\+Core.\+h}!U\+A\+R\+T\+\_\+\+C\+H\+A\+N\+N\+E\+L@{U\+A\+R\+T\+\_\+\+C\+H\+A\+N\+N\+E\+L}}
+\index{U\+A\+R\+T\+\_\+\+C\+H\+A\+N\+N\+E\+L@{U\+A\+R\+T\+\_\+\+C\+H\+A\+N\+N\+E\+L}!T\+I\+M\+\_\+\+Core.\+h@{T\+I\+M\+\_\+\+Core.\+h}}
+\subsubsection[{U\+A\+R\+T\+\_\+\+C\+H\+A\+N\+N\+E\+L}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\+A\+R\+T\+\_\+\+C\+H\+A\+N\+N\+E\+L~1}\label{_t_i_m___core_8h_a83c524f684970472a9ae3ba181fdec80}
+Default U\+A\+R\+T channel as laid out in \hyperlink{uart_8c}{U\+A\+R\+T.\+c}. 
+
+Definition at line 44 of file T\+I\+M\+\_\+\+Core.\+h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{_t_i_m___core_8h_a9caa1e61ee11742e57bfa36da2c187a8}{}\index{T\+I\+M\+\_\+\+Core.\+h@{T\+I\+M\+\_\+\+Core.\+h}!T\+I\+M\+\_\+\+Init@{T\+I\+M\+\_\+\+Init}}
+\index{T\+I\+M\+\_\+\+Init@{T\+I\+M\+\_\+\+Init}!T\+I\+M\+\_\+\+Core.\+h@{T\+I\+M\+\_\+\+Core.\+h}}
+\subsubsection[{T\+I\+M\+\_\+\+Init(void)}]{\setlength{\rightskip}{0pt plus 5cm}void T\+I\+M\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{_t_i_m___core_8h_a9caa1e61ee11742e57bfa36da2c187a8}
+
+
+Runs U\+A\+R\+T and T\+E\+D\+S Initialization. 
+
+Initializes the T\+I\+M by registering the U\+A\+R\+T reciever as well as calling \hyperlink{_t_i_m1_8c_ab0bf2da84344cc59e76fdf07beb14e73}{Meta\+T\+E\+D\+S\+Init()} to load the Meta\+T\+E\+Ds into memory.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000039}{Todo}]Implement and call the Channel\+T\+E\+D\+S Init funciton. 
+
+Add in support for other connection mediums (N\+R\+F, S\+P\+I, etc). \end{DoxyRefDesc}
+
+
+Definition at line 29 of file T\+I\+M\+\_\+\+Core.\+c.
+

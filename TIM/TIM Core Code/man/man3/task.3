@@ -1,0 +1,234 @@
+.TH "task" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+task \- Task Management Module
+.PP
+The Task Management Module implements a task queue and a task schedule\&.  
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBTASK_ROLL_TIME\fP   (\fBTIME_MAX\fP\-(uint32_t)10*24*60*60*1000)"
+.br
+.in -1c
+.SS "Typedefs"
+
+.in +1c
+.ti -1c
+.RI "typedef void(* \fBtask_fn_pointer_input_t\fP) (void *)"
+.br
+.ti -1c
+.RI "typedef void(* \fBtask_fn_t\fP) (void)"
+.br
+.RI "\fIdefault task type \fP"
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBTask_Init\fP (void)"
+.br
+.ti -1c
+.RI "void \fBSystemTick\fP (void)"
+.br
+.ti -1c
+.RI "void \fBTask_Queue\fP (\fBtask_fn_t\fP fn, void *pointer)"
+.br
+.RI "\fIAdds a function to the task queue\&. \fP"
+.ti -1c
+.RI "void \fBTask_Schedule\fP (\fBtask_fn_t\fP fn, void *pointer, \fBtint_t\fP delay, \fBtint_t\fP period)"
+.br
+.RI "\fIAdds task to be scheduled for execution\&. \fP"
+.ti -1c
+.RI "void \fBTask_Remove\fP (\fBtask_fn_t\fP fn, void *pointer)"
+.br
+.RI "\fIRemoves Task\&. \fP"
+.ti -1c
+.RI "void \fBWaitMs\fP (\fBtint_t\fP wait)"
+.br
+.ti -1c
+.RI "uint8_t \fBTask_IsScheduled\fP (\fBtask_fn_t\fP fn)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The Task Management Module implements a task queue and a task schedule\&. 
+
+The task queue is a single linked FIFO list\&. Each time \fBSystemTick()\fP is called the first task in the queue will execute\&. If the task is periodic it will be added back to the task schedule once it is ran\&.
+.PP
+The task schedule is a single linked list of tasks in order of when they are scheduled to run\&. If two tasks are scheduled for the same time there is no guarantee which task will run first\&. Each task scheduled has a timestamp which indicates when it ran last and the period if it is to be run again\&. If the task was just added to the schedule then time ran will indicate the time it should first nun minus the period\&. When \fBSystemTick()\fP is called it will check if any scheduled tasks are due to run and add them to the task queue when they are due\&.
+.PP
+UPDATED 10/4/2012 Remove functions were not interrupt safe -> Fixed
+.PP
+UPDATED 2/18/2014 Fixed bug in linking multiple tasks at once and/or scheduling multiple tasks at once\&. Added extra checks to ensure task index is in range everytime the task array is accessed\&.
+.PP
+MAJOR UPDATE XXXX 
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define TASK_ROLL_TIME   (\fBTIME_MAX\fP\-(uint32_t)10*24*60*60*1000)"
+The number of tasks that can be added to the task queue or task schedule or task trigger list
+.PP
+Note: the task queue and task schedule list use the same array of tasks in implementing the linked lists\&. If the array becomes full the module will drop the task that is to be added\&.
+.PP
+Note: ifndef / define in C file The time when the task management system will force the timer to roll over
+.PP
+The task management module schedules tasks in the future by setting the time to run as some time in the future\&. Once the current time + the period exceeds TIME_MAX the task time to run will roll over and cause the task to run erroneously\&. Thus the task managemnent system must force the timing module's internal time to rollover prior to when it would natrually roll over (TIME_MAX)\&. The default is 10 days prior to TIME_MAX which means the task managment system can only handle tasks scheduled within 10 days and no longer\&. 
+.PP
+Definition at line 67 of file task\&.h\&.
+.SH "Typedef Documentation"
+.PP 
+.SS "typedef void(* task_fn_pointer_input_t) (void *)"
+helpful typedef's for casting functions if you want to avoid the incompatible pointers warning 
+.PP
+Definition at line 40 of file task\&.h\&.
+.SS "typedef void(* task_fn_t) (void)"
+
+.PP
+default task type 
+.PP
+Definition at line 42 of file task\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void SystemTick (void)"
+Run the first task in the task queue and check if any tasks are due to run in the schedule
+.PP
+Run the first task in the task queue provided one exists\&. If the task ran has a period value then it will be moved to the task schedule instead of removed\&.
+.PP
+Check if any of the scheduled tasks are due to run\&. If so move any tasks whose run time is at or before the current time to the task queue where they will be ordered by priority and executed accordingly\&.
+.PP
+If the Event Module is included check for events 
+.PP
+Definition at line 68 of file task\&.c\&.
+.SS "void Task_Init (void)"
+Initialize Task Management Module
+.PP
+Initializes the task management module for operation\&. 
+.PP
+Definition at line 50 of file task\&.c\&.
+.SS "uint8_t Task_IsScheduled (\fBtask_fn_t\fP fn)"
+Checks if a task is scheduled or queued
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfn\fP function to look for 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+1 if task is scheduled or queued, 0 if not 
+.RE
+.PP
+
+.PP
+Definition at line 172 of file task\&.c\&.
+.SS "void Task_Queue (\fBtask_fn_t\fP fn, void * pointer)"
+
+.PP
+Adds a function to the task queue\&. \fBTask_Queue()\fP adds a task to be run by the task management system to the queue\&. Use this function to add the function to be run
+.PP
+\fBAuthor:\fP
+.RS 4
+David Calhoun 
+.PP
+Tony Samaritano 
+.PP
+Aaron Johnson 
+.PP
+Michael Muhlbaier
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfn\fP Function Pointer - must have no return value, can have a pointer input or no input\&. If it has an input then you may want to cast it using (task_fn_pointer_input_t) to avoid compiler warning about 
+.br
+\fIpointer\fP pointer to pass to the task when run\&. Set to 0 if the task has no input 
+.RE
+.PP
+
+.PP
+Definition at line 95 of file task\&.c\&.
+.SS "void Task_Remove (\fBtask_fn_t\fP fn, void * pointer)"
+
+.PP
+Removes Task\&. RemoveTask() loops through the entire task management queue and schedule and removes that task from the task management system\&.
+.PP
+If the task could be in the list more than once then you should call Task_Remove as many times as you suspect the task may be in the list\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Aaron Johnson 
+.PP
+David Calhoun 
+.PP
+Tony Samaritano 
+.PP
+Michael Muhlbaier
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfn\fP Function Pointer - must have no return value, can have a pointer input or no input\&. If it has an input then you may want to cast it using (task_fn_pointer_input_t) to avoid compiler warning about 
+.br
+\fIpointer\fP Input Pointer, if the function has no input pointer or if you want to remove all fn functions regardless of the pointer then make pointer 0 
+.RE
+.PP
+
+.PP
+Definition at line 119 of file task\&.c\&.
+.SS "void Task_Schedule (\fBtask_fn_t\fP fn, void * pointer, \fBtint_t\fP delay, \fBtint_t\fP period)"
+
+.PP
+Adds task to be scheduled for execution\&. This function adds a task that is scheduled for later time\&. Tasks are order strictly by their time (FIFO)
+.PP
+Note: tasks are not guaranteed to run at the exact time specified by delay and period\&. Timing will depend on how often \fBSystemTick()\fP\&. In properly designed systems \fBSystemTick()\fP should be called frequently enough to keep the number of tasks in the queue low so scheduled tasks are run on time\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Aaron Johnson 
+.PP
+David Calhoun 
+.PP
+Tony Samaritano 
+.PP
+Ryan Lee 
+.PP
+Michael Muhlbaier
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIfn\fP Function Pointer - must have no return value, can have a pointer input or no input\&. If it has an input then you may want to cast it using (task_fn_pointer_input_t) to avoid compiler warning about 
+.br
+\fIpointer\fP pointer to pass to the task when run\&. Set to 0 if the task has no input 
+.br
+\fIdelay\fP Delay before the task is first run 
+.br
+\fIperiod\fP Period of how often the task is run (0 no rescheduling) 
+.RE
+.PP
+
+.PP
+Definition at line 106 of file task\&.c\&.
+.SS "void WaitMs (\fBtint_t\fP wait)"
+Wait a set number of milliseconds and run queued or scheduled tasks while waiting
+.PP
+WaitMs is similar to DelayMs from Timer Module, exception being that it repeatedly calls \fBSystemTick()\fP to allow functions to be run from the Queue and the Schedule to push tasks into the Queue\&.
+.PP
+\fBWarning:\fP
+.RS 4
+not safe to be called from any function that could be called by \fBSystemTick()\fP - suggest using a dedicated mutex/flag and only use \fBWaitMs()\fP in main or functions called by main (not through \fBSystemTick()\fP)\&.
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIwait\fP time amount for the wait 
+.RE
+.PP
+
+.PP
+Definition at line 161 of file task\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

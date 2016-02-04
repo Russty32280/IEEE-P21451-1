@@ -1,0 +1,151 @@
+.TH "hal_uart.c" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+hal_uart.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include <msp430\&.h>\fP
+.br
+\fC#include <stdint\&.h>\fP
+.br
+\fC#include 'hal_uart\&.h'\fP
+.br
+\fC#include 'system\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBUART0\fP   0"
+.br
+.ti -1c
+.RI "#define \fBUART1\fP   1"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBhal_UART_Init\fP (uint8_t channel, uint32_t baud)"
+.br
+.ti -1c
+.RI "void \fBhal_UART_Enable\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "void \fBhal_UART_Disable\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "void \fBhal_UART_EnableRxInterrupt\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "void \fBhal_UART_EnableTxInterrupt\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "void \fBhal_UART_DisableRxInterrupt\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "void \fBhal_UART_DisableTxInterrupt\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "void \fBhal_UART_TxChar\fP (uint8_t channel, char c)"
+.br
+.ti -1c
+.RI "char \fBhal_UART_RxChar\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "void \fBhal_UART_ClearTxIF\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "void \fBhal_UART_ClearRxIF\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "uint8_t \fBhal_UART_DataAvailable\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "uint8_t \fBhal_UART_SpaceAvailable\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "__interrupt void \fB_UART0_ISR\fP (void)"
+.br
+.ti -1c
+.RI "__interrupt void \fB_UART1_ISR\fP (void)"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define UART0   0"
+
+.PP
+Definition at line 6 of file hal_uart\&.c\&.
+.SS "#define UART1   1"
+
+.PP
+Definition at line 7 of file hal_uart\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "__interrupt void _UART0_ISR (void)"
+
+.PP
+Definition at line 186 of file hal_uart\&.c\&.
+.SS "__interrupt void _UART1_ISR (void)"
+
+.PP
+Definition at line 193 of file hal_uart\&.c\&.
+.SS "void hal_UART_ClearRxIF (uint8_t channel)"
+
+.PP
+Definition at line 150 of file hal_uart\&.c\&.
+.SS "void hal_UART_ClearTxIF (uint8_t channel)"
+
+.PP
+Definition at line 137 of file hal_uart\&.c\&.
+.SS "uint8_t hal_UART_DataAvailable (uint8_t channel)"
+
+.PP
+Definition at line 163 of file hal_uart\&.c\&.
+.SS "void hal_UART_Disable (uint8_t channel)"
+
+.PP
+Definition at line 48 of file hal_uart\&.c\&.
+.SS "void hal_UART_DisableRxInterrupt (uint8_t channel)"
+
+.PP
+Definition at line 87 of file hal_uart\&.c\&.
+.SS "void hal_UART_DisableTxInterrupt (uint8_t channel)"
+
+.PP
+Definition at line 100 of file hal_uart\&.c\&.
+.SS "void hal_UART_Enable (uint8_t channel)"
+
+.PP
+Definition at line 35 of file hal_uart\&.c\&.
+.SS "void hal_UART_EnableRxInterrupt (uint8_t channel)"
+
+.PP
+Definition at line 61 of file hal_uart\&.c\&.
+.SS "void hal_UART_EnableTxInterrupt (uint8_t channel)"
+
+.PP
+Definition at line 74 of file hal_uart\&.c\&.
+.SS "void hal_UART_Init (uint8_t channel, uint32_t baud)"
+
+.PP
+Definition at line 9 of file hal_uart\&.c\&.
+.SS "char hal_UART_RxChar (uint8_t channel)"
+
+.PP
+Definition at line 126 of file hal_uart\&.c\&.
+.SS "uint8_t hal_UART_SpaceAvailable (uint8_t channel)"
+
+.PP
+Definition at line 174 of file hal_uart\&.c\&.
+.SS "void hal_UART_TxChar (uint8_t channel, char c)"
+
+.PP
+Definition at line 113 of file hal_uart\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

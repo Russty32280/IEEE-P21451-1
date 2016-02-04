@@ -1,0 +1,61 @@
+\hypertarget{subsys_8h}{}\section{subsys.\+h File Reference}
+\label{subsys_8h}\index{subsys.\+h@{subsys.\+h}}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structversion__mmb__t}{version\+\_\+mmb\+\_\+t}
+\item 
+union \hyperlink{unionversion__t}{version\+\_\+t}
+\begin{DoxyCompactList}\small\item\em version union \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__subsys_gac13b39d92263b3c765189651110c64f3}{S\+Y\+S\+T\+E\+M\+\_\+\+V\+E\+R\+S\+I\+O\+N}~0x03010001u
+\begin{DoxyCompactList}\small\item\em subsystem module version number \end{DoxyCompactList}\item 
+\#define \hyperlink{group__subsys_gaf7b1ce1a8ab4b9ec92d8773f90cb991c}{R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+T\+H}~64
+\begin{DoxyCompactList}\small\item\em default length of receive line for commands \end{DoxyCompactList}\item 
+\#define \hyperlink{group__subsys_ga91e743817f50d117deeaca986b4c8e4d}{R\+E\+C\+E\+I\+V\+E\+\_\+\+S\+T\+A\+R\+T\+\_\+\+C\+H\+A\+R}~\textquotesingle{}\$\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em start character for command lines \end{DoxyCompactList}\item 
+\#define \hyperlink{group__subsys_ga37a39f2cef5d4f3989c8932c3d7346f6}{R\+E\+C\+E\+I\+V\+E\+\_\+\+S\+T\+O\+P\+\_\+\+C\+H\+A\+R}~\textquotesingle{}\textbackslash{}r\textquotesingle{}
+\begin{DoxyCompactList}\small\item\em stop character for command lines \end{DoxyCompactList}\item 
+\#define \hyperlink{group__subsys_ga7295a34bc57dde069397cf280dc94f32}{R\+E\+C\+E\+I\+V\+E\+\_\+\+M\+A\+X\+\_\+\+A\+R\+G\+C}~8
+\begin{DoxyCompactList}\small\item\em max number of arguments after the command name \end{DoxyCompactList}\item 
+\#define \hyperlink{group__subsys_ga5ecc8d4d514ebae84adabf96e0517f6f}{Get\+Log\+Timestamp}()~\hyperlink{group__timing_gad33d57773db985176e2722aeebfee9cc}{Time\+Now}()
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__subsys_gad5c93d1d78ea66a8e631957653e03a74}{Log\+Str} (char $\ast$str,...)
+\item 
+void \hyperlink{group__subsys_gafb675e7cfe55b8b02e927e5c82a98ac0}{Log\+Msg} (uint8\+\_\+t subsystem\+\_\+id, char $\ast$str,...)
+\item 
+uint8\+\_\+t \hyperlink{group__subsys_ga4af744f35168691bbcdf5abe0b5ff4ca}{Subsystem\+\_\+\+Init} (char $\ast$name, \hyperlink{unionversion__t}{version\+\_\+t} version, void($\ast$callback)(int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}))
+\item 
+void \hyperlink{group__subsys_ga1e9ede8a23cc1f69f6c9aef8f8718584}{Subsystem\+\_\+\+Register\+Callback} (uint8\+\_\+t subsystem\+\_\+id, void($\ast$callback)(int argc, char $\ast$argv\mbox{[}$\,$\mbox{]}))
+\item 
+char $\ast$ \hyperlink{group__subsys_ga6e52643db93bcc255c89cc27e644042d}{Get\+Subsystem\+Name} (uint8\+\_\+t subsystem\+\_\+id)
+\item 
+void \hyperlink{group__subsys_ga0788adbc985fe17ec878d3c0f9f06bff}{Log\+\_\+\+Echo\+On} (void)
+\item 
+void \hyperlink{group__subsys_gaaaddf9437be992e2ab59cbc7c6c8a913}{Log\+\_\+\+Echo\+Off} (void)
+\item 
+uint8\+\_\+t \hyperlink{group__subsys_ga8267834e6ee146c03ae4eba2eb0defc9}{Log\+\_\+\+Get\+Echo} (void)
+\item 
+void \hyperlink{group__subsys_gab04a3ed723beeb04411222c5ed8be911}{Log\+\_\+\+Header} (uint8\+\_\+t subsystem\+\_\+id)
+\item 
+void \hyperlink{subsys_8h_a238c9a188c88d67796b4a56da02c6f37}{Receive\+Char} (char c)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{subsys_8h_a238c9a188c88d67796b4a56da02c6f37}{}\index{subsys.\+h@{subsys.\+h}!Receive\+Char@{Receive\+Char}}
+\index{Receive\+Char@{Receive\+Char}!subsys.\+h@{subsys.\+h}}
+\subsubsection[{Receive\+Char(char c)}]{\setlength{\rightskip}{0pt plus 5cm}void Receive\+Char (
+\begin{DoxyParamCaption}
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)}\label{subsys_8h_a238c9a188c88d67796b4a56da02c6f37}
+
+
+Definition at line 123 of file subsys.\+c.
+

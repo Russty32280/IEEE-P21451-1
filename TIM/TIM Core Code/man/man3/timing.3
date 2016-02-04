@@ -1,0 +1,150 @@
+.TH "timing" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+timing \- Timing module
+.SS "Modules"
+
+.in +1c
+.ti -1c
+.RI "\fB(HAL) Timing module\fP"
+.br
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBtint_t\fP   uint32_t"
+.br
+.ti -1c
+.RI "#define \fBTIME_MAX\fP   0xFFFFFFFFU"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBTiming_Init\fP (void)"
+.br
+.RI "\fIInitialize the timing module\&. \fP"
+.ti -1c
+.RI "uint32_t \fBTimeNow\fP (void)"
+.br
+.RI "\fIReturns the current system time in milliseconds\&. \fP"
+.ti -1c
+.RI "uint32_t \fBTimeSince\fP (\fBtint_t\fP t)"
+.br
+.RI "\fIGet the elapsed time\&. \fP"
+.ti -1c
+.RI "void \fBDelayMs\fP (\fBtint_t\fP delay)"
+.br
+.RI "\fIDelay a specific number of milliseconds\&. \fP"
+.ti -1c
+.RI "void \fBTiming_Roll\fP (void)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+This module provides some very basic functions to make timing easier\&. Several other modules rely on the services provided by this module\&.
+.PP
+The module uses the HAL layer to provide the hardware specific functionality for the timing module\&. In this module, the \fBhal_timing\&.c\fP file is included to allow the ISR to access the time variable without externing the variable or making a function call\&. This allows the ISR to be very efficient\&. 
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define TIME_MAX   0xFFFFFFFFU"
+Max time that can be held with the tint_t type\&. 
+.PP
+Definition at line 29 of file timing\&.h\&.
+.SS "#define tint_t   uint32_t"
+type for timer, change override this to uint16_t for better efficiency on a 8 or 16 bit system\&.
+.PP
+Note: a define is used instead of a typedef so that the define can be overriden\&. 
+.PP
+Definition at line 24 of file timing\&.h\&.
+.SH "Function Documentation"
+.PP 
+.SS "void DelayMs (\fBtint_t\fP delay)"
+
+.PP
+Delay a specific number of milliseconds\&. DelayMs uses \fBTimeNow()\fP and \fBTimeSince()\fP to implement the delay
+.PP
+\fBParameters:\fP
+.RS 4
+\fIdelay\fP specifies the number of milliseconds to delay 
+.RE
+.PP
+
+.PP
+Definition at line 44 of file timing\&.c\&.
+.SS "uint32_t TimeNow (void)"
+
+.PP
+Returns the current system time in milliseconds\&. 
+.PP
+\fBReturns:\fP
+.RS 4
+the current system time in milliseconds
+.RE
+.PP
+\fBSee also:\fP
+.RS 4
+\fBTimeSince\fP 
+.RE
+.PP
+
+.PP
+Definition at line 31 of file timing\&.c\&.
+.SS "uint32_t TimeSince (\fBtint_t\fP t)"
+
+.PP
+Get the elapsed time\&. Calculate and return the time elapsed since a given time\&. Typically used with \fBTimeNow()\fP\&. See the example usage\&.
+.PP
+.PP
+.nf
+1 uint32_t t;
+2 t = TimeNow();
+3 while(TimeSince(t) < 5000){
+4     //Insert code here
+5 }
+.fi
+.PP
+.PP
+\fBSee also:\fP
+.RS 4
+\fBTimeNow\fP
+.RE
+.PP
+\fBParameters:\fP
+.RS 4
+\fIt\fP - The time in milliseconds to calculate the elapsed time since 
+.RE
+.PP
+\fBReturns:\fP
+.RS 4
+- The time elapsed since the time given in milliseconds 
+.RE
+.PP
+
+.PP
+Definition at line 35 of file timing\&.c\&.
+.SS "void Timing_Init (void)"
+
+.PP
+Initialize the timing module\&. Call the HAL layer to initialize a timer to interrupt every 1ms\&. Clears the timing count 
+.PP
+Definition at line 21 of file timing\&.c\&.
+.SS "void Timing_Roll (void)"
+Reset the system time
+.PP
+Reset system time (e\&.g\&. \fBTimeNow()\fP will return 0) and set appropriate rollover times so TimeSince will work properly\&.
+.PP
+\fBWarning:\fP
+.RS 4
+Timing discrepancies will occur if TimerRoll is called and not called again for the next timer rollover\&. \fBTimeSince()\fP will result in a shorter time than expected if the timer is allowed to naturally roll over after calling TimerRoll\&. The difference will be MAX_TIME - the time when TimerRoll was last called\&. This could be fixed by adding a check for the timer rolling over naturally and setting rollover_time to TIME_MAX in \fBtiming\&.c\fP\&. Note: This is handled by the task management system which typically will be the only user of \fBTiming_Roll()\fP 
+.RE
+.PP
+
+.PP
+Definition at line 53 of file timing\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

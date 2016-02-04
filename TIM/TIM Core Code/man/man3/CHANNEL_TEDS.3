@@ -1,0 +1,238 @@
+.TH "CHANNEL_TEDS" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+CHANNEL_TEDS \- Contains all basic Information for each channel of a TIM; there needs to be N copies where N is the number of channels on the TIM\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <TIM_Core\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint32_t \fBChanTEDSLen\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBCalKey\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBChanIndCalExtKey\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBChanIndDataExtKey\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBChanTEDSExtKey\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBChanEUAppKey\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBChanWriteLen\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBChanTypeKey\fP"
+.br
+.ti -1c
+.RI "float \fBLowRangeLmt\fP"
+.br
+.ti -1c
+.RI "float \fBUppRangeLmt\fP"
+.br
+.ti -1c
+.RI "float \fBWCUncert\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBSelfTestKey\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBChanDataMod\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBChanDataModLen\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBChanModSigBits\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBChanDataReps\fP"
+.br
+.ti -1c
+.RI "float \fBSerOrigin\fP"
+.br
+.ti -1c
+.RI "float \fBSerInc\fP"
+.br
+.ti -1c
+.RI "float \fBChanTU\fP"
+.br
+.ti -1c
+.RI "float \fBChanTWS\fP"
+.br
+.ti -1c
+.RI "float \fBChanTRS\fP"
+.br
+.ti -1c
+.RI "float \fBChanTSP\fP"
+.br
+.ti -1c
+.RI "float \fBChanTWU\fP"
+.br
+.ti -1c
+.RI "float \fBChanTCH\fP"
+.br
+.ti -1c
+.RI "float \fBTimeCorr\fP"
+.br
+.ti -1c
+.RI "float \fBTrigAcc\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBEvtSeqOpt\fP"
+.br
+.ti -1c
+.RI "uint16_t \fBChanChkSum\fP"
+.br
+.ti -1c
+.RI "char \fBSerUnits\fP [10]"
+.br
+.ti -1c
+.RI "char \fBPhysUnits\fP [10]"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+Contains all basic Information for each channel of a TIM; there needs to be N copies where N is the number of channels on the TIM\&. 
+
+Every Channel attached to a TIM needs to have a set of TEDS to be able tell the NCAP about what is connected to the TIM\&. 
+.PP
+Definition at line 97 of file TIM_Core\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint8_t CalKey"
+The calibration capabilities of the TIM\&. 
+.PP
+Definition at line 99 of file TIM_Core\&.h\&.
+.SS "uint16_t ChanChkSum"
+This field contains the checksum for the complete Channel TEDS data block\&. The checksum shall be the one’s complement of the sum (modulo 216) of all the data structure’s preceding bytes, including the initial length field and excluding the checksum field\&. 
+.PP
+Definition at line 145 of file TIM_Core\&.h\&.
+.SS "uint8_t ChanDataMod"
+This field describes the data model used when addressing read transducer data or write transducer data for this channel\&. 
+.PP
+Definition at line 117 of file TIM_Core\&.h\&.
+.SS "uint8_t ChanDataModLen"
+This field specifies the number of bytes in the representation of the selected Channel Data Model\&. 
+.PP
+Definition at line 119 of file TIM_Core\&.h\&.
+.SS "uint16_t ChanDataReps"
+The number L of repetitions of the transducer value produced or required by a single trigger\&. 
+.PP
+Definition at line 125 of file TIM_Core\&.h\&.
+.SS "uint8_t ChanEUAppKey"
+This field indicates the presence of End-Users’ Application-Specific TEDS function for this channel\&. 
+.PP
+Definition at line 104 of file TIM_Core\&.h\&.
+.SS "uint8_t ChanIndCalExtKey"
+The value in this field indicates the highest functional address for writing the industry-implemented Calibration TEDS extension that is available in the STIM for this channel\&. 
+.PP
+Definition at line 100 of file TIM_Core\&.h\&.
+.SS "uint8_t ChanIndDataExtKey"
+The value in this field indicates the highest functional address for writing the industry-implemented nonvolatile data field extensions that is available in the STIM for this channel\&. 
+.PP
+Definition at line 101 of file TIM_Core\&.h\&.
+.SS "uint16_t ChanModSigBits"
+When the Channel Data Model is N-byte integer (enumeration zero) or N-byte fraction (enumeration three), the value of this field is the number of bits that are significant\&. When the Channel Data Model is N-byte integer or N-byte fraction, the Channel Model Significant Bits shall not exceed eight times the Channel Model Data Length\&. When the Channel Data Model is N-byte fraction, the significant data bits shall be left-justified within the byte stream\&. When the Channel Data Model is single- or double-precision real (enumerations one or two), the value of this field is the number of bits in the STIM’s signal converter\&. 
+.PP
+Definition at line 120 of file TIM_Core\&.h\&.
+.SS "float ChanTCH"
+This field specifies the maximum aggregated time (tch) that the STIM will spend holding off the data transport during a complete data transfer addressed to read transducer data or write transducer data and this channel, assuming the Maximum Data Rate is used\&. 
+.PP
+Definition at line 138 of file TIM_Core\&.h\&.
+.SS "uint8_t ChanTEDSExtKey"
+The value in this field indicates the highest functional address for writing the industry-implemented TEDS extensions that is available in the STIM for this channel\&. 
+.PP
+Definition at line 102 of file TIM_Core\&.h\&.
+.SS "uint32_t ChanTEDSLen"
+This field specifies the total number of bytes in the channel TEDS data block excluding this field\&. 
+.PP
+Definition at line 98 of file TIM_Core\&.h\&.
+.SS "float ChanTRS"
+This field specifies the minimum time (trs), in seconds, between the trigger acknowledge and the beginning of a read frame\&. 
+.PP
+Definition at line 134 of file TIM_Core\&.h\&.
+.SS "float ChanTSP"
+The Channel Sampling Period (tsp) shall be the minimum sampling period of the channel transducer unencumbered by read or write considerations\&. 
+.PP
+Definition at line 136 of file TIM_Core\&.h\&.
+.SS "float ChanTU"
+This field specifies the maximum time (tu), in seconds, between the receipt of a trigger and the issue of trigger acknowledge for this channel\&. 
+.PP
+Definition at line 130 of file TIM_Core\&.h\&.
+.SS "float ChanTWS"
+This field specifies the minimum time (tws), in seconds, between the end of a write frame and the application of a trigger\&. 
+.PP
+Definition at line 132 of file TIM_Core\&.h\&.
+.SS "float ChanTWU"
+This field specifies the period of time, in seconds, in which the device stabilizes its performance to predefined tolerances after the application of power to the transducer\&. 
+.PP
+Definition at line 137 of file TIM_Core\&.h\&.
+.SS "uint8_t ChanTypeKey"
+This field specifies the channel transducer type\&. 
+.PP
+Definition at line 108 of file TIM_Core\&.h\&.
+.SS "uint8_t ChanWriteLen"
+This field specifies the length in bytes available for each individual user-writable TEDS associated with this channel, such as Calibration TEDS, Calibration Identification TEDS, or End-User’s Application-Specific TEDS\&. 
+.PP
+Definition at line 105 of file TIM_Core\&.h\&.
+.SS "uint8_t EvtSeqOpt"
+An event sequence sensor has the option of changeable pattern, upper threshold, and/or hysteresis\&. It also has the option of detecting inconsistencies in settings of these parameters\&. 
+.PP
+Definition at line 143 of file TIM_Core\&.h\&.
+.SS "float LowRangeLmt"
+For sensors, this shall be the lowest valid value for transducer data after correction is applied, interpreted in the units specified by the Physical Units field of the Channel TEDS\&. For actuators, this shall be the lowest valid value for transducer data before correction is applied, interpreted in the units specified by the physical units field of the channel TEDS\&. 
+.PP
+Definition at line 109 of file TIM_Core\&.h\&.
+.SS "char PhysUnits[10]"
+This field defines the physical units that apply to the transducer data\&. 
+.PP
+Definition at line 150 of file TIM_Core\&.h\&.
+.SS "uint8_t SelfTestKey"
+This field defines the self-test capabilities of the transducer\&. 
+.PP
+Definition at line 116 of file TIM_Core\&.h\&.
+.SS "float SerInc"
+For the case where the Channel Data Repetitions is greater than zero, the series increment represents the spacing between values of the independent variable associated with successive members of the data set\&. 
+.PP
+Definition at line 128 of file TIM_Core\&.h\&.
+.SS "float SerOrigin"
+For the case where the Channel Data Repetitions is greater than zero, the Series Origin represents the value of the independent variable associated with the first datum returned in a data set\&. 
+.PP
+Definition at line 126 of file TIM_Core\&.h\&.
+.SS "char SerUnits[10]"
+This field specifies the maximum time (tu), in seconds, between the receipt of a trigger and the issue of trigger acknowledge for this channel\&. 
+.PP
+Definition at line 148 of file TIM_Core\&.h\&.
+.SS "float TimeCorr"
+This field specifies the time offset, in seconds, between the issue of global trigger acknowledge and when this channel actually sampled the sensor or updated the actuator\&. 
+.PP
+Definition at line 140 of file TIM_Core\&.h\&.
+.SS "float TrigAcc"
+This field specifies the accuracy, in seconds, of the Timing Correction\&. 
+.PP
+Definition at line 142 of file TIM_Core\&.h\&.
+.SS "float UppRangeLmt"
+For sensors, this shall be the highest valid value for transducer data after correction is applied, interpreted in the units specified by the Physical Units field of the Channel TEDS\&. For actuators, this shall be the highest valid value for transducer data before correction is applied, interpreted in the units specified by the Physical Units field of the Channel TEDS\&. 
+.PP
+Definition at line 112 of file TIM_Core\&.h\&.
+.SS "float WCUncert"
+This field specifies the “Combined Standard Uncertainty”\&. 
+.PP
+Definition at line 115 of file TIM_Core\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

@@ -1,0 +1,132 @@
+.TH "TIM1.h" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+TIM1.h \- User/Manufacturer defined file tuned specifically for the Transducer used\&.  
+
+.SH SYNOPSIS
+.br
+.PP
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBMetaTEDSInit\fP (void)"
+.br
+.RI "\fIInitializes the MetaTEDS in RAM for use by the NCAP\&. \fP"
+.ti -1c
+.RI "int \fBReadChannelTransducerData\fP (char *ChannelID)"
+.br
+.RI "\fIReads the data from a specific channel\&. \fP"
+.ti -1c
+.RI "void \fBWriteChannelTransducerData\fP (char *ChannelID, int WriteData)"
+.br
+.RI "\fIWrites data to a specific channel\&. \fP"
+.ti -1c
+.RI "void \fBReadMetaTEDS\fP (void)"
+.br
+.RI "\fIReturns the content of the current verson of the MetaTEDS in RAM\&. \fP"
+.in -1c
+.SH "Detailed Description"
+.PP 
+User/Manufacturer defined file tuned specifically for the Transducer used\&. 
+
+A user who wishes to utilize the TIM Architecture laai out in the TIM_CORE files must have this file located inside the compilers file system upon building\&. This file has the templates for each of the core functions as laid out by the IEEE P24151-2 standard\&. By utilizing this approach to implementation, the end-user only has to modify small amount of code, whilst leaving the core functionality alone\&. All function names as laid out in this file MUST remain the same, as these functions are called by the TIM_CORE\&.
+.PP
+\fBAuthor:\fP
+.RS 4
+Russell Trafford 
+.RE
+.PP
+\fBDate:\fP
+.RS 4
+12/15/2015 
+.RE
+.PP
+
+.PP
+Definition in file \fBTIM1\&.h\fP\&.
+.SH "Function Documentation"
+.PP 
+.SS "void MetaTEDSInit (void)"
+
+.PP
+Initializes the MetaTEDS in RAM for use by the NCAP\&. 
+.PP
+\fBWarning:\fP
+.RS 4
+All current values are arbitrary! Please refer to P21451-2 for proper value ranges\&. 
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+Implement Flash Memory read/write so that changes are saved between power cycles\&. 
+.RE
+.PP
+< 
+.PP
+Definition at line 28 of file TIM1\&.c\&.
+.SS "int ReadChannelTransducerData (char * ChannelID)"
+
+.PP
+Reads the data from a specific channel\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIChannelID\fP The channel number in the form of 'XXX', where X is a char from 0-9\&. ad XXX ranges from '000' - '255' 
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+Current implementation only produces a random number when asked for data\&. 
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+Implement a proper sensor and produce readings for it\&.
+.RE
+.PP
+
+.PP
+Definition at line 60 of file TIM1\&.c\&.
+.SS "void ReadMetaTEDS (void)"
+
+.PP
+Returns the content of the current verson of the MetaTEDS in RAM\&. Currently this function is implemented using UART_Printf\&. 
+.PP
+\fBTodo\fP
+.RS 4
+Find a more efficient way of returning the MetaTEDS back to the NCAP\&. 
+.RE
+.PP
+
+.PP
+Definition at line 80 of file TIM1\&.c\&.
+.SS "void WriteChannelTransducerData (char * ChannelID, int WriteData)"
+
+.PP
+Writes data to a specific channel\&. 
+.PP
+\fBParameters:\fP
+.RS 4
+\fIChannelID\fP The channel number in the form 'XXX', where X is a char from 0-9 and XXX ranges from '000'- '255' 
+.br
+\fIWriteData\fP Data to be written to the specific transducer\&.
+.RE
+.PP
+\fBWarning:\fP
+.RS 4
+Currently not implemented in TIM_CORE\&. 
+.RE
+.PP
+\fBTodo\fP
+.RS 4
+Find in the standard how WriteData needs to be formatted (if at all)\&. 
+.RE
+.PP
+
+.PP
+Definition at line 72 of file TIM1\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

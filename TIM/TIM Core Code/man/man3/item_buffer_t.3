@@ -1,0 +1,76 @@
+.TH "item_buffer_t" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+item_buffer_t \- 
+.SH SYNOPSIS
+.br
+.PP
+.PP
+\fC#include <itemBuffer\&.h>\fP
+.SS "Data Fields"
+
+.in +1c
+.ti -1c
+.RI "uint16_t \fBsize\fP"
+.br
+.ti -1c
+.RI "uint8_t \fBitem_size\fP"
+.br
+.ti -1c
+.RI "uint16_t * \fBfront\fP"
+.br
+.ti -1c
+.RI "uint16_t * \fBrear\fP"
+.br
+.ti -1c
+.RI "uint16_t * \fBbuffer_start\fP"
+.br
+.ti -1c
+.RI "uint16_t * \fBbuffer_end\fP"
+.br
+.ti -1c
+.RI "void(* \fBCallback\fP )(void *buf)"
+.br
+.in -1c
+.SH "Detailed Description"
+.PP 
+The FIFO buffer can buffer any data type, from a char to a complex structure\&. Define item_t to be the type of data to buffer\&. Default is char, it is suggested to override this in \fBsystem\&.h\fP if desired\&.
+.PP
+Note: only one data type can be defined per build\&. If two different data type buffers are required in a single project you can make copies of \fBbuffer\&.h\fP and \fBbuffer\&.c\fP or update the module to track the item size per buffer\&.data structure to hold the required information for each buffer 
+.PP
+Definition at line 29 of file itemBuffer\&.h\&.
+.SH "Field Documentation"
+.PP 
+.SS "uint16_t* buffer_end"
+buffer end location in memory > 
+.PP
+Definition at line 35 of file itemBuffer\&.h\&.
+.SS "uint16_t* buffer_start"
+buffer start location in memory > 
+.PP
+Definition at line 34 of file itemBuffer\&.h\&.
+.SS "void(* Callback) (void *buf)"
+Push callback, useful if buffer is used for communications, does not need to be used/set, initializes to 0> 
+.PP
+Definition at line 36 of file itemBuffer\&.h\&.
+.SS "uint16_t* front"
+pointer to first item in buffer > 
+.PP
+Definition at line 32 of file itemBuffer\&.h\&.
+.SS "uint8_t item_size"
+item size is the number of words in the item type> 
+.PP
+Definition at line 31 of file itemBuffer\&.h\&.
+.SS "uint16_t* rear"
+pointer to next open position in the buffer > 
+.PP
+Definition at line 33 of file itemBuffer\&.h\&.
+.SS "uint16_t size"
+size is the number of items in the buffer > 
+.PP
+Definition at line 30 of file itemBuffer\&.h\&.
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

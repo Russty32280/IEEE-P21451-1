@@ -1,0 +1,281 @@
+.TH "uart.c" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+uart.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'system\&.h'\fP
+.br
+\fC#include 'hal_uart\&.h'\fP
+.br
+
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBUART_BAUD\fP   115200"
+.br
+.ti -1c
+.RI "#define \fBNUM_RECEIVERS\fP   2"
+.br
+.ti -1c
+.RI "#define \fBUART_TX_BUFFER_LENGTH\fP   128"
+.br
+.ti -1c
+.RI "#define \fBUART_RX_BUFFER_LENGTH\fP   32"
+.br
+.ti -1c
+.RI "#define \fBUART_MAX_CHARS_PER_CALL\fP   20"
+.br
+.ti -1c
+.RI "#define \fBUART1_BAUD\fP   \fBUART_BAUD\fP"
+.br
+.ti -1c
+.RI "#define \fBNUM_UART1_RECEIVERS\fP   \fBNUM_RECEIVERS\fP"
+.br
+.ti -1c
+.RI "#define \fBUART1_RX_BUFFER_LENGTH\fP   \fBUART_RX_BUFFER_LENGTH\fP"
+.br
+.ti -1c
+.RI "#define \fBUART1_TX_BUFFER_LENGTH\fP   \fBUART_TX_BUFFER_LENGTH\fP"
+.br
+.ti -1c
+.RI "#define \fBNUM_UARTS\fP   2"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBUART_Tx_Start\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "void \fBUART_Init\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "void \fBUART_Tick\fP (void)"
+.br
+.ti -1c
+.RI "void \fBUART_Tx_Handler\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "void \fBUART_Rx_Handler\fP (uint8_t channel)"
+.br
+.ti -1c
+.RI "void \fBUART_WriteByte\fP (uint8_t channel, char data)"
+.br
+.ti -1c
+.RI "void \fBUART_Write\fP (uint8_t channel, char *data, uint16_t length)"
+.br
+.ti -1c
+.RI "void \fBUART_Printf\fP (uint8_t channel, char *str,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "void \fBUART_vprintf\fP (uint8_t channel, char *str, va_list vars)"
+.br
+.ti -1c
+.RI "void \fBUART_RegisterReceiver\fP (uint8_t channel, \fBcharReceiver_t\fP fn)"
+.br
+.ti -1c
+.RI "void \fBUART_UnregisterReceiver\fP (uint8_t channel, \fBcharReceiver_t\fP fn)"
+.br
+.ti -1c
+.RI "uint8_t \fBUART_IsTransmitting\fP (uint8_t channel)"
+.br
+.in -1c
+.SS "Variables"
+
+.in +1c
+.ti -1c
+.RI "\fBbuffer_t\fP \fBrx1\fP"
+.br
+.ti -1c
+.RI "\fBbuffer_t\fP \fBtx1\fP"
+.br
+.ti -1c
+.RI "char \fBtx_buffer_array1\fP [\fBUART_TX_BUFFER_LENGTH\fP]"
+.br
+.ti -1c
+.RI "char \fBrx_buffer_array1\fP [\fBUART_RX_BUFFER_LENGTH\fP]"
+.br
+.ti -1c
+.RI "\fBcharReceiverList_t\fP \fBreceiverList1\fP"
+.br
+.ti -1c
+.RI "\fBcharReceiver_t\fP \fBreceiver_array1\fP [\fBNUM_UART1_RECEIVERS\fP]"
+.br
+.ti -1c
+.RI "struct {"
+.br
+.ti -1c
+.RI "   \fBbuffer_t\fP * \fBrx\fP"
+.br
+.ti -1c
+.RI "   \fBbuffer_t\fP * \fBtx\fP"
+.br
+.ti -1c
+.RI "   \fBcharReceiverList_t\fP * \fBreceiverList\fP"
+.br
+.ti -1c
+.RI "} \fBuart\fP [\fBNUM_UARTS\fP]"
+.br
+.ti -1c
+.RI "uint8_t \fBrx_flags\fP"
+.br
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define NUM_RECEIVERS   2"
+
+.PP
+Definition at line 35 of file uart\&.c\&.
+.SS "#define NUM_UART1_RECEIVERS   \fBNUM_RECEIVERS\fP"
+
+.PP
+Definition at line 165 of file uart\&.c\&.
+.SS "#define NUM_UARTS   2"
+
+.PP
+Definition at line 212 of file uart\&.c\&.
+.SS "#define UART1_BAUD   \fBUART_BAUD\fP"
+
+.PP
+Definition at line 162 of file uart\&.c\&.
+.SS "#define UART1_RX_BUFFER_LENGTH   \fBUART_RX_BUFFER_LENGTH\fP"
+
+.PP
+Definition at line 168 of file uart\&.c\&.
+.SS "#define UART1_TX_BUFFER_LENGTH   \fBUART_TX_BUFFER_LENGTH\fP"
+
+.PP
+Definition at line 171 of file uart\&.c\&.
+.SS "#define UART_BAUD   115200"
+
+.PP
+Definition at line 33 of file uart\&.c\&.
+.SS "#define UART_MAX_CHARS_PER_CALL   20"
+
+.PP
+Definition at line 43 of file uart\&.c\&.
+.SS "#define UART_RX_BUFFER_LENGTH   32"
+
+.PP
+Definition at line 40 of file uart\&.c\&.
+.SS "#define UART_TX_BUFFER_LENGTH   128"
+
+.PP
+Definition at line 37 of file uart\&.c\&.
+.SH "Function Documentation"
+.PP 
+.SS "void UART_Init (uint8_t channel)"
+Initialize UART module
+.PP
+Example usage: 
+.PP
+.nf
+1 UART_Init(UART0_CHANNEL);
+
+.fi
+.PP
+.PP
+\fBParameters:\fP
+.RS 4
+\fIchannel\fP - The channel of UART to be used\&. Macros for these should be defined in the HAL of the specific device\&. 
+.RE
+.PP
+
+.PP
+Definition at line 227 of file uart\&.c\&.
+.SS "uint8_t UART_IsTransmitting (uint8_t channel)"
+
+.PP
+Definition at line 432 of file uart\&.c\&.
+.SS "void UART_Printf (uint8_t channel, char * str,  \&.\&.\&.)"
+
+.PP
+Definition at line 401 of file uart\&.c\&.
+.SS "void UART_RegisterReceiver (uint8_t channel, \fBcharReceiver_t\fP fn)"
+
+.PP
+Definition at line 422 of file uart\&.c\&.
+.SS "void UART_Rx_Handler (uint8_t channel)"
+
+.PP
+Definition at line 382 of file uart\&.c\&.
+.SS "void UART_Tick (void)"
+
+.PP
+Definition at line 338 of file uart\&.c\&.
+.SS "void UART_Tx_Handler (uint8_t channel)"
+
+.PP
+Definition at line 360 of file uart\&.c\&.
+.SS "void UART_Tx_Start (uint8_t channel)"
+
+.PP
+Definition at line 371 of file uart\&.c\&.
+.SS "void UART_UnregisterReceiver (uint8_t channel, \fBcharReceiver_t\fP fn)"
+
+.PP
+Definition at line 427 of file uart\&.c\&.
+.SS "void UART_vprintf (uint8_t channel, char * str, va_list vars)"
+
+.PP
+Definition at line 416 of file uart\&.c\&.
+.SS "void UART_Write (uint8_t channel, char * data, uint16_t length)"
+
+.PP
+Definition at line 395 of file uart\&.c\&.
+.SS "void UART_WriteByte (uint8_t channel, char data)"
+
+.PP
+Definition at line 389 of file uart\&.c\&.
+.SH "Variable Documentation"
+.PP 
+.SS "\fBcharReceiver_t\fP receiver_array1[\fBNUM_UART1_RECEIVERS\fP]"
+
+.PP
+Definition at line 177 of file uart\&.c\&.
+.SS "\fBcharReceiverList_t\fP* receiverList"
+
+.PP
+Definition at line 222 of file uart\&.c\&.
+.SS "\fBcharReceiverList_t\fP receiverList1"
+
+.PP
+Definition at line 176 of file uart\&.c\&.
+.SS "\fBbuffer_t\fP* rx"
+
+.PP
+Definition at line 220 of file uart\&.c\&.
+.SS "\fBbuffer_t\fP rx1"
+
+.PP
+Definition at line 173 of file uart\&.c\&.
+.SS "char rx_buffer_array1[\fBUART_RX_BUFFER_LENGTH\fP]"
+
+.PP
+Definition at line 175 of file uart\&.c\&.
+.SS "uint8_t rx_flags"
+
+.PP
+Definition at line 225 of file uart\&.c\&.
+.SS "\fBbuffer_t\fP* tx"
+
+.PP
+Definition at line 221 of file uart\&.c\&.
+.SS "\fBbuffer_t\fP tx1"
+
+.PP
+Definition at line 173 of file uart\&.c\&.
+.SS "char tx_buffer_array1[\fBUART_TX_BUFFER_LENGTH\fP]"
+
+.PP
+Definition at line 174 of file uart\&.c\&.
+.SS "struct { \&.\&.\&. }   uart[\fBNUM_UARTS\fP]"
+
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

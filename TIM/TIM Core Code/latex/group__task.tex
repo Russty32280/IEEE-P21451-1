@@ -1,0 +1,277 @@
+\hypertarget{group__task}{}\section{Task Management Module}
+\label{group__task}\index{Task Management Module@{Task Management Module}}
+
+
+The Task Management Module implements a task queue and a task schedule.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__task_ga63e7ac0b07d5527e8110261f64661128}{T\+A\+S\+K\+\_\+\+R\+O\+L\+L\+\_\+\+T\+I\+M\+E}~(\hyperlink{group__timing_ga0540485394df82add6b7c4f2137c7f21}{T\+I\+M\+E\+\_\+\+M\+A\+X}-\/(uint32\+\_\+t)10$\ast$24$\ast$60$\ast$60$\ast$1000)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{group__task_ga08219bddd9fe09eb5192564ad47dad99}{task\+\_\+fn\+\_\+pointer\+\_\+input\+\_\+t}) (void $\ast$)
+\item 
+typedef void($\ast$ \hyperlink{group__task_ga318336c763a22ea5f1c49c52ac5b6fe2}{task\+\_\+fn\+\_\+t}) (void)
+\begin{DoxyCompactList}\small\item\em default task type \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__task_gaa6ab5350efe602f7bdfdca42aa57aff2}{Task\+\_\+\+Init} (void)
+\item 
+void \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick} (void)
+\item 
+void \hyperlink{group__task_gac52c4f77f95df13332873382c71e82dc}{Task\+\_\+\+Queue} (\hyperlink{group__task_ga318336c763a22ea5f1c49c52ac5b6fe2}{task\+\_\+fn\+\_\+t} fn, void $\ast$pointer)
+\begin{DoxyCompactList}\small\item\em Adds a function to the task queue. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_gadbe36e55ccb027326512672c71bf7ff3}{Task\+\_\+\+Schedule} (\hyperlink{group__task_ga318336c763a22ea5f1c49c52ac5b6fe2}{task\+\_\+fn\+\_\+t} fn, void $\ast$pointer, \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} delay, \hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} period)
+\begin{DoxyCompactList}\small\item\em Adds task to be scheduled for execution. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_ga7b397e2ec76a8f3899118305a113e76e}{Task\+\_\+\+Remove} (\hyperlink{group__task_ga318336c763a22ea5f1c49c52ac5b6fe2}{task\+\_\+fn\+\_\+t} fn, void $\ast$pointer)
+\begin{DoxyCompactList}\small\item\em Removes Task. \end{DoxyCompactList}\item 
+void \hyperlink{group__task_ga51a214a49e3bca310762452c27c47c90}{Wait\+Ms} (\hyperlink{group__timing_gaef97c9386393beb1be4ed0b1513ee481}{tint\+\_\+t} wait)
+\item 
+uint8\+\_\+t \hyperlink{group__task_gaef3188aaf35028172b18eec278647c7e}{Task\+\_\+\+Is\+Scheduled} (\hyperlink{group__task_ga318336c763a22ea5f1c49c52ac5b6fe2}{task\+\_\+fn\+\_\+t} fn)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The Task Management Module implements a task queue and a task schedule. 
+
+The task queue is a single linked F\+I\+F\+O list. Each time \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()} is called the first task in the queue will execute. If the task is periodic it will be added back to the task schedule once it is ran.
+
+The task schedule is a single linked list of tasks in order of when they are scheduled to run. If two tasks are scheduled for the same time there is no guarantee which task will run first. Each task scheduled has a timestamp which indicates when it ran last and the period if it is to be run again. If the task was just added to the schedule then time ran will indicate the time it should first nun minus the period. When \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()} is called it will check if any scheduled tasks are due to run and add them to the task queue when they are due.
+
+U\+P\+D\+A\+T\+E\+D 10/4/2012 Remove functions were not interrupt safe -\/$>$ Fixed
+
+U\+P\+D\+A\+T\+E\+D 2/18/2014 Fixed bug in linking multiple tasks at once and/or scheduling multiple tasks at once. Added extra checks to ensure task index is in range everytime the task array is accessed.
+
+M\+A\+J\+O\+R U\+P\+D\+A\+T\+E X\+X\+X\+X 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{group__task_ga63e7ac0b07d5527e8110261f64661128}{}\index{Task Management Module@{Task Management Module}!T\+A\+S\+K\+\_\+\+R\+O\+L\+L\+\_\+\+T\+I\+M\+E@{T\+A\+S\+K\+\_\+\+R\+O\+L\+L\+\_\+\+T\+I\+M\+E}}
+\index{T\+A\+S\+K\+\_\+\+R\+O\+L\+L\+\_\+\+T\+I\+M\+E@{T\+A\+S\+K\+\_\+\+R\+O\+L\+L\+\_\+\+T\+I\+M\+E}!Task Management Module@{Task Management Module}}
+\subsubsection[{T\+A\+S\+K\+\_\+\+R\+O\+L\+L\+\_\+\+T\+I\+M\+E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\+A\+S\+K\+\_\+\+R\+O\+L\+L\+\_\+\+T\+I\+M\+E~({\bf T\+I\+M\+E\+\_\+\+M\+A\+X}-\/(uint32\+\_\+t)10$\ast$24$\ast$60$\ast$60$\ast$1000)}\label{group__task_ga63e7ac0b07d5527e8110261f64661128}
+The number of tasks that can be added to the task queue or task schedule or task trigger list
+
+Note\+: the task queue and task schedule list use the same array of tasks in implementing the linked lists. If the array becomes full the module will drop the task that is to be added.
+
+Note\+: ifndef / define in C file The time when the task management system will force the timer to roll over
+
+The task management module schedules tasks in the future by setting the time to run as some time in the future. Once the current time + the period exceeds T\+I\+M\+E\+\_\+\+M\+A\+X the task time to run will roll over and cause the task to run erroneously. Thus the task managemnent system must force the timing module\textquotesingle{}s internal time to rollover prior to when it would natrually roll over (T\+I\+M\+E\+\_\+\+M\+A\+X). The default is 10 days prior to T\+I\+M\+E\+\_\+\+M\+A\+X which means the task managment system can only handle tasks scheduled within 10 days and no longer. 
+
+Definition at line 67 of file task.\+h.
+
+
+
+\subsection{Typedef Documentation}
+\hypertarget{group__task_ga08219bddd9fe09eb5192564ad47dad99}{}\index{Task Management Module@{Task Management Module}!task\+\_\+fn\+\_\+pointer\+\_\+input\+\_\+t@{task\+\_\+fn\+\_\+pointer\+\_\+input\+\_\+t}}
+\index{task\+\_\+fn\+\_\+pointer\+\_\+input\+\_\+t@{task\+\_\+fn\+\_\+pointer\+\_\+input\+\_\+t}!Task Management Module@{Task Management Module}}
+\subsubsection[{task\+\_\+fn\+\_\+pointer\+\_\+input\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ task\+\_\+fn\+\_\+pointer\+\_\+input\+\_\+t) (void $\ast$)}\label{group__task_ga08219bddd9fe09eb5192564ad47dad99}
+helpful typedef\textquotesingle{}s for casting functions if you want to avoid the incompatible pointers warning 
+
+Definition at line 40 of file task.\+h.
+
+\hypertarget{group__task_ga318336c763a22ea5f1c49c52ac5b6fe2}{}\index{Task Management Module@{Task Management Module}!task\+\_\+fn\+\_\+t@{task\+\_\+fn\+\_\+t}}
+\index{task\+\_\+fn\+\_\+t@{task\+\_\+fn\+\_\+t}!Task Management Module@{Task Management Module}}
+\subsubsection[{task\+\_\+fn\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ task\+\_\+fn\+\_\+t) (void)}\label{group__task_ga318336c763a22ea5f1c49c52ac5b6fe2}
+
+
+default task type 
+
+
+
+Definition at line 42 of file task.\+h.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{group__task_gafd2aa563748d1ede229e5867753ead5d}{}\index{Task Management Module@{Task Management Module}!System\+Tick@{System\+Tick}}
+\index{System\+Tick@{System\+Tick}!Task Management Module@{Task Management Module}}
+\subsubsection[{System\+Tick(void)}]{\setlength{\rightskip}{0pt plus 5cm}void System\+Tick (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__task_gafd2aa563748d1ede229e5867753ead5d}
+Run the first task in the task queue and check if any tasks are due to run in the schedule
+
+Run the first task in the task queue provided one exists. If the task ran has a period value then it will be moved to the task schedule instead of removed.
+
+Check if any of the scheduled tasks are due to run. If so move any tasks whose run time is at or before the current time to the task queue where they will be ordered by priority and executed accordingly.
+
+If the Event Module is included check for events 
+
+Definition at line 68 of file task.\+c.
+
+\hypertarget{group__task_gaa6ab5350efe602f7bdfdca42aa57aff2}{}\index{Task Management Module@{Task Management Module}!Task\+\_\+\+Init@{Task\+\_\+\+Init}}
+\index{Task\+\_\+\+Init@{Task\+\_\+\+Init}!Task Management Module@{Task Management Module}}
+\subsubsection[{Task\+\_\+\+Init(void)}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}\label{group__task_gaa6ab5350efe602f7bdfdca42aa57aff2}
+Initialize Task Management Module
+
+Initializes the task management module for operation. 
+
+Definition at line 50 of file task.\+c.
+
+\hypertarget{group__task_gaef3188aaf35028172b18eec278647c7e}{}\index{Task Management Module@{Task Management Module}!Task\+\_\+\+Is\+Scheduled@{Task\+\_\+\+Is\+Scheduled}}
+\index{Task\+\_\+\+Is\+Scheduled@{Task\+\_\+\+Is\+Scheduled}!Task Management Module@{Task Management Module}}
+\subsubsection[{Task\+\_\+\+Is\+Scheduled(task\+\_\+fn\+\_\+t fn)}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t Task\+\_\+\+Is\+Scheduled (
+\begin{DoxyParamCaption}
+\item[{{\bf task\+\_\+fn\+\_\+t}}]{fn}
+\end{DoxyParamCaption}
+)}\label{group__task_gaef3188aaf35028172b18eec278647c7e}
+Checks if a task is scheduled or queued
+
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & function to look for \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+1 if task is scheduled or queued, 0 if not 
+\end{DoxyReturn}
+
+
+Definition at line 172 of file task.\+c.
+
+\hypertarget{group__task_gac52c4f77f95df13332873382c71e82dc}{}\index{Task Management Module@{Task Management Module}!Task\+\_\+\+Queue@{Task\+\_\+\+Queue}}
+\index{Task\+\_\+\+Queue@{Task\+\_\+\+Queue}!Task Management Module@{Task Management Module}}
+\subsubsection[{Task\+\_\+\+Queue(task\+\_\+fn\+\_\+t fn, void $\ast$pointer)}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+\_\+\+Queue (
+\begin{DoxyParamCaption}
+\item[{{\bf task\+\_\+fn\+\_\+t}}]{fn, }
+\item[{void $\ast$}]{pointer}
+\end{DoxyParamCaption}
+)}\label{group__task_gac52c4f77f95df13332873382c71e82dc}
+
+
+Adds a function to the task queue. 
+
+\hyperlink{group__task_gac52c4f77f95df13332873382c71e82dc}{Task\+\_\+\+Queue()} adds a task to be run by the task management system to the queue. Use this function to add the function to be run
+
+\begin{DoxyAuthor}{Author}
+David Calhoun 
+
+Tony Samaritano 
+
+Aaron Johnson 
+
+Michael Muhlbaier
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Function Pointer -\/ must have no return value, can have a pointer input or no input. If it has an input then you may want to cast it using (task\+\_\+fn\+\_\+pointer\+\_\+input\+\_\+t) to avoid compiler warning about \\
+\hline
+{\em pointer} & pointer to pass to the task when run. Set to 0 if the task has no input \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 95 of file task.\+c.
+
+\hypertarget{group__task_ga7b397e2ec76a8f3899118305a113e76e}{}\index{Task Management Module@{Task Management Module}!Task\+\_\+\+Remove@{Task\+\_\+\+Remove}}
+\index{Task\+\_\+\+Remove@{Task\+\_\+\+Remove}!Task Management Module@{Task Management Module}}
+\subsubsection[{Task\+\_\+\+Remove(task\+\_\+fn\+\_\+t fn, void $\ast$pointer)}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+\_\+\+Remove (
+\begin{DoxyParamCaption}
+\item[{{\bf task\+\_\+fn\+\_\+t}}]{fn, }
+\item[{void $\ast$}]{pointer}
+\end{DoxyParamCaption}
+)}\label{group__task_ga7b397e2ec76a8f3899118305a113e76e}
+
+
+Removes Task. 
+
+Remove\+Task() loops through the entire task management queue and schedule and removes that task from the task management system.
+
+If the task could be in the list more than once then you should call Task\+\_\+\+Remove as many times as you suspect the task may be in the list.
+
+\begin{DoxyAuthor}{Author}
+Aaron Johnson 
+
+David Calhoun 
+
+Tony Samaritano 
+
+Michael Muhlbaier
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Function Pointer -\/ must have no return value, can have a pointer input or no input. If it has an input then you may want to cast it using (task\+\_\+fn\+\_\+pointer\+\_\+input\+\_\+t) to avoid compiler warning about \\
+\hline
+{\em pointer} & Input Pointer, if the function has no input pointer or if you want to remove all fn functions regardless of the pointer then make pointer 0 \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 119 of file task.\+c.
+
+\hypertarget{group__task_gadbe36e55ccb027326512672c71bf7ff3}{}\index{Task Management Module@{Task Management Module}!Task\+\_\+\+Schedule@{Task\+\_\+\+Schedule}}
+\index{Task\+\_\+\+Schedule@{Task\+\_\+\+Schedule}!Task Management Module@{Task Management Module}}
+\subsubsection[{Task\+\_\+\+Schedule(task\+\_\+fn\+\_\+t fn, void $\ast$pointer, tint\+\_\+t delay, tint\+\_\+t period)}]{\setlength{\rightskip}{0pt plus 5cm}void Task\+\_\+\+Schedule (
+\begin{DoxyParamCaption}
+\item[{{\bf task\+\_\+fn\+\_\+t}}]{fn, }
+\item[{void $\ast$}]{pointer, }
+\item[{{\bf tint\+\_\+t}}]{delay, }
+\item[{{\bf tint\+\_\+t}}]{period}
+\end{DoxyParamCaption}
+)}\label{group__task_gadbe36e55ccb027326512672c71bf7ff3}
+
+
+Adds task to be scheduled for execution. 
+
+This function adds a task that is scheduled for later time. Tasks are order strictly by their time (F\+I\+F\+O)
+
+Note\+: tasks are not guaranteed to run at the exact time specified by delay and period. Timing will depend on how often \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()}. In properly designed systems \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()} should be called frequently enough to keep the number of tasks in the queue low so scheduled tasks are run on time.
+
+\begin{DoxyAuthor}{Author}
+Aaron Johnson 
+
+David Calhoun 
+
+Tony Samaritano 
+
+Ryan Lee 
+
+Michael Muhlbaier
+\end{DoxyAuthor}
+
+\begin{DoxyParams}{Parameters}
+{\em fn} & Function Pointer -\/ must have no return value, can have a pointer input or no input. If it has an input then you may want to cast it using (task\+\_\+fn\+\_\+pointer\+\_\+input\+\_\+t) to avoid compiler warning about \\
+\hline
+{\em pointer} & pointer to pass to the task when run. Set to 0 if the task has no input \\
+\hline
+{\em delay} & Delay before the task is first run \\
+\hline
+{\em period} & Period of how often the task is run (0 no rescheduling) \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 106 of file task.\+c.
+
+\hypertarget{group__task_ga51a214a49e3bca310762452c27c47c90}{}\index{Task Management Module@{Task Management Module}!Wait\+Ms@{Wait\+Ms}}
+\index{Wait\+Ms@{Wait\+Ms}!Task Management Module@{Task Management Module}}
+\subsubsection[{Wait\+Ms(tint\+\_\+t wait)}]{\setlength{\rightskip}{0pt plus 5cm}void Wait\+Ms (
+\begin{DoxyParamCaption}
+\item[{{\bf tint\+\_\+t}}]{wait}
+\end{DoxyParamCaption}
+)}\label{group__task_ga51a214a49e3bca310762452c27c47c90}
+Wait a set number of milliseconds and run queued or scheduled tasks while waiting
+
+Wait\+Ms is similar to Delay\+Ms from Timer Module, exception being that it repeatedly calls \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()} to allow functions to be run from the Queue and the Schedule to push tasks into the Queue.
+
+\begin{DoxyWarning}{Warning}
+not safe to be called from any function that could be called by \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()} -\/ suggest using a dedicated mutex/flag and only use \hyperlink{group__task_ga51a214a49e3bca310762452c27c47c90}{Wait\+Ms()} in main or functions called by main (not through \hyperlink{group__task_gafd2aa563748d1ede229e5867753ead5d}{System\+Tick()}).
+\end{DoxyWarning}
+
+\begin{DoxyParams}{Parameters}
+{\em wait} & time amount for the wait \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line 161 of file task.\+c.
+

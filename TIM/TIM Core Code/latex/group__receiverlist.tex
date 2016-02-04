@@ -1,0 +1,144 @@
+\hypertarget{group__receiverlist}{}\section{Receiver List}
+\label{group__receiverlist}\index{Receiver List@{Receiver List}}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structchar_receiver_list__t}{char\+Receiver\+List\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef void($\ast$ \hyperlink{group__receiverlist_ga69666a2f4dbb47a4ffd7b07c252777cf}{char\+Receiver\+\_\+t}) (char)
+\item 
+typedef struct \hyperlink{structchar_receiver_list__t}{char\+Receiver\+List\+\_\+t} \hyperlink{group__receiverlist_gaf028d96c57583ae1c99867ab37a4e097}{char\+Receiver\+List\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__receiverlist_ga8cf289548c12196023378e100c54ea7f}{Char\+Receiver\+List\+\_\+\+Init} (\hyperlink{structchar_receiver_list__t}{char\+Receiver\+List\+\_\+t} $\ast$r\+List, \hyperlink{group__receiverlist_ga69666a2f4dbb47a4ffd7b07c252777cf}{char\+Receiver\+\_\+t} $\ast$receiver\+\_\+array, uint16\+\_\+t max\+\_\+size)
+\item 
+void \hyperlink{group__receiverlist_ga08ce6fb053b59a46b55684e3be6c05e8}{Char\+Receiver\+List\+\_\+\+Add} (\hyperlink{structchar_receiver_list__t}{char\+Receiver\+List\+\_\+t} $\ast$r\+List, \hyperlink{group__receiverlist_ga69666a2f4dbb47a4ffd7b07c252777cf}{char\+Receiver\+\_\+t} receiver)
+\item 
+void \hyperlink{group__receiverlist_gafca888b64202be312447e5d1b83ae267}{Char\+Receiver\+List\+\_\+\+Remove} (\hyperlink{structchar_receiver_list__t}{char\+Receiver\+List\+\_\+t} $\ast$r\+List, \hyperlink{group__receiverlist_ga69666a2f4dbb47a4ffd7b07c252777cf}{char\+Receiver\+\_\+t} receiver)
+\item 
+void \hyperlink{group__receiverlist_ga11161549092a40b82743d22ee00ad60d}{Char\+Receiver\+List\+\_\+\+Run} (\hyperlink{structchar_receiver_list__t}{char\+Receiver\+List\+\_\+t} $\ast$r\+List, char c)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The {\ttfamily char} Receiver List module provides a simple way of keeping a list of character receivers and processing a single character through the receivers.
+
+This module was developed as a helper to the \hyperlink{group__uart}{U\+A\+R\+T Module} U\+A\+R\+T Module but it has use in any situation where multiple moldules may want to process characters which are received.
+
+\begin{DoxyAuthor}{Author}
+Anthony Merlino 
+
+Michael Muhlbaier 
+\end{DoxyAuthor}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{group__receiverlist_ga69666a2f4dbb47a4ffd7b07c252777cf}{}\index{Receiver List@{Receiver List}!char\+Receiver\+\_\+t@{char\+Receiver\+\_\+t}}
+\index{char\+Receiver\+\_\+t@{char\+Receiver\+\_\+t}!Receiver List@{Receiver List}}
+\subsubsection[{char\+Receiver\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ char\+Receiver\+\_\+t) (char)}\label{group__receiverlist_ga69666a2f4dbb47a4ffd7b07c252777cf}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000001}{Todo}]Alex A. Document this datatype (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 28 of file char\+Receiver\+List.\+h.
+
+\hypertarget{group__receiverlist_gaf028d96c57583ae1c99867ab37a4e097}{}\index{Receiver List@{Receiver List}!char\+Receiver\+List\+\_\+t@{char\+Receiver\+List\+\_\+t}}
+\index{char\+Receiver\+List\+\_\+t@{char\+Receiver\+List\+\_\+t}!Receiver List@{Receiver List}}
+\subsubsection[{char\+Receiver\+List\+\_\+t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct {\bf char\+Receiver\+List\+\_\+t}  {\bf char\+Receiver\+List\+\_\+t}}\label{group__receiverlist_gaf028d96c57583ae1c99867ab37a4e097}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000002}{Todo}]Atharva A. Document this structure (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+\subsection{Function Documentation}
+\hypertarget{group__receiverlist_ga08ce6fb053b59a46b55684e3be6c05e8}{}\index{Receiver List@{Receiver List}!Char\+Receiver\+List\+\_\+\+Add@{Char\+Receiver\+List\+\_\+\+Add}}
+\index{Char\+Receiver\+List\+\_\+\+Add@{Char\+Receiver\+List\+\_\+\+Add}!Receiver List@{Receiver List}}
+\subsubsection[{Char\+Receiver\+List\+\_\+\+Add(char\+Receiver\+List\+\_\+t $\ast$r\+List, char\+Receiver\+\_\+t receiver)}]{\setlength{\rightskip}{0pt plus 5cm}void Char\+Receiver\+List\+\_\+\+Add (
+\begin{DoxyParamCaption}
+\item[{{\bf char\+Receiver\+List\+\_\+t} $\ast$}]{r\+List, }
+\item[{{\bf char\+Receiver\+\_\+t}}]{receiver}
+\end{DoxyParamCaption}
+)}\label{group__receiverlist_ga08ce6fb053b59a46b55684e3be6c05e8}
+
+\begin{DoxyParams}{Parameters}
+{\em r\+List} & \\
+\hline
+{\em receiver} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000004}{Todo}]Kate C. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 13 of file char\+Receiver\+List.\+c.
+
+\hypertarget{group__receiverlist_ga8cf289548c12196023378e100c54ea7f}{}\index{Receiver List@{Receiver List}!Char\+Receiver\+List\+\_\+\+Init@{Char\+Receiver\+List\+\_\+\+Init}}
+\index{Char\+Receiver\+List\+\_\+\+Init@{Char\+Receiver\+List\+\_\+\+Init}!Receiver List@{Receiver List}}
+\subsubsection[{Char\+Receiver\+List\+\_\+\+Init(char\+Receiver\+List\+\_\+t $\ast$r\+List, char\+Receiver\+\_\+t $\ast$receiver\+\_\+array, uint16\+\_\+t max\+\_\+size)}]{\setlength{\rightskip}{0pt plus 5cm}void Char\+Receiver\+List\+\_\+\+Init (
+\begin{DoxyParamCaption}
+\item[{{\bf char\+Receiver\+List\+\_\+t} $\ast$}]{r\+List, }
+\item[{{\bf char\+Receiver\+\_\+t} $\ast$}]{receiver\+\_\+array, }
+\item[{uint16\+\_\+t}]{max\+\_\+size}
+\end{DoxyParamCaption}
+)}\label{group__receiverlist_ga8cf289548c12196023378e100c54ea7f}
+
+\begin{DoxyParams}{Parameters}
+{\em r\+List} & \\
+\hline
+{\em receiver\+\_\+array} & \\
+\hline
+{\em max\+\_\+size} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000003}{Todo}]Dan B. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 7 of file char\+Receiver\+List.\+c.
+
+\hypertarget{group__receiverlist_gafca888b64202be312447e5d1b83ae267}{}\index{Receiver List@{Receiver List}!Char\+Receiver\+List\+\_\+\+Remove@{Char\+Receiver\+List\+\_\+\+Remove}}
+\index{Char\+Receiver\+List\+\_\+\+Remove@{Char\+Receiver\+List\+\_\+\+Remove}!Receiver List@{Receiver List}}
+\subsubsection[{Char\+Receiver\+List\+\_\+\+Remove(char\+Receiver\+List\+\_\+t $\ast$r\+List, char\+Receiver\+\_\+t receiver)}]{\setlength{\rightskip}{0pt plus 5cm}void Char\+Receiver\+List\+\_\+\+Remove (
+\begin{DoxyParamCaption}
+\item[{{\bf char\+Receiver\+List\+\_\+t} $\ast$}]{r\+List, }
+\item[{{\bf char\+Receiver\+\_\+t}}]{receiver}
+\end{DoxyParamCaption}
+)}\label{group__receiverlist_gafca888b64202be312447e5d1b83ae267}
+
+\begin{DoxyParams}{Parameters}
+{\em r\+List} & \\
+\hline
+{\em receiver} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000005}{Todo}]Matthew D. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 17 of file char\+Receiver\+List.\+c.
+
+\hypertarget{group__receiverlist_ga11161549092a40b82743d22ee00ad60d}{}\index{Receiver List@{Receiver List}!Char\+Receiver\+List\+\_\+\+Run@{Char\+Receiver\+List\+\_\+\+Run}}
+\index{Char\+Receiver\+List\+\_\+\+Run@{Char\+Receiver\+List\+\_\+\+Run}!Receiver List@{Receiver List}}
+\subsubsection[{Char\+Receiver\+List\+\_\+\+Run(char\+Receiver\+List\+\_\+t $\ast$r\+List, char c)}]{\setlength{\rightskip}{0pt plus 5cm}void Char\+Receiver\+List\+\_\+\+Run (
+\begin{DoxyParamCaption}
+\item[{{\bf char\+Receiver\+List\+\_\+t} $\ast$}]{r\+List, }
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)}\label{group__receiverlist_ga11161549092a40b82743d22ee00ad60d}
+
+\begin{DoxyParams}{Parameters}
+{\em r\+List} & \\
+\hline
+{\em c} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyRefDesc}{Todo}
+\item[\hyperlink{todo__todo000006}{Todo}]Victor C. Document this function (when done change this line to \char`\"{}@todo M\+M check $<$your names$>$ documentation\char`\"{} \end{DoxyRefDesc}
+
+
+Definition at line 34 of file char\+Receiver\+List.\+c.
+

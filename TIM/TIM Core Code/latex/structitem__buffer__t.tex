@@ -1,0 +1,89 @@
+\hypertarget{structitem__buffer__t}{}\section{item\+\_\+buffer\+\_\+t Struct Reference}
+\label{structitem__buffer__t}\index{item\+\_\+buffer\+\_\+t@{item\+\_\+buffer\+\_\+t}}
+
+
+{\ttfamily \#include $<$item\+Buffer.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \hyperlink{structitem__buffer__t_aaba88b24a21a6c70c895c0d55f4a69a0}{size}
+\item 
+uint8\+\_\+t \hyperlink{structitem__buffer__t_af7ab82f3973a1053b872fba31f28a456}{item\+\_\+size}
+\item 
+uint16\+\_\+t $\ast$ \hyperlink{structitem__buffer__t_ab847ad149402d20140c60b31005c35c0}{front}
+\item 
+uint16\+\_\+t $\ast$ \hyperlink{structitem__buffer__t_aebff95be43c7ec20659e5619ce2b82c9}{rear}
+\item 
+uint16\+\_\+t $\ast$ \hyperlink{structitem__buffer__t_afac3380a8905f54b8e8bff08d99dad6d}{buffer\+\_\+start}
+\item 
+uint16\+\_\+t $\ast$ \hyperlink{structitem__buffer__t_aa0fb18c2d69907cc4a924d4081447d24}{buffer\+\_\+end}
+\item 
+void($\ast$ \hyperlink{structitem__buffer__t_a7957c810329d9c779aad2a456bd77757}{Callback} )(void $\ast$buf)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+The F\+I\+F\+O buffer can buffer any data type, from a char to a complex structure. Define item\+\_\+t to be the type of data to buffer. Default is char, it is suggested to override this in \hyperlink{system_8h}{system.\+h} if desired.
+
+Note\+: only one data type can be defined per build. If two different data type buffers are required in a single project you can make copies of \hyperlink{buffer_8h}{buffer.\+h} and \hyperlink{buffer_8c}{buffer.\+c} or update the module to track the item size per buffer.\+data structure to hold the required information for each buffer 
+
+Definition at line 29 of file item\+Buffer.\+h.
+
+
+
+\subsection{Field Documentation}
+\hypertarget{structitem__buffer__t_aa0fb18c2d69907cc4a924d4081447d24}{}\index{item\+\_\+buffer\+\_\+t@{item\+\_\+buffer\+\_\+t}!buffer\+\_\+end@{buffer\+\_\+end}}
+\index{buffer\+\_\+end@{buffer\+\_\+end}!item\+\_\+buffer\+\_\+t@{item\+\_\+buffer\+\_\+t}}
+\subsubsection[{buffer\+\_\+end}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t$\ast$ buffer\+\_\+end}\label{structitem__buffer__t_aa0fb18c2d69907cc4a924d4081447d24}
+buffer end location in memory $>$ 
+
+Definition at line 35 of file item\+Buffer.\+h.
+
+\hypertarget{structitem__buffer__t_afac3380a8905f54b8e8bff08d99dad6d}{}\index{item\+\_\+buffer\+\_\+t@{item\+\_\+buffer\+\_\+t}!buffer\+\_\+start@{buffer\+\_\+start}}
+\index{buffer\+\_\+start@{buffer\+\_\+start}!item\+\_\+buffer\+\_\+t@{item\+\_\+buffer\+\_\+t}}
+\subsubsection[{buffer\+\_\+start}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t$\ast$ buffer\+\_\+start}\label{structitem__buffer__t_afac3380a8905f54b8e8bff08d99dad6d}
+buffer start location in memory $>$ 
+
+Definition at line 34 of file item\+Buffer.\+h.
+
+\hypertarget{structitem__buffer__t_a7957c810329d9c779aad2a456bd77757}{}\index{item\+\_\+buffer\+\_\+t@{item\+\_\+buffer\+\_\+t}!Callback@{Callback}}
+\index{Callback@{Callback}!item\+\_\+buffer\+\_\+t@{item\+\_\+buffer\+\_\+t}}
+\subsubsection[{Callback}]{\setlength{\rightskip}{0pt plus 5cm}void($\ast$ Callback) (void $\ast$buf)}\label{structitem__buffer__t_a7957c810329d9c779aad2a456bd77757}
+Push callback, useful if buffer is used for communications, does not need to be used/set, initializes to 0$>$ 
+
+Definition at line 36 of file item\+Buffer.\+h.
+
+\hypertarget{structitem__buffer__t_ab847ad149402d20140c60b31005c35c0}{}\index{item\+\_\+buffer\+\_\+t@{item\+\_\+buffer\+\_\+t}!front@{front}}
+\index{front@{front}!item\+\_\+buffer\+\_\+t@{item\+\_\+buffer\+\_\+t}}
+\subsubsection[{front}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t$\ast$ front}\label{structitem__buffer__t_ab847ad149402d20140c60b31005c35c0}
+pointer to first item in buffer $>$ 
+
+Definition at line 32 of file item\+Buffer.\+h.
+
+\hypertarget{structitem__buffer__t_af7ab82f3973a1053b872fba31f28a456}{}\index{item\+\_\+buffer\+\_\+t@{item\+\_\+buffer\+\_\+t}!item\+\_\+size@{item\+\_\+size}}
+\index{item\+\_\+size@{item\+\_\+size}!item\+\_\+buffer\+\_\+t@{item\+\_\+buffer\+\_\+t}}
+\subsubsection[{item\+\_\+size}]{\setlength{\rightskip}{0pt plus 5cm}uint8\+\_\+t item\+\_\+size}\label{structitem__buffer__t_af7ab82f3973a1053b872fba31f28a456}
+item size is the number of words in the item type$>$ 
+
+Definition at line 31 of file item\+Buffer.\+h.
+
+\hypertarget{structitem__buffer__t_aebff95be43c7ec20659e5619ce2b82c9}{}\index{item\+\_\+buffer\+\_\+t@{item\+\_\+buffer\+\_\+t}!rear@{rear}}
+\index{rear@{rear}!item\+\_\+buffer\+\_\+t@{item\+\_\+buffer\+\_\+t}}
+\subsubsection[{rear}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t$\ast$ rear}\label{structitem__buffer__t_aebff95be43c7ec20659e5619ce2b82c9}
+pointer to next open position in the buffer $>$ 
+
+Definition at line 33 of file item\+Buffer.\+h.
+
+\hypertarget{structitem__buffer__t_aaba88b24a21a6c70c895c0d55f4a69a0}{}\index{item\+\_\+buffer\+\_\+t@{item\+\_\+buffer\+\_\+t}!size@{size}}
+\index{size@{size}!item\+\_\+buffer\+\_\+t@{item\+\_\+buffer\+\_\+t}}
+\subsubsection[{size}]{\setlength{\rightskip}{0pt plus 5cm}uint16\+\_\+t size}\label{structitem__buffer__t_aaba88b24a21a6c70c895c0d55f4a69a0}
+size is the number of items in the buffer $>$ 
+
+Definition at line 30 of file item\+Buffer.\+h.
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{item_buffer_8h}{item\+Buffer.\+h}\end{DoxyCompactItemize}

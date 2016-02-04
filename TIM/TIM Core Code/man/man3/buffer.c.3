@@ -1,0 +1,41 @@
+.TH "buffer.c" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+buffer.c \- 
+.SH SYNOPSIS
+.br
+.PP
+\fC#include 'system\&.h'\fP
+.br
+\fC#include 'hal_general\&.h'\fP
+.br
+
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBPush\fP (\fBbuffer_t\fP *buffer, char data)"
+.br
+.ti -1c
+.RI "char \fBPop\fP (\fBbuffer_t\fP *buffer)"
+.br
+.ti -1c
+.RI "uint16_t \fBGetSize\fP (\fBbuffer_t\fP *buffer)"
+.br
+.ti -1c
+.RI "void \fBBufferInit\fP (\fBbuffer_t\fP *buffer, char *data_array, uint16_t max_size)"
+.br
+.ti -1c
+.RI "void \fBBufferSetCallback\fP (\fBbuffer_t\fP *buffer, void(*Callback)(\fBbuffer_t\fP *buffer))"
+.br
+.ti -1c
+.RI "void \fBBufferClearCallback\fP (\fBbuffer_t\fP *buffer)"
+.br
+.ti -1c
+.RI "char \fBPushData\fP (\fBbuffer_t\fP *buffer, char *data, uint16_t length)"
+.br
+.in -1c
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

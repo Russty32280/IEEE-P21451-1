@@ -1,0 +1,89 @@
+.TH "subsys.h" 3 "Tue Jan 26 2016" "Version 0.1" "P21451_TIM" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+subsys.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Data Structures"
+
+.in +1c
+.ti -1c
+.RI "struct \fBversion_mmb_t\fP"
+.br
+.ti -1c
+.RI "union \fBversion_t\fP"
+.br
+.RI "\fIversion union \fP"
+.in -1c
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBSYSTEM_VERSION\fP   0x03010001u"
+.br
+.RI "\fIsubsystem module version number \fP"
+.ti -1c
+.RI "#define \fBRECEIVE_MAX_LENGTH\fP   64"
+.br
+.RI "\fIdefault length of receive line for commands \fP"
+.ti -1c
+.RI "#define \fBRECEIVE_START_CHAR\fP   '$'"
+.br
+.RI "\fIstart character for command lines \fP"
+.ti -1c
+.RI "#define \fBRECEIVE_STOP_CHAR\fP   '\\r'"
+.br
+.RI "\fIstop character for command lines \fP"
+.ti -1c
+.RI "#define \fBRECEIVE_MAX_ARGC\fP   8"
+.br
+.RI "\fImax number of arguments after the command name \fP"
+.ti -1c
+.RI "#define \fBGetLogTimestamp\fP()   \fBTimeNow\fP()"
+.br
+.in -1c
+.SS "Functions"
+
+.in +1c
+.ti -1c
+.RI "void \fBLogStr\fP (char *str,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "void \fBLogMsg\fP (uint8_t subsystem_id, char *str,\&.\&.\&.)"
+.br
+.ti -1c
+.RI "uint8_t \fBSubsystem_Init\fP (char *name, \fBversion_t\fP version, void(*callback)(int argc, char *argv[]))"
+.br
+.ti -1c
+.RI "void \fBSubsystem_RegisterCallback\fP (uint8_t subsystem_id, void(*callback)(int argc, char *argv[]))"
+.br
+.ti -1c
+.RI "char * \fBGetSubsystemName\fP (uint8_t subsystem_id)"
+.br
+.ti -1c
+.RI "void \fBLog_EchoOn\fP (void)"
+.br
+.ti -1c
+.RI "void \fBLog_EchoOff\fP (void)"
+.br
+.ti -1c
+.RI "uint8_t \fBLog_GetEcho\fP (void)"
+.br
+.ti -1c
+.RI "void \fBLog_Header\fP (uint8_t subsystem_id)"
+.br
+.ti -1c
+.RI "void \fBReceiveChar\fP (char c)"
+.br
+.in -1c
+.SH "Function Documentation"
+.PP 
+.SS "void ReceiveChar (char c)"
+
+.PP
+Definition at line 123 of file subsys\&.c\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for P21451_TIM from the source code\&.

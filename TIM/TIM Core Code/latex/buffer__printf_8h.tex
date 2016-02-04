@@ -1,0 +1,28 @@
+\hypertarget{buffer__printf_8h}{}\section{buffer\+\_\+printf.\+h File Reference}
+\label{buffer__printf_8h}\index{buffer\+\_\+printf.\+h@{buffer\+\_\+printf.\+h}}
+{\ttfamily \#include $<$stdarg.\+h$>$}\\*
+{\ttfamily \#include $<$stdint.\+h$>$}\\*
+{\ttfamily \#include \char`\"{}buffer.\+h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__buffer__printf_gab003a6708a2b979e7910c68adcab9f3c}{Push\+\_\+printf} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, char $\ast$str,...)
+\begin{DoxyCompactList}\small\item\em printf implementation to char buffer \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_ga893906e6b7b5cb026c0084dda73b9f76}{Push\+\_\+vprintf} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, char $\ast$str, va\+\_\+list vars)
+\begin{DoxyCompactList}\small\item\em vprintf implementation to char buffer \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_gacba148d6061ff774027ad014e5c5640c}{Push\+Binary16} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, uint16\+\_\+t x)
+\begin{DoxyCompactList}\small\item\em Push 16 bit binary number to char buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_gad72750cbd158a3b49c544426e00ee923}{Push\+\_\+uint16} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, uint16\+\_\+t x)
+\begin{DoxyCompactList}\small\item\em Push unsigned integer to char buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_gaee96546229e607ffe14f0fa18d424f84}{Push\+\_\+int16} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, int16\+\_\+t x)
+\begin{DoxyCompactList}\small\item\em Push integer to char buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_gac138be24ecf405d8efaf1311cecc6f8b}{Push\+\_\+uint32} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, uint32\+\_\+t x)
+\begin{DoxyCompactList}\small\item\em Push unsigned long integer to char buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_ga6dade9cec52d66a03fb17f1e7473c912}{Push\+\_\+int32} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, int32\+\_\+t x)
+\begin{DoxyCompactList}\small\item\em Push long to char buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_ga542a3f217761e35cd7067f468e667495}{Push\+Str} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, char $\ast$str)
+\begin{DoxyCompactList}\small\item\em Push char array (string) to char buffer. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_gab6d3d9b051da3fc0e7f989b1d20d7acd}{Push\+Hex} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, uint16\+\_\+t x)
+\begin{DoxyCompactList}\small\item\em Push 16 bit value to char buffer in hex format. \end{DoxyCompactList}\item 
+void \hyperlink{group__buffer__printf_gab855c78568480d35865d7a4dc92e3ddc}{Push\+Float} (\hyperlink{structbuffer__t}{buffer\+\_\+t} $\ast$buf, float x)
+\begin{DoxyCompactList}\small\item\em Cheap implementation of float to char buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}

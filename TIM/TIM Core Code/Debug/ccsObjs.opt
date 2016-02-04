@@ -1,0 +1,1 @@
+"./TIM1.obj" "./TIM_Core.obj" "./buffer.obj" "./buffer_printf.obj" "./charReceiverList.obj" "./hal_uart.obj" "./itemBuffer.obj" "./list.obj" "./main.obj" "./random_int.obj" "./subsys.obj" "./task.obj" "./timing.obj" "./uart.obj" "../lnk_msp430f5529.cmd" -l"libc.a" -l"libmath.a" 
