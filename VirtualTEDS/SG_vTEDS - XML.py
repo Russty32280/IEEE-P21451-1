@@ -99,23 +99,7 @@ def File_New():
     Basic_SerialNumber_Entry.delete(0, END)
 
     #clears extended TEDS entry boxes
-    Extended1_Entry.delete(0, END)
-    Extended2_Entry.delete(0, END)
-    Extended3_Entry.delete(0, END)
-    Extended4_Entry.delete(0, END)
-    Extended5_Entry.delete(0, END)
-    Extended6_Entry.delete(0, END)
-    Extended7_Entry.delete(0, END)
-    Extended8_Entry.delete(0, END)
-    Extended9_Entry.delete(0, END)
-    Extended10_Entry.delete(0, END)
-    Extended11_Entry.delete(0, END)
-    Extended12_Entry.delete(0, END)
-    Extended13_Entry.delete(0, END)
-    Extended14_Entry.delete(0, END)
-    Extended15_Entry.delete(0, END)
-    Extended16_Entry.delete(0, END)
-    Extended17_Entry.delete(0, END)
+    Clear_Extended_TEDS()
         
     return
 #end File_New
@@ -186,10 +170,27 @@ def ConvertFromXML(xmltree):
             MCE = root.find('MaxCurrent').text
             SHC = root.find('SelfHeat').text
             CalD = root.find('CalDate').text
-            Cali = root.find('CalInit').text
+            CalI = root.find('CalInit').text
             CalP = root.find('CalPer').text
             LID = root.find('LocationID').text
-            return {'ID':ID, 'Mod':Mod, 'VLet':VLet, 'VNum':VNum, 'Ser':Ser, 'TID':TID, 'MinT':MinT, 'MaxT':MaxT, 'MinR':MinR, 'MaxR': MaxR, 'ZeroC':ZeroC, 'CoA':CoA, 'CoB':CoB, 'CoC':CoC, 'SRT':SRT,'NCE':NCE,'MCE':MCE,'SHC':SHC, 'CalD':CalD,'Cali':Cali,'CalP':CalP,'LID':LID}
+            return {'ID':ID, 'Mod':Mod, 'VLet':VLet, 'VNum':VNum, 'Ser':Ser, 'TID':TID, 'MinT':MinT, 'MaxT':MaxT, 'MinR':MinR, 'MaxR': MaxR, 'ZeroC':ZeroC, 'CoA':CoA, 'CoB':CoB, 'CoC':CoC, 'SRT':SRT,'NCE':NCE,'MCE':MCE,'SHC':SHC, 'CalD':CalD,'CalI':CalI,'CalP':CalP,'LID':LID}
+
+        elif TID in ["36"]:
+            print("Template 36 Found")
+            MinT = root.find('MinTemp').text
+            MaxT = root.find('MaxTemp').text
+            MinEO = root.find('MinElecOut').text
+            MaxEO = root.find('MaxElecOut').text
+            MapM = root.find('MapMethod').text
+            TType = root.find('ThermType').text
+            CJ = root.find('ColdJunction').text
+            TRes = root.find('Resistance').text
+            SRT = root.find('ResponseTime').text
+            CalD = root.find('CalDate').text
+            CalI = root.find('CalInit').text
+            CalP = root.find('CalPer').text
+            LID = root.find('LocationID').text
+            return {'ID':ID, 'Mod':Mod, 'VLet':VLet, 'VNum':VNum, 'Ser':Ser, 'TID':TID, 'MinT':MinT, 'MaxT':MaxT, 'MinEO':MinEO, 'MaxEO': MaxEO, 'MapM':MapM, 'TType':TType, 'CJ':CJ, 'TRes':TRes, 'SRT':SRT, 'CalD':CalD,'CalI':CalI,'CalP':CalP,'LID':LID}
 
     # If the template is not extended, then we just return the basic TEDS
     return {'ID':ID, 'Mod':Mod, 'VLet':VLet, 'VNum':VNum, 'Ser':Ser}
@@ -256,7 +257,7 @@ def Write_TEDS():
         MCE = ET.SubElement(root, "MaxCurrent")
         SHC = ET.SubElement(root, "SelfHeat")
         CalD = ET.SubElement(root, "CalDate")
-        Cali = ET.SubElement(root, "CalInit")
+        CalI = ET.SubElement(root, "CalInit")
         CalP = ET.SubElement(root, "CalPer")
         LID = ET.SubElement(root, "LocationID")
 
@@ -274,7 +275,7 @@ def Write_TEDS():
         MCE.text = Extended12_Entry.get()
         SHC.text = Extended13_Entry.get()
         CalD.text = Extended14_Entry.get()
-        Cali.text = Extended15_Entry.get()
+        CalI.text = Extended15_Entry.get()
         CalP.text = Extended16_Entry.get()
         LID.text = Extended17_Entry.get()
 
@@ -292,6 +293,31 @@ def Write_TEDS():
     tree.write(Complete_vTEDS_FileName)
     
 #end of Write_Teds
+
+
+
+
+# Clears out all of the extended TEDS Text Fields
+
+def Clear_Extended_TEDS():
+    Extended1_Entry.delete(0, END)
+    Extended2_Entry.delete(0, END)
+    Extended3_Entry.delete(0, END)
+    Extended4_Entry.delete(0, END)
+    Extended5_Entry.delete(0, END)
+    Extended6_Entry.delete(0, END)
+    Extended7_Entry.delete(0, END)
+    Extended8_Entry.delete(0, END)
+    Extended9_Entry.delete(0, END)
+    Extended10_Entry.delete(0, END)
+    Extended11_Entry.delete(0, END)
+    Extended12_Entry.delete(0, END)
+    Extended13_Entry.delete(0, END)
+    Extended14_Entry.delete(0, END)
+    Extended15_Entry.delete(0, END)
+    Extended16_Entry.delete(0, END)
+    Extended17_Entry.delete(0, END)    
+
 
 
 
@@ -349,6 +375,7 @@ def Read_TEDS():
     Basic_VersionNumber_Entry.insert(0, readTEDs['VNum'])
     Basic_SerialNumber_Entry.insert(0, readTEDs['Ser'])
 
+
     
     #repopulates entry boxes (extended)
     Extended1_Entry.insert(0, readTEDs['TID'])
@@ -365,7 +392,7 @@ def Read_TEDS():
     Extended12_Entry.insert(0, readTEDs['MCE'])
     Extended13_Entry.insert(0, readTEDs['SHC'])
     Extended14_Entry.insert(0, readTEDs['CalD'])
-    Extended15_Entry.insert(0, readTEDs['Cali'])
+    Extended15_Entry.insert(0, readTEDs['CalI'])
     Extended16_Entry.insert(0, readTEDs['CalP'])
     Extended17_Entry.insert(0, readTEDs['LID'])
     
@@ -373,6 +400,8 @@ def Read_TEDS():
 #end Read_TEDS
 
 def showExtendedTemplate(choice):
+
+    Clear_Extended_TEDS()
         
     if choice == "IEEE1451-4 Template 38 Thermistor":
         #extended TEDS Labels
@@ -530,7 +559,139 @@ def showExtendedTemplate(choice):
         Extended17_Entry.insert(0,"(Location ID)")
         Extended17_Entry.place(x = 840, y = 352)
 
-        
+
+    elif choice == "IEEE1451-4 Template 36 Thermocouple":
+                #extended TEDS Labels
+        #T38 creates Template ID Label
+        Extended1_Label.configure(text = "Template ID:", font = ("Georgia",12), bg = "black", fg = "white")
+        Extended1_Label.place(x = 415, y = 110)
+
+        #T38 creates Minimum Temperature Label
+        Extended2_Label.configure(text = "Min. Temp:", font = ("Georgia",12), bg = "black", fg = "white")
+        Extended2_Label.place(x = 415, y = 150)
+
+        #T38 creates Maximum Temperature Label
+        Extended3_Label.configure(text = "Max. Temp:", font = ("Georgia",12), bg = "black", fg = "white")
+        Extended3_Label.place(x = 415, y = 190)
+
+        #T38 creates Minimum Resistance Label
+        Extended4_Label.configure(text = "Min. Elec. Out:", font = ("Georgia",12), bg = "black", fg = "white")
+        Extended4_Label.place(x = 415, y = 230)
+
+        #T38 creates Maximum Resistance Label
+        Extended5_Label.configure(text = "Max. Elec. Out:", font = ("Georgia",12), bg = "black", fg = "white")
+        Extended5_Label.place(x = 415, y = 270)
+
+        #T38 creates Resistance at 0C Label
+        Extended6_Label.configure(text = "Mapping Method:", font = ("Georgia",12), bg = "black", fg = "white")
+        Extended6_Label.place(x = 415, y = 310)
+
+        #T38 creates Steinhart-Hart A Label
+        Extended7_Label.configure(text = "Thermocouple Type:", font = ("Georgia",12), bg = "black", fg = "white")
+        Extended7_Label.place(x= 415, y = 350)
+
+        #T38 creates Steinhart-Hart B Label
+        Extended8_Label.configure(text = "Cold Junc:", font = ("Georgia",12), bg = "black", fg = "white")
+        Extended8_Label.place(x= 415, y = 390)
+
+        #T38 creates Steinhart-Hart C Label
+        Extended9_Label.configure(text = "Resistance:", font = ("Georgia",12), bg = "black", fg = "white")
+        Extended9_Label.place(x= 415, y = 430)
+
+        #T38 creates Response Time Label
+        Extended10_Label.configure(text = "Response Time:", font = ("Georgia",12), bg = "black", fg = "white")
+        Extended10_Label.place(x= 415, y = 470)
+
+        #T38 creates Nominal Current Excitation Label
+        Extended11_Label.configure(text = "Calibration Date:", font = ("Georgia",12), bg = "black", fg = "white")
+        Extended11_Label.place(x= 765, y = 110)
+
+        #T38 creates Maximum Current Excitation Label
+        Extended12_Label.configure(text = "Calibration Init:", font = ("Georgia",12), bg = "black", fg = "white")
+        Extended12_Label.place(x= 765, y = 150)
+
+        #T38 creates Self Heating Constant Label
+        Extended13_Label.configure(text = "Cal Period:", font = ("Georgia",12), bg = "black", fg = "white")
+        Extended13_Label.place(x= 765, y = 190)
+
+        #T38 creates Calibration Date Label
+        Extended14_Label.configure(text = "Location ID:", font = ("Georgia",12), bg = "black", fg = "white")
+        Extended14_Label.place(x= 765, y = 230)
+
+
+
+        #extended TEDS entry boxes
+        #creates T38 Template ID entry box 
+        Extended1_Entry.configure(font = ("Georgia",12), bg = "black", fg = "white")
+        Extended1_Entry.insert(0,"(Template ID)")
+        Extended1_Entry.place(x = 545, y = 112)
+
+        #creates T38 Minimum Temperature entry box
+        Extended2_Entry.configure(font = ("Georgia",12), bg = "black", fg = "white")
+        Extended2_Entry.insert(0,"(Minimum Temperature)")
+        Extended2_Entry.place(x = 545, y = 152)
+
+        #creates T38 Maximum Temperature entry box
+        Extended3_Entry.configure(font = ("Georgia",12), bg = "black", fg = "white")
+        Extended3_Entry.insert(0,"(Maximum Temperature)")
+        Extended3_Entry.place(x = 545, y = 192)
+
+        #creates T38 Minimum Resitance entry box
+        Extended4_Entry.configure(font = ("Georgia",12), bg = "black", fg = "white")
+        Extended4_Entry.insert(0,"(Minimum Electrical Output)")
+        Extended4_Entry.place(x = 545, y = 232)
+
+        #creates T38 Maximum Resitance entry box
+        Extended5_Entry.configure(font = ("Georgia",12), bg = "black", fg = "white")
+        Extended5_Entry.insert(0,"(Maximum Electrical Output)")
+        Extended5_Entry.place(x = 545, y = 272)
+
+        #creates T38 Resitance  0C entry box
+        Extended6_Entry.configure(font = ("Georgia",12), bg = "black", fg = "white")
+        Extended6_Entry.insert(0,"(Mapping Method)")
+        Extended6_Entry.place(x = 545, y = 312)
+
+        #creates T38 Steinhart-Hart Coefficient A entry box
+        Extended7_Entry.configure(font = ("Georgia",12), bg = "black", fg = "white")
+        Extended7_Entry.insert(0,"(Thermocouple Type)")
+        Extended7_Entry.place(x = 545, y = 352)
+
+        #creates T38 Steinhart-Hart Coefficient B entry box
+        Extended8_Entry.configure(font = ("Georgia",12), bg = "black", fg = "white")
+        Extended8_Entry.insert(0,"(Cold Junction Required?)")
+        Extended8_Entry.place(x = 545, y = 392)
+
+        #creates T38 Steinhart-Hart Coefficient C entry box
+        Extended9_Entry.configure(font = ("Georgia",12), bg = "black", fg = "white")
+        Extended9_Entry.insert(0,"(Thermocouple Resistance)")
+        Extended9_Entry.place(x = 545, y = 432)
+
+        #creates T38 Response Time entry box
+        Extended10_Entry.configure(font = ("Georgia",12), bg = "black", fg = "white")
+        Extended10_Entry.insert(0,"(Sensor Response Time)")
+        Extended10_Entry.place(x = 545, y = 472)
+
+        #creates T38 Nominal Current Excitation entry box 
+        Extended11_Entry.configure(font = ("Georgia",12), bg = "black", fg = "white")
+        Extended11_Entry.insert(0,"(Calibration Date)")
+        Extended11_Entry.place(x = 840, y = 112)
+
+        #creates T38 Maximum Current Excitation entry box 
+        Extended12_Entry.configure(font = ("Georgia",12), bg = "black", fg = "white")
+        Extended12_Entry.insert(0,"(Calibration Period)")
+        Extended12_Entry.place(x = 840, y = 152)
+
+        #creates T38 Self Heating Constant entry box 
+        Extended13_Entry.configure(font = ("Georgia",12), bg = "black", fg = "white")
+        Extended13_Entry.insert(0,"(Calibration Period)")
+        Extended13_Entry.place(x = 840, y = 192)
+
+        #creates T38 Self Heating Constant entry box 
+        Extended14_Entry.configure(font = ("Georgia",12), bg = "black", fg = "white")
+        Extended14_Entry.insert(0,"(Location ID)")
+        Extended14_Entry.place(x = 840, y = 232)
+
+    
     return
 #end showExtendedTemplate
 
@@ -681,6 +842,7 @@ RequestTEDS_Entry.place(x=175, y = 485)
 ExtendedTEDS_Options = ["IEEE1451-4 Template 36 Thermocouple","IEEE1451-4 Template 38 Thermistor"]
 var = StringVar(SG_vTEDS)
 var.set("No Extended TEDS Template Selected")
+print var
 choice = var
 
 #creates the drop down menu
