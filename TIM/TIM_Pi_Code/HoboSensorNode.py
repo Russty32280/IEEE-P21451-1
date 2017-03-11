@@ -29,6 +29,14 @@ LED2 = 0b000000
 LED3 = 0b000000
 LED4 = 0b000000
 
+bus.write_byte_data(LEDAddress, 0x06, 0x00)
+bus.write_byte_data(LEDAddress, 0x07, 0x00)
+bus.write_byte_data(LEDAddress, 0x08, 0x00)
+bus.write_byte_data(LEDAddress, 0x09, 0x00)
+
+
+
+
 
 def TempRead():
 	rawtemp = bus.read_word_data(TEMPHUMIDAddress, 0xE0)
@@ -60,15 +68,15 @@ def LED(LEDNumber, Color):
 	global LED3
 	global LED4
 
-	if LEDNumber == 0:
+	if LEDNumber == "0":
 		LED0 = LEDColor(Color)
-	elif LEDNumber == 1:
+	elif LEDNumber == "1":
 		LED1 = LEDColor(Color)
-	elif LEDNumber == 2:
+	elif LEDNumber == "2":
 		LED2 = LEDColor(Color)
-	elif LEDNumber == 3:
+	elif LEDNumber == "3":
 		LED3 = LEDColor(Color)
-	elif LEDNumber == 4:
+	elif LEDNumber == "4":
 		LED4 = LEDColor(Color)
 	else:
 		print "Error with LED Number"
@@ -96,23 +104,15 @@ def LEDColor(Color):
 		return "-1"
 		
 while 1:
-	UARTData = ser.readline()
-	if UARTData == "Temperature\r":
+	msg = ser.readline()
+	UARTData = msg.split(",")
+	if UARTData[0] == "Temperature\r":
 		Data = TempRead()
 		ser.write(str(Data))	
-	elif UARTData == "Humidity\r":
+	elif UARTData[0] == "Humidity\r":
 		Data = HumidRead()
 		ser.write(str(Data))
-	elif UARTData == "LEDRED\r":
-		ser.write("Turining LED Red\n")
-		Data = LED(0,"Red")
-		ser.write(str(Data))
-	elif UARTData == "LEDGREEN\r":
-		Data = LED(0,"Green")
-		ser.write(str(Data))
-	elif UARTData == "LEDBLUE\r":
-		Data = LED(0,"Blue")
-		ser.write(str(Data))
-	time.sleep(1)	
+	elif UARTData[0] == "LED":
+		LED(UARTData[1], UARTData[2][:-1])	
 
 	
