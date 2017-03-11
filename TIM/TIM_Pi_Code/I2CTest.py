@@ -3,6 +3,11 @@ import time
 bus = smbus.SMBus(1)
 TempHumidAddress = 0x40
 EEPROMAddress = 0x50
+LEDAddress = 0x67
+
+
+
+
 
 def TempRead():
 	rawtemp = bus.read_word_data(TempHumidAddress,0xE3)
