@@ -1,7 +1,6 @@
 import time
 import serial
 import smbus
-from parse import *
 
 
 ser = serial.Serial(
