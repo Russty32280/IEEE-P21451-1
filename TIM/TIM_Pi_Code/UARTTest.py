@@ -15,6 +15,7 @@ counter=0
           
       
 while 1:
-	ser.write('Bitch')
+	ser.write('Hello')
+	print ser.readline()
 	time.sleep(1)
 	
